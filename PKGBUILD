@@ -92,7 +92,7 @@ validpgpkeys=(
 )
 sha256sums=('54ad66f672e1a831b574f5e704e8a05f1e6180a8245d4bdd811208a6cb0ac1e7'
             'SKIP'
-            'eeb6cfd165310aa52c85c5d53fd721cec4eb0176ba65cfedfd359b6851902ae6'
+            'b090b678ded13043ce3cb6256da53d80b9180b0f275286ad636b493addd5b653'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             'c043f3033bb781e2688794a59f6d1f7ed49ef9b13eb77ff9a425df33a244a636'
             'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65'
@@ -181,7 +181,7 @@ _package() {
   #pkgdesc="${_Kpkgdesc}"
   depends=(coreutils linux-firmware kmod mkinitcpio)
   optdepends=('crda: to set the correct wireless channels of your country')
-  provides=("linux-custom=${pkgver}")
+  provides=("linux-bmq=${pkgver}")
   backup=("etc/mkinitcpio.d/$pkgbase.preset")
   install=linux.install
   
@@ -237,8 +237,8 @@ _package-headers() {
   pkgdesc="Header files and scripts for building modules for ${pkgbase/linux/Linux} kernel"
   #_Hpkgdesc="Header files and scripts for building modules for ${pkgbase/linux/Linux} kernel"
   #pkgdesc="${_Hpkgdesc}"
-  depends=('linux-custom') # added to keep kernel and headers packages matched
-  provides=("linux-custom-headers=${pkgver}" "linux-headers=${pkgver}")
+  depends=('linux-bmq') # added to keep kernel and headers packages matched
+  provides=("linux-bmq-headers=${pkgver}" "linux-headers=${pkgver}")
   
  local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
