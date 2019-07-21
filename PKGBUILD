@@ -28,22 +28,23 @@ _makenconfig=
 #  9. AMD Steamroller (MSTEAMROLLER)
 #  10. AMD Excavator (MEXCAVATOR)
 #  11. AMD Zen (MZEN)
-#  12. Intel P4 / older Netburst based Xeon (MPSC)
-#  13. Intel Atom (MATOM)
-#  14. Intel Core 2 (MCORE2)
-#  15. Intel Nehalem (MNEHALEM)
-#  16. Intel Westmere (MWESTMERE)
-#  17. Intel Silvermont (MSILVERMONT)
-#  18. Intel Sandy Bridge (MSANDYBRIDGE)
-#  19. Intel Ivy Bridge (MIVYBRIDGE)
-#  20. Intel Haswell (MHASWELL)
-#  21. Intel Broadwell (MBROADWELL)
-#  22. Intel Skylake (MSKYLAKE)
-#  23. Intel Skylake X (MSKYLAKEX)
-#  24. Intel Cannon Lake (MCANNONLAKE)
-#  25. Intel Ice Lake (MICELAKE)
-#  26. Generic-x86-64 (GENERIC_CPU)
-_subarch=
+#  12. AMD Zen 2 (MZEN2)
+#  13. Intel P4 / older Netburst based Xeon (MPSC)
+#  14. Intel Atom (MATOM)
+#  15. Intel Core 2 (MCORE2)
+#  16. Intel Nehalem (MNEHALEM)
+#  17. Intel Westmere (MWESTMERE)
+#  18. Intel Silvermont (MSILVERMONT)
+#  19. Intel Sandy Bridge (MSANDYBRIDGE)
+#  20. Intel Ivy Bridge (MIVYBRIDGE)
+#  21. Intel Haswell (MHASWELL)
+#  22. Intel Broadwell (MBROADWELL)
+#  23. Intel Skylake (MSKYLAKE)
+#  24. Intel Skylake X (MSKYLAKEX)
+#  25. Intel Cannon Lake (MCANNONLAKE)
+#  26. Intel Ice Lake (MICELAKE)
+#  27. Generic-x86-64 (GENERIC_CPU)
+#  28. Native optimizations autodetected by GCC (MNATIVE)
 
 # Compile ONLY probed modules
 # Build in only the modules that you currently have probed in your system VASTLY
@@ -63,7 +64,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.2.2-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -72,7 +73,7 @@ options=('!strip')
 _bmq_patch="v5.2_bmq098.patch"
 _uksm_patch="0001-uksm-5.1-initial-submission.patch"
 _uksm_fix="0001-uksm-5.1-apply-52d1e606ee733.patch"
-_gcc_more_v='20180509'
+_gcc_more_v='20190714'
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
