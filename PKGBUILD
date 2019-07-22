@@ -141,8 +141,8 @@ prepare() {
   sed -i -e 's/# CONFIG_PSI_DEFAULT_DISABLED is not set/CONFIG_PSI_DEFAULT_DISABLED=y/' ./.config
 
   # https://github.com/graysky2/kernel_gcc_patch
-  msg2 "Applying enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+ patch..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+.patch"
+  msg2 "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch ..."
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
 
   if [ -n "$_subarch" ]; then
     yes "$_subarch" | make oldconfig
