@@ -62,9 +62,9 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.2.2-arch1
+_srcver=5.2.3-arch1
 pkgver=${_srcver%-*}
-pkgrel=4
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -93,7 +93,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('e5d91382699391e228efae87903ffeeac39b9e694ee3cf32970c87d28e516d9c'
+sha256sums=('753c600939778804860498fa13002f5a6c4a3f086785015681f431bfd08f0e05'
             'SKIP'
             '3e590a006f62c7ec023a80b3bb54f145c4107b3de8237cc7966a35701ca2bf34'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
