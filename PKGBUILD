@@ -64,16 +64,15 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.2.6-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(kmod inetutils bc libelf)
 options=('!strip')
 _bmq_patch="v5.2_bmq098.patch"
-_uksm_patch="0001-uksm-5.1-initial-submission.patch"
-_uksm_fix="0001-uksm-5.1-apply-52d1e606ee733.patch"
 _gcc_more_v='20190714'
+_uksm_patch=uksm-5.2.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -82,6 +81,7 @@ source=(
   linux.preset   # standard config files for mkinitcpio ramdisk
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.2/${_bmq_patch}
+  https://raw.githubusercontent.com/Szpadel/uksm/master/v5.x/${_uksm_patch}
   0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch
   0002-ZEN-Add-CONFIG-for-unprivileged_userns_clone.patch
@@ -95,12 +95,13 @@ validpgpkeys=(
 )
 sha256sums=('be105afb7394dce98953bcea79c2ce02345587eee4638fce9a5f5a1e7e7b1ff2'
             'SKIP'
-            'c4e7ea7b7027d199d8d30e5846a82a7ca9a688132e39ace4b8e1cc0ec76cb4b0'
+            'af950bee75638b59453d64295b09f4a794b323accdc30bc4dd87d0d0150242af'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             'c043f3033bb781e2688794a59f6d1f7ed49ef9b13eb77ff9a425df33a244a636'
             'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65'
             '2466fb4aecc66d1b258b4cbdb2f215b5099f266d8c4386bb62ad1a0acd0caf5b'
-            'SKIP'
+            '628efd7ea8d6eb7a015e8790411e2353aa9cd6548099aa5c229a3b1cd25f1794'
+            '5febbab9437b1b97605fbfd170660e86d12593dac9033e8a32d112360eec1acc'
             '560c8c06cb7833ab24743b818f831add8a7b6ed65181f30417e7b75f107441ef'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
             '5a058e7207bd203eb2890703342a9c92eeaafc3209b4e65028cde7221e53a607'
