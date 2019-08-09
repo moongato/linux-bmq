@@ -62,7 +62,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.2.7-arch1
+_srcver=5.2.8-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -93,7 +93,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('db3e69936b9a4f2754838086417ab49039807cac6d62cb81bf642fb481835fa9'
+sha256sums=('a127cd06cc01468e5564c5242827610b679827d7b40c2a2e4d82c629dd0f6937'
             'SKIP'
             'af950bee75638b59453d64295b09f4a794b323accdc30bc4dd87d0d0150242af'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
