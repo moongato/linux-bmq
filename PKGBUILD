@@ -62,7 +62,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.2.10-arch1
+_srcver=5.2.11-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -85,8 +85,6 @@ source=(
   0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch
   0002-ZEN-Add-CONFIG-for-unprivileged_userns_clone.patch
-  0001-iwlwifi-mvm-disable-TX-AMSDU-on-older-NICs.patch
-  0001-drm-amdgpu-pin-the-csb-buffer-on-hw-init-for-gfx-v8.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -103,10 +101,8 @@ sha256sums=('6096c4387c2a296de9136080942d11ae3f1bd28129b6952f7133c570e43bfc49'
             '5febbab9437b1b97605fbfd170660e86d12593dac9033e8a32d112360eec1acc'
             '560c8c06cb7833ab24743b818f831add8a7b6ed65181f30417e7b75f107441ef'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
-            '5a058e7207bd203eb2890703342a9c92eeaafc3209b4e65028cde7221e53a607'
-            'f3f2a185db3c59ea467eaa5e82ecc3947cdef6c17563a5504418e0c76b6dc73e'
-            '4dc66a0902627e6b9787b792ac1c6ed4dc5eaa8d72dc0e8f8d3e0527ed4dfa95')
-
+            '5a058e7207bd203eb2890703342a9c92eeaafc3209b4e65028cde7221e53a607')
+            
 _kernelname=${pkgbase#linux}
 : ${_kernelname:=-ARCH}
 
