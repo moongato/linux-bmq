@@ -35,26 +35,27 @@ _makenconfig=
 #  16. Intel Nehalem (MNEHALEM)
 #  17. Intel Westmere (MWESTMERE)
 #  18. Intel Silvermont (MSILVERMONT)
-#  19. Intel Sandy Bridge (MSANDYBRIDGE)
-#  20. Intel Ivy Bridge (MIVYBRIDGE)
-#  21. Intel Haswell (MHASWELL)
-#  22. Intel Broadwell (MBROADWELL)
-#  23. Intel Skylake (MSKYLAKE)
-#  24. Intel Skylake X (MSKYLAKEX)
-#  25. Intel Cannon Lake (MCANNONLAKE)
-#  26. Intel Ice Lake (MICELAKE)
-#  27. Generic-x86-64 (GENERIC_CPU)
-#  28. Native optimizations autodetected by GCC (MNATIVE)
+#  19. Intel Goldmont (MGOLDMONT)
+#  20. Intel Goldmont Plus (MGOLDMONTPLUS)
+#  21. Intel Sandy Bridge (MSANDYBRIDGE)
+#  22. Intel Ivy Bridge (MIVYBRIDGE)
+#  23. Intel Haswell (MHASWELL)
+#  24. Intel Broadwell (MBROADWELL)
+#  25. Intel Skylake (MSKYLAKE)
+#  26. Intel Skylake X (MSKYLAKEX)
+#  27. Intel Cannon Lake (MCANNONLAKE)
+#  28. Intel Ice Lake (MICELAKE)
+#  29. Intel Cascade Lake (MCASCADELAKE)
+#  30. Generic-x86-64 (GENERIC_CPU)
+#  31. Native optimizations autodetected by GCC (MNATIVE)
+_subarch=
 
-# Compile ONLY probed modules
-# Build in only the modules that you currently have probed in your system VASTLY
-# reducing the number of modules built and the build time.
-#
-# WARNING - ALL modules must be probed BEFORE you begin making the pkg!
+# Compile ONLY used modules to VASTLYreduce the number of modules built
+# and the build time.
 #
 # To keep track of which modules are needed for your specific system/hardware,
 # give module_db script a try: https://aur.archlinux.org/packages/modprobed-db
-# This PKGBUILD will call it directly to probe all the modules you have logged!
+# This PKGBUILD read the database kept if it exists
 #
 # More at this wiki page ---> https://wiki.archlinux.org/index.php/Modprobed-db
 _localmodcfg=y
@@ -62,7 +63,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.2.11-arch1
+_srcver=5.2.13-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -85,12 +86,12 @@ source=(
   0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch
   0002-ZEN-Add-CONFIG-for-unprivileged_userns_clone.patch
-  )
+)
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('0c2a831f993dc8a8a8e1ca4186b467de72ff173c6f5855e2aab70f6f7fb033f9'
+sha256sums=('17b60f55241dee4b9a2919a653de144ef1002e2de49ccf5d15225b1f07bc178a'
             'SKIP'
             'b5aa1cc0f2a9d21c72f882f88ab1c2acbc09f8d3218600331ada91ca81723000'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
@@ -148,13 +149,12 @@ prepare() {
   ### Optionally load needed modules for the make localmodconfig
   # See https://aur.archlinux.org/packages/modprobed-db
     if [ -n "$_localmodcfg" ]; then
-      msg "If you have modprobed-db installed, running it in recall mode now"
-      if [ -e /usr/bin/modprobed-db ]; then
-        [[ -x /usr/bin/sudo ]] || {
-        echo "Cannot call modprobe with sudo. Install sudo and configure it to work with this user."
-        exit 1; }
-        sudo /usr/bin/modprobed-db recall
-        make localmodconfig
+      if [ -f $HOME/.config/modprobed.db ]; then
+        msg2 "Running Steven Rostedt's make localmodconfig now"
+        make LSMOD=$HOME/.config/modprobed.db localmodconfig
+      else
+        msg2 "No modprobed.db data found"
+        exit
       fi
     fi
 
@@ -240,11 +240,10 @@ _package-headers() {
   depends=('linux-bmq') # added to keep kernel and headers packages matched
   provides=("linux-bmq-headers=${pkgver}" "linux-headers=${pkgver}")
   
- local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
- cd linux-${pkgver}
+  local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
-
+  cd linux-${pkgver}
 
   msg2 "Installing build files..."
   install -Dt "$builddir" -m644 Makefile .config Module.symvers System.map vmlinux
