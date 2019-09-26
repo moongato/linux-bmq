@@ -65,7 +65,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.1-arch1
 pkgver=${_srcver%-*}
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -73,7 +73,7 @@ makedepends=(kmod inetutils bc libelf)
 options=('!strip')
 _bmq_patch="v5.3_bmq100.patch"
 _gcc_more_v='20190822'
-#_uksm_patch=uksm-5.2.patch
+_uksm_patch=uksm-5.3.patch
 _bfq_patch="5.3-bfq-dev-lucjan-v11-r2K190917.patch"
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -83,7 +83,7 @@ source=(
   linux.preset   # standard config files for mkinitcpio ramdisk
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.3/${_bmq_patch}
-  #https://raw.githubusercontent.com/Szpadel/uksm/master/v5.x/${_uksm_patch}
+  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.3/bfq-dev-lucjan/${_bfq_patch}
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch
@@ -94,13 +94,13 @@ validpgpkeys=(
 )
 sha256sums=('9890b5a909d316211d045a95f5f0680e39749f2319cb26d7cd067efaa692f858'
             'SKIP'
-            'f3c3f3d493f1f4ac1d86c2beeb115a5d484d66ca21fed73d3b155ca57b57e006'
+            '70d44e015f89c1c8db017ad391e87570d6733c970325a8f922d1a8d05944a302'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             'c043f3033bb781e2688794a59f6d1f7ed49ef9b13eb77ff9a425df33a244a636'
             'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            'SKIP'
-            #'5febbab9437b1b97605fbfd170660e86d12593dac9033e8a32d112360eec1acc'
+            '4349ee052909a12f04a9a3e2ede01beafa569eca02458ecb2aebc7a0e4a43cac'
+            '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             '9caac52349a865137009c9a86db1ef0255dc7a87ee6a4a86a7c9e873583fd6ad'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff')
