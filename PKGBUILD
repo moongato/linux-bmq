@@ -65,7 +65,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.1-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -85,7 +85,7 @@ source=(
   https://gitlab.com/alfredchen/bmq/raw/master/5.3/${_bmq_patch}
   #https://raw.githubusercontent.com/Szpadel/uksm/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.3/bfq-dev-lucjan/${_bfq_patch}
-  0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
+  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch
 )
 validpgpkeys=(
@@ -102,7 +102,7 @@ sha256sums=('9890b5a909d316211d045a95f5f0680e39749f2319cb26d7cd067efaa692f858'
             'SKIP'
             #'5febbab9437b1b97605fbfd170660e86d12593dac9033e8a32d112360eec1acc'
             '9caac52349a865137009c9a86db1ef0255dc7a87ee6a4a86a7c9e873583fd6ad'
-            '560c8c06cb7833ab24743b818f831add8a7b6ed65181f30417e7b75f107441ef'
+            '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff')
             
 _kernelname=${pkgbase#linux}
