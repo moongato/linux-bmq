@@ -85,8 +85,12 @@ source=(
   https://gitlab.com/alfredchen/bmq/raw/master/5.3/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.3/bfq-dev-lucjan/${_bfq_patch}
+  0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch  
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch
+  0002-Bluetooth-hidp-Fix-assumptions-on-the-return-value-of-hidp_send_message.patch
+  0003-iwlwifi-fw-dont-send-GEO_TX_POWER_LIMIT-command-to-FW-version-36.patch
+  0004-ipv6-do-not-free-rt-if-FIB_LOOKUP_NOREF-is-set-on-suppress-rule.patch
+  0005-ipv6-Properly-check-reference-count-flag-before-taking-reference.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -102,8 +106,12 @@ sha256sums=('361f9c953bb5ca7dbc922c3f698170523667f6a2f43961ffb88fa47b6b10fc6b'
             '4349ee052909a12f04a9a3e2ede01beafa569eca02458ecb2aebc7a0e4a43cac'
             '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             '9caac52349a865137009c9a86db1ef0255dc7a87ee6a4a86a7c9e873583fd6ad'
+            '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
-            '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff')
+            '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa'
+            'e8b4a45d089d18c4fd1bda8722ad7d598b86f0c6cb0e41ae01d67e770e308431'
+            '7037e601a48859e6dd6f31a796b262da9d347a8fa5d07e587e25e428aa6d18f4'
+            '228f8f3ea94e9ff21a0374e0c4e065f3b2d6a78a4b256258456ecdafcd2ecbe6')
             
 _kernelname=${pkgbase#linux}
 : ${_kernelname:=-ARCH}
