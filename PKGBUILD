@@ -65,7 +65,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.2-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -74,7 +74,7 @@ options=('!strip')
 _bmq_patch="v5.3_bmq100.patch"
 _gcc_more_v='20190822'
 _uksm_patch=uksm-5.3.patch
-_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K190917.patch"
+_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191002.patch"
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -105,7 +105,7 @@ sha256sums=('361f9c953bb5ca7dbc922c3f698170523667f6a2f43961ffb88fa47b6b10fc6b'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
             '4349ee052909a12f04a9a3e2ede01beafa569eca02458ecb2aebc7a0e4a43cac'
             '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
-            '9caac52349a865137009c9a86db1ef0255dc7a87ee6a4a86a7c9e873583fd6ad'
+            'dba3c8288ef954668d46934536649e3493060de46a22dd20983ce925ac2c0112'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa'
