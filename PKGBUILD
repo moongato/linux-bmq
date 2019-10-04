@@ -65,7 +65,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.2-arch1
 pkgver=${_srcver%-*}
-pkgrel=3
+pkgrel=4
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -180,10 +180,9 @@ build() {
 
 _package() {
   pkgdesc="The ${pkgbase/linux/Linux} kernel and modules"
-  #_Kpkgdesc="The ${pkgbase/linux/Linux} kernel and modules"
-  #pkgdesc="${_Kpkgdesc}"
-  depends=(coreutils linux-firmware kmod mkinitcpio)
-  optdepends=('crda: to set the correct wireless channels of your country')
+  depends=(coreutils kmod initramfs)
+  optdepends=('crda: to set the correct wireless channels of your country'
+              'linux-firmware: firmware images needed for some devices')
   provides=("linux-bmq=${pkgver}")
   backup=("etc/mkinitcpio.d/$pkgbase.preset")
   install=linux.install
@@ -198,6 +197,9 @@ _package() {
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
   install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
   install -Dm644 "$modulesdir/vmlinuz" "$pkgdir/boot/vmlinuz-$pkgbase"
+
+  # Used by mkinitcpio to name the kernel
+  echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   msg2 "Installing modules..."
   make INSTALL_MOD_PATH="$pkgdir/usr" modules_install
