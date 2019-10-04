@@ -65,13 +65,13 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.2-arch1
 pkgver=${_srcver%-*}
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(kmod inetutils bc libelf)
 options=('!strip')
-_bmq_patch="v5.3_bmq100.patch"
+_bmq_patch="bmq_v5.3.1.patch"
 _gcc_more_v='20190822'
 _uksm_patch=uksm-5.3.patch
 _bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191002.patch"
@@ -98,12 +98,12 @@ validpgpkeys=(
 )
 sha256sums=('361f9c953bb5ca7dbc922c3f698170523667f6a2f43961ffb88fa47b6b10fc6b'
             'SKIP'
-            '70d44e015f89c1c8db017ad391e87570d6733c970325a8f922d1a8d05944a302'
+            '08f82cacdd17e14dc412f52bab46c42c77e53c750bf2b9e4dbd1a41bc3975b6f'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             'c043f3033bb781e2688794a59f6d1f7ed49ef9b13eb77ff9a425df33a244a636'
             'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            '4349ee052909a12f04a9a3e2ede01beafa569eca02458ecb2aebc7a0e4a43cac'
+            '39698ac22f8e9cc1513ebd3351817bb15f792b74b5ba03594c59182b7d5e1909'
             '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             'dba3c8288ef954668d46934536649e3493060de46a22dd20983ce925ac2c0112'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
