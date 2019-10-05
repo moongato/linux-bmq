@@ -63,9 +63,9 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.3.2-arch1
+_srcver=5.3.4-arch1
 pkgver=${_srcver%-*}
-pkgrel=4
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -88,15 +88,12 @@ source=(
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch  
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-Bluetooth-hidp-Fix-assumptions-on-the-return-value-of-hidp_send_message.patch
-  0003-iwlwifi-fw-dont-send-GEO_TX_POWER_LIMIT-command-to-FW-version-36.patch
-  0004-ipv6-do-not-free-rt-if-FIB_LOOKUP_NOREF-is-set-on-suppress-rule.patch
-  0005-ipv6-Properly-check-reference-count-flag-before-taking-reference.patch
-)
+  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('361f9c953bb5ca7dbc922c3f698170523667f6a2f43961ffb88fa47b6b10fc6b'
+sha256sums=('19541dbb3e0e6ca3acb4e7d6bb95a0af44a9607d2cb3e50c2d3f8894d95b246e'
             'SKIP'
             '08f82cacdd17e14dc412f52bab46c42c77e53c750bf2b9e4dbd1a41bc3975b6f'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
@@ -108,10 +105,7 @@ sha256sums=('361f9c953bb5ca7dbc922c3f698170523667f6a2f43961ffb88fa47b6b10fc6b'
             'dba3c8288ef954668d46934536649e3493060de46a22dd20983ce925ac2c0112'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
-            '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa'
-            'e8b4a45d089d18c4fd1bda8722ad7d598b86f0c6cb0e41ae01d67e770e308431'
-            '7037e601a48859e6dd6f31a796b262da9d347a8fa5d07e587e25e428aa6d18f4'
-            '228f8f3ea94e9ff21a0374e0c4e065f3b2d6a78a4b256258456ecdafcd2ecbe6')
+            '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa')
             
 _kernelname=${pkgbase#linux}
 : ${_kernelname:=-ARCH}
