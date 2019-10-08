@@ -65,7 +65,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.5-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -77,7 +77,9 @@ options=('!strip')
 _bmq_patch="bmq_v5.3.1.patch"
 _gcc_more_v='20190822'
 _uksm_patch=uksm-5.3.patch
-#_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191002.patch"
+_bfq_rev_path="bfq-reverts-sep"
+_bfq_rev_patch="0001-Revert-block-bfq-push-up-injection-only-after-settin.patch"
+_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191008.patch"
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -87,7 +89,8 @@ source=(
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.3/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  #https://github.com/sirlucjan/kernel-patches/raw/master/5.3/bfq-dev-lucjan/${_bfq_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.3/${_bfq_rev_path}/${_bfq_rev_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.3/bfq-dev-lucjan/${_bfq_patch}
   0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch  
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-Bluetooth-hidp-Fix-assumptions-on-the-return-value-of-hidp_send_message.patch
@@ -105,7 +108,8 @@ sha256sums=('80ed8c5cfc298fdbccbd69f8b919c12b11d8b54d8c20f08fc8c3b1840d1e53f0'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
             '39698ac22f8e9cc1513ebd3351817bb15f792b74b5ba03594c59182b7d5e1909'
             '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
-            #'dba3c8288ef954668d46934536649e3493060de46a22dd20983ce925ac2c0112'
+            'e8a18a793d8ce41fa435848c702637d6ae9ea4d6089c1e836a440b8a83bf0bf3'
+            '5d3de83bd4991fb36df90ac55e8f91377edf3b15a3ec7e8f0b202b49f43a9620'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa')
