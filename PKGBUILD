@@ -69,7 +69,10 @@ pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
-makedepends=(kmod inetutils bc libelf)
+makedepends=(
+  xmlto kmod inetutils bc libelf git python-sphinx python-sphinx_rtd_theme
+  graphviz imagemagick
+)
 options=('!strip')
 _bmq_patch="bmq_v5.3.1.patch"
 _gcc_more_v='20190822'
@@ -180,7 +183,7 @@ _package() {
   provides=("linux-bmq=${pkgver}")
   backup=("etc/mkinitcpio.d/$pkgbase.preset")
   install=linux.install
-  
+
   local kernver="$(<version)"
   local modulesdir="$pkgdir/usr/lib/modules/$kernver"
 
@@ -255,9 +258,6 @@ _package-headers() {
 
   # add xfs and shmem for aufs building
   mkdir -p "$builddir"/{fs/xfs,mm}
-
-  # ???
-  mkdir "$builddir/.tmp_versions"
 
   msg2 "Installing headers..."
   cp -t "$builddir" -a include
