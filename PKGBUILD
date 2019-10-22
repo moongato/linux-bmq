@@ -65,7 +65,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.7-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -74,7 +74,7 @@ makedepends=(
   graphviz imagemagick
 )
 options=('!strip')
-_bmq_patch="bmq_v5.3.1.patch"
+_bmq_patch="bmq_v5.3-r2.patch"
 _gcc_more_v='20190822'
 _uksm_patch=uksm-5.3.patch
 _bfq_rev_path="bfq-reverts-sep"
@@ -106,7 +106,7 @@ sha256sums=('c6c9714e21531c825c306b107bc6f6c7bfa2d5270a14bad170f8de5a73d34802'
             'c043f3033bb781e2688794a59f6d1f7ed49ef9b13eb77ff9a425df33a244a636'
             'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            '39698ac22f8e9cc1513ebd3351817bb15f792b74b5ba03594c59182b7d5e1909'
+            '131ce6048e26771f5b017ceb4cc7106cd646c28ae8ce6d46c0fca92bed5f82ae'
             '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             'e8a18a793d8ce41fa435848c702637d6ae9ea4d6089c1e836a440b8a83bf0bf3'
             '5d3de83bd4991fb36df90ac55e8f91377edf3b15a3ec7e8f0b202b49f43a9620'
