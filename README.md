@@ -10,3 +10,7 @@ TUN/TAP enabled
 GCC CPU optimization patch from graysky
 
 -O3 Zen-Kernel patch
+
+UKSM
+
+BFQ enhancements
