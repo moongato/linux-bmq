@@ -117,6 +117,10 @@ sha256sums=('c6c9714e21531c825c306b107bc6f6c7bfa2d5270a14bad170f8de5a73d34802'
 _kernelname=${pkgbase#linux}
 : ${_kernelname:=-ARCH}
 
+export KBUILD_BUILD_HOST=archlinux
+export KBUILD_BUILD_USER=$pkgbase
+export KBUILD_BUILD_TIMESTAMP="@${SOURCE_DATE_EPOCH:-$(date +%s)}"
+
 prepare() {
   cd linux-${pkgver}
 
