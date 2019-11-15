@@ -63,7 +63,7 @@ _localmodcfg=y
 pkgbase=linux-bmq
 _srcver=5.3.11-arch1
 pkgver=${_srcver%-*}
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -77,7 +77,7 @@ _gcc_more_v='20190822'
 _uksm_patch=uksm-5.3.patch
 _bfq_rev_path="bfq-reverts-sep"
 _bfq_rev_patch="0001-Revert-block-bfq-push-up-injection-only-after-settin.patch"
-_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191008.patch"
+_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191114.patch"
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -101,7 +101,7 @@ sha256sums=('6e7156946d1d72e24786d09a47511e44c3abe5d4da757f4f68f2da482880aeb7'
             '131ce6048e26771f5b017ceb4cc7106cd646c28ae8ce6d46c0fca92bed5f82ae'
             '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             'e8a18a793d8ce41fa435848c702637d6ae9ea4d6089c1e836a440b8a83bf0bf3'
-            '5d3de83bd4991fb36df90ac55e8f91377edf3b15a3ec7e8f0b202b49f43a9620'
+            '95ba96620155ae8e8cd830da8fada0b8b77830506ed35f880f78aa013df8613b'
             '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa')
@@ -191,7 +191,6 @@ _package() {
   # hard-coded path in case user defined CC=xxx for build which causes errors
   # see this FS https://bugs.archlinux.org/task/64315
   install -Dm644 arch/x86/boot/bzImage "$modulesdir/vmlinuz"
-  install -Dm644 "$modulesdir/vmlinuz" "$pkgdir/boot/vmlinuz-$pkgbase"
 
   # Used by mkinitcpio to name the kernel
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
