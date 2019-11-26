@@ -9,7 +9,9 @@ TUN/TAP enabled
 
 GCC CPU optimization patch from graysky
 
--O3 Zen-Kernel patch
+-O3 always available patch
+
+###Possible additions - check PKGBUILD
 
 UKSM
 

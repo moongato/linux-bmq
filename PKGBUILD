@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.3.13-arch1
+_srcver=5.4-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -72,42 +72,30 @@ makedepends=(
   graphviz imagemagick
 )
 options=('!strip')
-_bmq_patch="bmq_v5.3-r2.patch"
+_bmq_patch="bmq_v5.4-r0.patch"
 _gcc_more_v='20190822'
-_uksm_patch=uksm-5.3.patch
-_bfq_rev_path="bfq-reverts-sep"
-_bfq_rev_patch_1="0001-Revert-block-bfq-push-up-injection-only-after-settin.patch"
-_bfq_rev_patch_2="0002-Revert-block-bfq-deschedule-empty-bfq_queues-not-ref.patch"
-_bfq_patch="5.3-bfq-dev-lucjan-v11-r2K191119.patch"
+#_uksm_patch=uksm-5.3.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/bmq/raw/master/5.3/${_bmq_patch}
-  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.3/${_bfq_rev_path}/${_bfq_rev_patch_1}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.3/${_bfq_rev_path}/${_bfq_rev_patch_2}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.3/bfq-dev-lucjan/${_bfq_patch}
-  0001-ZEN-Add-a-CONFIG-option-that-sets-O3.patch  
+  https://gitlab.com/alfredchen/bmq/raw/master/5.4/${_bmq_patch}
+  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  0001-cpu-5.4-make-O3-always-available.patch 
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-Bluetooth-hidp-Fix-assumptions-on-the-return-value-of-hidp_send_message.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('9f04e53f03d0ead6561195fb71aac18cbee419112ed54f9d4fc1515a5fa5c92f'
+sha256sums=('bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491'
             'SKIP'
-            '08dc3c88784f4ed8907a11314a97c00a99c26480769eb946857f97b736d77fbe'
+            '5dde1dd3d73b7839774b45dc62d95f306b290e114376aefff1a21d2f85fceae2'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            '131ce6048e26771f5b017ceb4cc7106cd646c28ae8ce6d46c0fca92bed5f82ae'
-            '985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
-            'e8a18a793d8ce41fa435848c702637d6ae9ea4d6089c1e836a440b8a83bf0bf3'
-            'efcd0f1157b36da034f17ce7ae4c985f51915b6695a409bdcc8ba59da0f4a88e' 
-            '95ba96620155ae8e8cd830da8fada0b8b77830506ed35f880f78aa013df8613b'
-            '6fa639054b51172335f69fa75c6c3332b8a73f419eeb6e7eb20e297047ad08ff'
-            '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
-            '7a13cfd4a87255c3058a4a8115d998d7639a1fabe76c1dd4332d29277bc1aeaa')
+            'd3405db8ab0557a8d4ca28c15052413abefe0ae267016c3708dfaed2dae8a858'
+            #'985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
+            '8203736c5809e5cdfb9968840b2b90c16572b63e1c4b6eb7a009cb96df54cc8b'
+            '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c')
          
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -189,11 +177,7 @@ _package() {
   msg2 "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
-  #install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
-  #
-  # hard-coded path in case user defined CC=xxx for build which causes errors
-  # see this FS https://bugs.archlinux.org/task/64315
-  install -Dm644 arch/x86/boot/bzImage "$modulesdir/vmlinuz"
+  install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
 
   # Used by mkinitcpio to name the kernel
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
