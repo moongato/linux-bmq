@@ -67,10 +67,7 @@ pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
-makedepends=(
-  xmlto kmod inetutils bc libelf git python-sphinx python-sphinx_rtd_theme
-  graphviz imagemagick
-)
+makedepends=(kmod inetutils bc libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.4-r0.patch"
 _gcc_more_v='20190822'
@@ -96,7 +93,7 @@ sha256sums=('bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491'
             #'985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             '8203736c5809e5cdfb9968840b2b90c16572b63e1c4b6eb7a009cb96df54cc8b'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c')
-         
+
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
