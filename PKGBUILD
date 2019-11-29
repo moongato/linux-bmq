@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4-arch1
+_srcver=5.4.1-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -80,19 +80,27 @@ source=(
   #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   0001-cpu-5.4-make-O3-always-available.patch 
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
+  0002-lib-devres-add-a-helper-function-for-ioremap_uc.patch
+  0003-mfd-intel-lpss-Use-devm_ioremap_uc-for-MMIO.patch
+  0004-PCI-pciehp-Do-not-disable-interrupt-twice-on-suspend.patch
+  0005-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491'
+sha256sums=('a7d48bb324d53e421ffbe4da40087b3c0c5112707e5f3d827c30118542c74fd9'
             'SKIP'
             'c9fc8a7a8f8a444640dadd48da13296a23ab428e27ed29e0d0ce059d19b145dd'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
             'd3405db8ab0557a8d4ca28c15052413abefe0ae267016c3708dfaed2dae8a858'
             #'985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
             '8203736c5809e5cdfb9968840b2b90c16572b63e1c4b6eb7a009cb96df54cc8b'
-            '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c')
+            '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
+            '6fd45ccc07747f177b83550d397c16f8c32fa49985eab790be9792bcb0adf8fd'
+            'd7257a252b7912cd9a5e96fb9eedadd6fa0744f5ea2ac52c135de7c28dac9c98'
+            '5c783631f63bb87f8f8a7b98d4fc5eb2a650a4c101e877f0b58815f2538ec481'
+            '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
