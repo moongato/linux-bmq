@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.1-arch1
+_srcver=5.4.2-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -71,13 +71,13 @@ makedepends=(kmod inetutils bc libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.4-r0.patch"
 _gcc_more_v='20190822'
-#_uksm_patch=uksm-5.3.patch
+_uksm_patch=uksm-5.4.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.4/${_bmq_patch}
-  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   0001-cpu-5.4-make-O3-always-available.patch 
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-lib-devres-add-a-helper-function-for-ioremap_uc.patch
@@ -89,12 +89,12 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('a7d48bb324d53e421ffbe4da40087b3c0c5112707e5f3d827c30118542c74fd9'
+sha256sums=('32f98256877ca6b016715ffffcf184f1603df9e17a324787f252cd602e03a557'
             'SKIP'
-            'c9fc8a7a8f8a444640dadd48da13296a23ab428e27ed29e0d0ce059d19b145dd'
+            '92dc6c4100a2f0ce0d2a8b9bf320b21fc45e57803741046e9b9055a698e683bd'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
             'd3405db8ab0557a8d4ca28c15052413abefe0ae267016c3708dfaed2dae8a858'
-            #'985e5f38d740a54f0b36b9f8d9fde8045ac0561e90067322235115f0ff0c2729'
+            '81d34bf02e771a126af5cb382d44a86dcc759c88b7c89fc7e5b7737731b9130e'
             '8203736c5809e5cdfb9968840b2b90c16572b63e1c4b6eb7a009cb96df54cc8b'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '6fd45ccc07747f177b83550d397c16f8c32fa49985eab790be9792bcb0adf8fd'
