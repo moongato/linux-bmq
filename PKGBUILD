@@ -72,12 +72,14 @@ options=('!strip')
 _bmq_patch="bmq_v5.4-r0.patch"
 _gcc_more_v='20190822'
 _uksm_patch=uksm-5.4.patch
+_bfq_patch=5.4-bfq-dev-lucjan-v11-r2K191206.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.4/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.4/bfq-dev-lucjan/${_bfq_patch}
   0001-cpu-5.4-make-O3-always-available.patch 
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-lib-devres-add-a-helper-function-for-ioremap_uc.patch
@@ -95,6 +97,7 @@ sha256sums=('32f98256877ca6b016715ffffcf184f1603df9e17a324787f252cd602e03a557'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
             'd3405db8ab0557a8d4ca28c15052413abefe0ae267016c3708dfaed2dae8a858'
             '81d34bf02e771a126af5cb382d44a86dcc759c88b7c89fc7e5b7737731b9130e'
+            'e5fb58afd02977fbd3d77d6c57c36d996acac98b39a044dc406fc2ff1a3b5bbe'
             '8203736c5809e5cdfb9968840b2b90c16572b63e1c4b6eb7a009cb96df54cc8b'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '6fd45ccc07747f177b83550d397c16f8c32fa49985eab790be9792bcb0adf8fd'
