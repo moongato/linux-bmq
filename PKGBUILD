@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.3-arch1
+_srcver=5.4.4-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -86,14 +86,13 @@ source=(
   0003-mfd-intel-lpss-Use-devm_ioremap_uc-for-MMIO.patch
   0004-PCI-pciehp-Do-not-disable-interrupt-twice-on-suspend.patch
   0005-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
-  0006-ACPI-EC-Rework-flushing-of-pending-work.patch
-  0007-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
+  0006-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('6731682f32e1b1ee53b0e7f66b8dc263d25a0e809e78e2139cb0ed77c378ee51'
+sha256sums=('3fa2aad785f8031246b25362d7542dac46aaaa91546fb41b6419fb759e43e6c2'
             'SKIP'
             '4d484c2b7230d77d4440f69cbb153d38be963b19815fb6c8dd7ab643c7054430'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
@@ -106,7 +105,6 @@ sha256sums=('6731682f32e1b1ee53b0e7f66b8dc263d25a0e809e78e2139cb0ed77c378ee51'
             'd7257a252b7912cd9a5e96fb9eedadd6fa0744f5ea2ac52c135de7c28dac9c98'
             '5c783631f63bb87f8f8a7b98d4fc5eb2a650a4c101e877f0b58815f2538ec481'
             '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a'
-            '390fbbb8b68ab90796b805bee613ef4dd5c1d5cb1656fb41bbe4b013469b635e'
             '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30')
 
 export KBUILD_BUILD_HOST=archlinux
