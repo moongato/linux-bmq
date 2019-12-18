@@ -87,6 +87,8 @@ source=(
   0004-PCI-pciehp-Do-not-disable-interrupt-twice-on-suspend.patch
   0005-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
   0006-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
+  0007-ALSA-hda-Fix-regression-by-strip-mask-fix.patch
+  0008-drm-i915-fbc-Disable-fbc-by-default-on-all-glk.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -105,7 +107,9 @@ sha256sums=('3fa2aad785f8031246b25362d7542dac46aaaa91546fb41b6419fb759e43e6c2'
             'd7257a252b7912cd9a5e96fb9eedadd6fa0744f5ea2ac52c135de7c28dac9c98'
             '5c783631f63bb87f8f8a7b98d4fc5eb2a650a4c101e877f0b58815f2538ec481'
             '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a'
-            '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30')
+            '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30'
+            '4e8a9a6757d7ebea8352b8f7b26f007d6c370ea83f67b83f1f49fa54cc52b4c9'
+            '739eb4dfefbc01d57419be4dcb6331b219c52185df36907fd82cfdcb036d927f')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
