@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.7-arch1
+_srcver=5.4.8-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -87,19 +87,18 @@ source=(
   0004-PCI-pciehp-Do-not-disable-interrupt-twice-on-suspend.patch
   0005-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
   0006-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
-  0007-Revert-iwlwifi-assign-directly-to-iwl_trans-cfg-in-Q.patch
-  0008-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0009-x86-intel-Disable-HPET-on-Intel-Ice-Lake-platforms.patch
-  0010-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
-  0011-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
-  0012-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
-  0013-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
+  0007-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
+  0008-x86-intel-Disable-HPET-on-Intel-Ice-Lake-platforms.patch
+  0009-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
+  0010-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
+  0011-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
+  0012-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('abc9b21d9146d95853dac35f4c4489a0199aff53ee6eee4b0563d1b37079fcc9'
+sha256sums=('42c414c902193f9e8a1b70c728ca440de02d85dc29102f52ef98cfbf20d29a52'
             'SKIP'
             '97db52dddeef7a57faa823d9c94db08d35042aac0fdafb57e969dfc7df87b5f5'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
@@ -113,7 +112,6 @@ sha256sums=('abc9b21d9146d95853dac35f4c4489a0199aff53ee6eee4b0563d1b37079fcc9'
             '5c783631f63bb87f8f8a7b98d4fc5eb2a650a4c101e877f0b58815f2538ec481'
             '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a'
             '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30'
-            '582999d7189c165bf2d6be2edde2aad4091f787ef16ca1d8bc3736c6871fe2f5'
             '2516be40fe063f7a448c69f170d628dbf549c3e084c2c7eb6910fd4782a6e73f'
             '1bcec07561c785e22ca43a140b07b586bc7717ea3c08e7549ec7a3bdfa39b7e2'
             'e2084feabc3abeed37579ff515c367014356a652b85794b1612fea4daabe85d3'
