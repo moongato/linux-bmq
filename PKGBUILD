@@ -93,6 +93,7 @@ source=(
   0010-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
   0011-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
   0012-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
+  0013-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -117,7 +118,8 @@ sha256sums=('42c414c902193f9e8a1b70c728ca440de02d85dc29102f52ef98cfbf20d29a52'
             'e2084feabc3abeed37579ff515c367014356a652b85794b1612fea4daabe85d3'
             '988ffbb96d85564a9d96145e5973339a8f78ae95d919efb2ee7bb50f7a8e8fc9'
             '5257159e20a5fcb102a3b3ee6de33882a9e132e7f1d4345b8730effdd0240bb6'
-            '8830109e3cfc380eb8c20bca676fcdd80ea91bb60f356d0482c4cf6647e1048b')
+            '8830109e3cfc380eb8c20bca676fcdd80ea91bb60f356d0482c4cf6647e1048b'
+            '33ec2170ace6b4f7dbc1cc751110d325d8619202d0f312587adbc4bef7a045ce')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
