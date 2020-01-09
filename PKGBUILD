@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.8-arch1
+_srcver=5.4.10-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -94,12 +94,14 @@ source=(
   0011-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
   0012-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
   0013-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
+  0014-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
+  0015-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('42c414c902193f9e8a1b70c728ca440de02d85dc29102f52ef98cfbf20d29a52'
+sha256sums=('f23c0218a5e3b363bb5a880972f507bb4dc4a290a787a7da08be07ea12042edd'
             'SKIP'
             '97db52dddeef7a57faa823d9c94db08d35042aac0fdafb57e969dfc7df87b5f5'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
@@ -119,7 +121,9 @@ sha256sums=('42c414c902193f9e8a1b70c728ca440de02d85dc29102f52ef98cfbf20d29a52'
             '988ffbb96d85564a9d96145e5973339a8f78ae95d919efb2ee7bb50f7a8e8fc9'
             '5257159e20a5fcb102a3b3ee6de33882a9e132e7f1d4345b8730effdd0240bb6'
             '8830109e3cfc380eb8c20bca676fcdd80ea91bb60f356d0482c4cf6647e1048b'
-            '33ec2170ace6b4f7dbc1cc751110d325d8619202d0f312587adbc4bef7a045ce')
+            '33ec2170ace6b4f7dbc1cc751110d325d8619202d0f312587adbc4bef7a045ce'
+            '54104b9118d9151379589f0b95bce38aaea5d7068e80e7ab5dbdad0b73d7b1b7'
+            'f9464bc1980e54f6d090f20658907318456c2d86654c8681fd518083c2596be7')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
