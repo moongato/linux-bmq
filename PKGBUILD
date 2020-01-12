@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.10-arch1
+_srcver=5.4.11-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -88,20 +88,19 @@ source=(
   0005-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
   0006-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
   0007-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0008-x86-intel-Disable-HPET-on-Intel-Ice-Lake-platforms.patch
-  0009-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
-  0010-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
-  0011-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
-  0012-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
-  0013-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
-  0014-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
-  0015-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
+  0008-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
+  0009-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
+  0010-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
+  0011-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
+  0012-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
+  0013-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
+  0014-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('f23c0218a5e3b363bb5a880972f507bb4dc4a290a787a7da08be07ea12042edd'
+sha256sums=('62bd36e5d5e1d8208750ccddd8e8aa3d109b29b5ac5344b5b1c47d0f6d55d72c'
             'SKIP'
             '97db52dddeef7a57faa823d9c94db08d35042aac0fdafb57e969dfc7df87b5f5'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
@@ -116,7 +115,6 @@ sha256sums=('f23c0218a5e3b363bb5a880972f507bb4dc4a290a787a7da08be07ea12042edd'
             '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a'
             '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30'
             '2516be40fe063f7a448c69f170d628dbf549c3e084c2c7eb6910fd4782a6e73f'
-            '1bcec07561c785e22ca43a140b07b586bc7717ea3c08e7549ec7a3bdfa39b7e2'
             'e2084feabc3abeed37579ff515c367014356a652b85794b1612fea4daabe85d3'
             '988ffbb96d85564a9d96145e5973339a8f78ae95d919efb2ee7bb50f7a8e8fc9'
             '5257159e20a5fcb102a3b3ee6de33882a9e132e7f1d4345b8730effdd0240bb6'
