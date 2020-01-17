@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.12-arch1
+_srcver=5.4.13-arch1
 pkgver=${_srcver%-*}
 pkgrel=1
 arch=(x86_64)
@@ -84,23 +84,22 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-lib-devres-add-a-helper-function-for-ioremap_uc.patch
   0003-mfd-intel-lpss-Use-devm_ioremap_uc-for-MMIO.patch
-  0004-PCI-pciehp-Do-not-disable-interrupt-twice-on-suspend.patch
-  0005-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
-  0006-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
-  0007-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0008-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
-  0009-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
-  0010-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
-  0011-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
-  0012-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
-  0013-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
-  0014-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
+  0004-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
+  0005-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
+  0006-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
+  0007-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
+  0008-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
+  0009-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
+  0010-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
+  0011-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
+  0012-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
+  0013-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('d9c3c7a2d52d25c24cbca0f89d55511422d3d207c573d42ec58f7f17c948d0fb'
+sha256sums=('49fb29d96d7e7c1d7e6082701bd26bfddd0fbc87a796fb6ba6258bc5fd386ad7'
             'SKIP'
             '97db52dddeef7a57faa823d9c94db08d35042aac0fdafb57e969dfc7df87b5f5'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
@@ -111,7 +110,6 @@ sha256sums=('d9c3c7a2d52d25c24cbca0f89d55511422d3d207c573d42ec58f7f17c948d0fb'
             '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
             '6fd45ccc07747f177b83550d397c16f8c32fa49985eab790be9792bcb0adf8fd'
             'd7257a252b7912cd9a5e96fb9eedadd6fa0744f5ea2ac52c135de7c28dac9c98'
-            '5c783631f63bb87f8f8a7b98d4fc5eb2a650a4c101e877f0b58815f2538ec481'
             '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a'
             '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30'
             '2516be40fe063f7a448c69f170d628dbf549c3e084c2c7eb6910fd4782a6e73f'
