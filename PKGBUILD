@@ -94,6 +94,8 @@ source=(
   0011-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
   0012-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
   0013-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
+  0014-drm-amdgpu-Add-DC-feature-mask-to-disable-fractional-pwm.patch
+  0015-ptp-free-ptp-device-pin-descriptors-properly.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -119,7 +121,9 @@ sha256sums=('49fb29d96d7e7c1d7e6082701bd26bfddd0fbc87a796fb6ba6258bc5fd386ad7'
             '8830109e3cfc380eb8c20bca676fcdd80ea91bb60f356d0482c4cf6647e1048b'
             '33ec2170ace6b4f7dbc1cc751110d325d8619202d0f312587adbc4bef7a045ce'
             '54104b9118d9151379589f0b95bce38aaea5d7068e80e7ab5dbdad0b73d7b1b7'
-            'f9464bc1980e54f6d090f20658907318456c2d86654c8681fd518083c2596be7')
+            'f9464bc1980e54f6d090f20658907318456c2d86654c8681fd518083c2596be7'
+            'cba63c224af57d6b9432bb5f507121148d02b313c5f87c55504f49632a3a6062'
+            'b8b878b0bb2c25f3f9e8250e8ecf5d05cd5a0b8c0ffa7ab55fbdbd74042d8878')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
