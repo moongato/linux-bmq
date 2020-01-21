@@ -61,13 +61,12 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-_srcver=5.4.13-arch1
-pkgver=${_srcver%-*}
-pkgrel=2
+pkgver=5.4.13
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
-makedepends=(kmod inetutils bc libelf)
+makedepends=(bc kmod libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.4-r2.patch"
 _gcc_more_v='20190822'
@@ -90,7 +89,7 @@ source=(
   0007-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
   0008-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
   0009-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
-  0010-drm-i915-gt-Detect-if-we-miss-WaIdleLiteRestore.patch
+  0010-drm-i915-Limit-audio-CDCLK-2-BCLK-constraint-back-to-GLK-only.patch
   0011-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
   0012-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
   0013-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
@@ -118,7 +117,7 @@ sha256sums=('49fb29d96d7e7c1d7e6082701bd26bfddd0fbc87a796fb6ba6258bc5fd386ad7'
             'e2084feabc3abeed37579ff515c367014356a652b85794b1612fea4daabe85d3'
             '988ffbb96d85564a9d96145e5973339a8f78ae95d919efb2ee7bb50f7a8e8fc9'
             '5257159e20a5fcb102a3b3ee6de33882a9e132e7f1d4345b8730effdd0240bb6'
-            '8830109e3cfc380eb8c20bca676fcdd80ea91bb60f356d0482c4cf6647e1048b'
+            '763cd8e7d5b4a5c24f7a82f24c64ec5503ea5c81dfb42fa74150136c0ca066fd'
             '33ec2170ace6b4f7dbc1cc751110d325d8619202d0f312587adbc4bef7a045ce'
             '54104b9118d9151379589f0b95bce38aaea5d7068e80e7ab5dbdad0b73d7b1b7'
             'f9464bc1980e54f6d090f20658907318456c2d86654c8681fd518083c2596be7'
@@ -221,7 +220,7 @@ _package() {
 }
 
 _package-headers() {
-  pkgdesc="Header files and scripts for building modules for ${pkgbase/linux/Linux} kernel"
+  pkgdesc="Headers and scripts for building modules for ${pkgbase/linux/Linux} kernel"
   depends=('linux-bmq') # added to keep kernel and headers packages matched
   provides=("linux-bmq-headers=${pkgver}" "linux-headers=${pkgver}")
 
