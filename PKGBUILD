@@ -94,7 +94,6 @@ source=(
   0012-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
   0013-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
   0014-drm-amdgpu-Add-DC-feature-mask-to-disable-fractional-pwm.patch
-  0015-ptp-free-ptp-device-pin-descriptors-properly.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
