@@ -61,66 +61,41 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.4.15
+pkgver=5.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_bmq_patch="bmq_v5.4-r2.patch"
-_gcc_more_v='20190822'
-_uksm_patch=uksm-5.4.patch
-_bfq_patch=5.4-bfq-dev-lucjan-v11-r2K191206.patch
+_bmq_patch="bmq_v5.5-r0.patch"
+_gcc_more_v='20191217'
+#_uksm_patch=uksm-5.4.patch
+_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200127.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/bmq/raw/master/5.4/${_bmq_patch}
-  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.4/bfq-dev-lucjan/${_bfq_patch}
-  0001-cpu-5.4-make-O3-always-available.patch 
+  https://gitlab.com/alfredchen/bmq/raw/master/5.5/${_bmq_patch}
+  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-dev-lucjan/${_bfq_patch}
+  0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-lib-devres-add-a-helper-function-for-ioremap_uc.patch
-  0003-mfd-intel-lpss-Use-devm_ioremap_uc-for-MMIO.patch
-  0004-PCI-pciehp-Prevent-deadlock-on-disconnect.patch
-  0005-ACPI-PM-s2idle-Rework-ACPI-events-synchronization.patch
-  0006-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0007-drm-i915-save-AUD_FREQ_CNTRL-state-at-audio-domain.patch
-  0008-drm-i915-Fix-audio-power-up-sequence-for-gen10-displ.patch
-  0009-drm-i915-extend-audio-CDCLK-2-BCLK-constraint-to-more.patch
-  0010-drm-i915-Limit-audio-CDCLK-2-BCLK-constraint-back-to-GLK-only.patch
-  0011-pinctrl-sunrisepoint-Add-missing-Interrupt-Status-register-offset.patch
-  0012-Revert-iwlwifi-mvm-fix-scan-config-command-size.patch
-  0013-e1000e-Revert-e1000e-Make-watchdog-use-delayed-work.patch
-  0014-drm-amdgpu-Add-DC-feature-mask-to-disable-fractional-pwm.patch
+  0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('6407222f850f685b346011bd696a3216d5df0f37e0184099100d2724396d94b1'
+sha256sums=('a6fbd4ee903c128367892c2393ee0d9657b6ed3ea90016d4dc6f1f6da20b2330'
             'SKIP'
-            '9972396d68fba022d1e4c6df349a0925db08e45a43c6209f611026dd8eea3b6f'
-            '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            '6a6a736cf1b3513d108bfd36f60baf50bb36b33aec21ab0d0ffad13602b7ff75'
-            '81d34bf02e771a126af5cb382d44a86dcc759c88b7c89fc7e5b7737731b9130e'
-            'e5fb58afd02977fbd3d77d6c57c36d996acac98b39a044dc406fc2ff1a3b5bbe'
-            '8203736c5809e5cdfb9968840b2b90c16572b63e1c4b6eb7a009cb96df54cc8b'
-            '7685d526bbdbfa795986591a70071c960ff572f56d3501774861728a9df8664c'
-            '6fd45ccc07747f177b83550d397c16f8c32fa49985eab790be9792bcb0adf8fd'
-            'd7257a252b7912cd9a5e96fb9eedadd6fa0744f5ea2ac52c135de7c28dac9c98'
-            '657fd313fb16cb6a6ce6cff4bc6ad96069b500514e6998442aed95573ab4083a'
-            '18054e5cd9fa921256bc67713126258d331c6079402c669069240edb7aad7a30'
-            '2516be40fe063f7a448c69f170d628dbf549c3e084c2c7eb6910fd4782a6e73f'
-            'e2084feabc3abeed37579ff515c367014356a652b85794b1612fea4daabe85d3'
-            '988ffbb96d85564a9d96145e5973339a8f78ae95d919efb2ee7bb50f7a8e8fc9'
-            '5257159e20a5fcb102a3b3ee6de33882a9e132e7f1d4345b8730effdd0240bb6'
-            '763cd8e7d5b4a5c24f7a82f24c64ec5503ea5c81dfb42fa74150136c0ca066fd'
-            '33ec2170ace6b4f7dbc1cc751110d325d8619202d0f312587adbc4bef7a045ce'
-            '54104b9118d9151379589f0b95bce38aaea5d7068e80e7ab5dbdad0b73d7b1b7'
-            'f9464bc1980e54f6d090f20658907318456c2d86654c8681fd518083c2596be7'
-            'cba63c224af57d6b9432bb5f507121148d02b313c5f87c55504f49632a3a6062')
+            'e860f76b9ebf3e6926c56e46ff30d12b7b212a50c4a1f6b9ec4f128ccb9b86e8'
+            '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
+            '20fb5844b6d836eeb5cb5a66e58b4fa581d4edbaec3337f61a50992714c3b0b5'
+            '3557ff9145d0193087d5cf5ddbac8361d781798960af1f3dd778e61c8ecee667'
+            '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
+            '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
+            '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -150,8 +125,8 @@ prepare() {
   sed -i -e 's/# CONFIG_PSI_DEFAULT_DISABLED is not set/CONFIG_PSI_DEFAULT_DISABLED=y/' ./.config
 
   # https://github.com/graysky2/kernel_gcc_patch
-  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch ..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
+  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch ..."
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
