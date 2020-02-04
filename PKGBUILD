@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.5.1
-pkgrel=3
+pkgver=5.5.2
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -82,13 +82,14 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0003-Btrfs-send-fix-emission-of-invalid-clone-operations-within-the-same-file.patch
+  0003-ALSA-hda-Fix-DP-MST-support-for-NVIDIA-codecs.patch
+  0004-Btrfs-send-fix-emission-of-invalid-clone-operations-within-the-same-file.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('0323916148e3bccf478a43bc650d0c3a2debbc5a152c5f37256a900bd7e730d9'
+sha256sums=('24f5f383b0337374f160723bcf3bf679c75cb5bd3fd0824a56998e47c04ef99e'
             'SKIP'
             '6515cf4bd0792bc4b87797bd3d19c98dfc562cb732728358c617faa9fae6d544'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
@@ -97,6 +98,7 @@ sha256sums=('0323916148e3bccf478a43bc650d0c3a2debbc5a152c5f37256a900bd7e730d9'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
             '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45'
+            'cc6410736e82d3573ba3c721f4b9bc9f155ca0a01599ecae1375a8b93d81a603'
             '8edcc9a2623babfc0e4c808a18592bdd1c250f3e638217800b2aa9823ae52dc7')
 
 export KBUILD_BUILD_HOST=archlinux
