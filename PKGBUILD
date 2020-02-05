@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.5.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -84,6 +84,7 @@ source=(
   0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
   0003-ALSA-hda-Fix-DP-MST-support-for-NVIDIA-codecs.patch
   0004-Btrfs-send-fix-emission-of-invalid-clone-operations-within-the-same-file.patch
+  0005-iwlwifi-mvm-Do-not-require-PHY_SKU-NVM-section-for-3168-devices.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -99,7 +100,8 @@ sha256sums=('24f5f383b0337374f160723bcf3bf679c75cb5bd3fd0824a56998e47c04ef99e'
             '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
             '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45'
             'cc6410736e82d3573ba3c721f4b9bc9f155ca0a01599ecae1375a8b93d81a603'
-            '8edcc9a2623babfc0e4c808a18592bdd1c250f3e638217800b2aa9823ae52dc7')
+            '8edcc9a2623babfc0e4c808a18592bdd1c250f3e638217800b2aa9823ae52dc7'
+            '00297708583550422a325161822fbdd046b1d198b4fcf28e308ddbe0171e9696')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
