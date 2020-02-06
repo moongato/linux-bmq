@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.5.2
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -155,7 +155,7 @@ prepare() {
     fi
 
   make -s kernelrelease > version
-  echo "Prepared %s version %s" "$pkgbase" "$(<version)"
+  echo "Prepared $pkgbase version $(<version)"
 
   [[ -z "$_makenconfig" ]] || make nconfig
 
