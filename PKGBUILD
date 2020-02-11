@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.5.2
-pkgrel=4
+pkgver=5.5.3
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -71,7 +71,7 @@ options=('!strip')
 _bmq_patch="bmq_v5.5-r1.patch"
 _gcc_more_v='20191217'
 #_uksm_patch=uksm-5.4.patch
-_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200204.patch
+_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200211.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -82,26 +82,28 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0003-ALSA-hda-Fix-DP-MST-support-for-NVIDIA-codecs.patch
-  0004-Btrfs-send-fix-emission-of-invalid-clone-operations-within-the-same-file.patch
-  0005-iwlwifi-mvm-Do-not-require-PHY_SKU-NVM-section-for-3168-devices.patch
+  0003-iwlwifi-mvm-Do-not-require-PHY_SKU-NVM-section-for-3168-devices.patch
+  0004-drm-i915-Wean-off-drm_pci_alloc-drm_pci_free.patch
+  0005-drm-Remove-PageReserved-manipulation-from-drm_pci_alloc.patch
+  0006-drm-i915-execlists-Always-force-a-context-reload-when-rewinding-RING_TAIL.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('24f5f383b0337374f160723bcf3bf679c75cb5bd3fd0824a56998e47c04ef99e'
+sha256sums=('2bef3edcf44c746383045f4a809b2013e18c52319c827875ed8e89138951cab2'
             'SKIP'
             'bcc8c0ec0bf950b70f2140ff0e06e21796f55e097b7cbe92c2e1f88028641c41'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '2382fecb1572a309d710d465ca6e66cc718d389246b80158868d1814891ff71a'
-            'a156a087fbaa57c176780f9a6993e6fe6a53810ff5e47bf971c48233b8230372'
+            '2983413677914abdb5294905fc5a56e7cbeaf1e30620e8cadc726a68c7e08b43'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
             '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45'
-            'cc6410736e82d3573ba3c721f4b9bc9f155ca0a01599ecae1375a8b93d81a603'
-            '8edcc9a2623babfc0e4c808a18592bdd1c250f3e638217800b2aa9823ae52dc7'
-            '00297708583550422a325161822fbdd046b1d198b4fcf28e308ddbe0171e9696')
+            '00297708583550422a325161822fbdd046b1d198b4fcf28e308ddbe0171e9696'
+            '7ba2fb9c8387bb9ddeab388e95283bdae285add6543e7e121053bff55f84bf47'
+            'c39011b7aef8e3f06c5a2fb4e5a0ea4ee6c452eb26518d05fbb7889a40487892'
+            'c6c6ecd29540444fec6320a723f194159e993f7b4e7d9f2f427f7194f0b00890')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
