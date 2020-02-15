@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.5.3
+pkgver=5.5.4
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -86,12 +86,19 @@ source=(
   0004-drm-i915-Wean-off-drm_pci_alloc-drm_pci_free.patch
   0005-drm-Remove-PageReserved-manipulation-from-drm_pci_alloc.patch
   0006-drm-i915-execlists-Always-force-a-context-reload-when-rewinding-RING_TAIL.patch
+  0007-drm-i915-Serialise-i915_active_acquire-with__active_retire.patch
+  0008-drm-i915-gem-Take-runtime-pm-wakeref-prior-to-unbinding.patch
+  0009-drm-i915-gem-Avoid-parking-the-vma-as-we-unbind.patch
+  0010-drm-i915-gem-Try-to-flush-pending-unbind-events.patch
+  0011-drm-i915-gem-Reinitialise-the-local-list-before-repeating.patch
+  0012-drm-i915-Add-a-simple-is-bound-check-before-unbinding.patch
+  0013-drm-i915-Introduce-a-vma-kref.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('2bef3edcf44c746383045f4a809b2013e18c52319c827875ed8e89138951cab2'
+sha256sums=('ea40fd0deb0ba043c628ad4039c67ca9e4d8adc88d67d8b8c5a20f264403a6fb'
             'SKIP'
             'bcc8c0ec0bf950b70f2140ff0e06e21796f55e097b7cbe92c2e1f88028641c41'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
@@ -103,7 +110,14 @@ sha256sums=('2bef3edcf44c746383045f4a809b2013e18c52319c827875ed8e89138951cab2'
             '00297708583550422a325161822fbdd046b1d198b4fcf28e308ddbe0171e9696'
             '7ba2fb9c8387bb9ddeab388e95283bdae285add6543e7e121053bff55f84bf47'
             'c39011b7aef8e3f06c5a2fb4e5a0ea4ee6c452eb26518d05fbb7889a40487892'
-            'c6c6ecd29540444fec6320a723f194159e993f7b4e7d9f2f427f7194f0b00890')
+            'c6c6ecd29540444fec6320a723f194159e993f7b4e7d9f2f427f7194f0b00890'
+            '9653c9310468c38fce09d5c6450965359f453c9ec64d04b8647aad3759539d06'
+            '6b8c563287b694efff91a65cff7fc3924e0468e6874b62dd5ace629e96c1394b'
+            '2fac1c411f5c33405226b294081107ec1d0e24c52f02651c6e674b9b34f08431'
+            '1e3ad73ede2a80e1052b7e66dcc2adec7f909038c77195c3ad59ad4e8f731f6c'
+            '277596368b8fe02704e5291a1ad043adad279e98216eb78d2c4f38c4a047a63b'
+            '6a9de6902bc97f201a5c32768e8a68a0e8f2639d2e1cfe86d8f01bc6fda1f221'
+            'dc46801624696fb8df0e9e5aed0f66e55e48dd03a5dfe6b04281ba810c79ce70')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
