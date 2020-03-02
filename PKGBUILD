@@ -62,13 +62,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.5.7
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_bmq_patch="bmq_v5.5-r1.patch"
+_bmq_patch="bmq_v5.5-r2.patch"
 _gcc_more_v='20191217'
 _uksm_patch=uksm-5.5.patch
 _bfq_rev_patch="0001-Revert-block-bfq-do-not-plug-I-O-for-bfq_queues-with.patch"
@@ -102,7 +102,7 @@ sha256sums=('b843ef331290559c5cfce99616165154899e3d7906898ec7de5054efd39f7e48'
             'SKIP'
             '3b262f85b82f53660e3956ffca55fc59f3232376d4c54bacf8b58b9432b19e01'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            '2382fecb1572a309d710d465ca6e66cc718d389246b80158868d1814891ff71a'
+            'e503e2e13072b7de5a26b478c30d16cb68399c5b0b0af360245d3359e5cc74b1'
             'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
             '27d317fc3b7c809dffc262dc2d96d39b6d010144b11b9af3af4d334fb9a6f83f'
             '2983413677914abdb5294905fc5a56e7cbeaf1e30620e8cadc726a68c7e08b43'
