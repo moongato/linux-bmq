@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.5.8
-pkgrel=4
+pkgver=5.5.9
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -71,7 +71,7 @@ options=('!strip')
 _bmq_patch="bmq_v5.5-r3.patch"
 _gcc_more_v='20191217'
 _uksm_patch=uksm-5.5.patch
-_bfq_rev_patch="0001-Revert-block-bfq-do-not-plug-I-O-for-bfq_queues-with.patch"
+_bfq_rev_patch="0001-bfq-reverts.patch"
 _bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200311.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -79,7 +79,7 @@ source=(
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.5/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-sep/${_bfq_rev_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-all-v2/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
@@ -98,13 +98,13 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('e5b6f6938e99a39fb359618e92349ca4e2cd9db31e1b81b7d14d2fa7dc03fc06'
+sha256sums=('a435e16950bbe80362495383c2b5e8b78a4b3879c894e2b3c38ecba6fe7ca878'
             'SKIP'
             '3b262f85b82f53660e3956ffca55fc59f3232376d4c54bacf8b58b9432b19e01'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1a647aa24074af0cc3a0ecbf8c720ab496be9fe1a62fab41c524eb6cc5dcccda'
             'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
-            '27d317fc3b7c809dffc262dc2d96d39b6d010144b11b9af3af4d334fb9a6f83f'
+            '4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
             'eb5bb066270e02bef7688eb7b31e06fcddb98ea21ce07c25a93be1bb8aed806e'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
