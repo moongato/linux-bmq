@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.5.9
-pkgrel=2
+pkgver=5.5.10
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -72,7 +72,7 @@ _bmq_patch="bmq_v5.5-r3.patch"
 _gcc_more_v='20191217'
 _uksm_patch=uksm-5.5.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200311.patch
+_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200318.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -84,32 +84,30 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0003-iwlwifi-mvm-Do-not-require-PHY_SKU-NVM-section-for-3168-devices.patch
-  0004-drm-Remove-PageReserved-manipulation-from-drm_pci_alloc.patch
-  0005-drm-i915-Serialise-i915_active_acquire-with__active_retire.patch
-  0006-drm-i915-gem-Take-runtime-pm-wakeref-prior-to-unbinding.patch
-  0007-drm-i915-gem-Avoid-parking-the-vma-as-we-unbind.patch
-  0008-drm-i915-gem-Try-to-flush-pending-unbind-events.patch
-  0009-drm-i915-gem-Reinitialise-the-local-list-before-repeating.patch
-  0010-drm-i915-Add-a-simple-is-bound-check-before-unbinding.patch
-  0011-drm-i915-Introduce-a-vma-kref.patch
+  0003-drm-Remove-PageReserved-manipulation-from-drm_pci_alloc.patch
+  0004-drm-i915-Serialise-i915_active_acquire-with__active_retire.patch
+  0005-drm-i915-gem-Take-runtime-pm-wakeref-prior-to-unbinding.patch
+  0006-drm-i915-gem-Avoid-parking-the-vma-as-we-unbind.patch
+  0007-drm-i915-gem-Try-to-flush-pending-unbind-events.patch
+  0008-drm-i915-gem-Reinitialise-the-local-list-before-repeating.patch
+  0009-drm-i915-Add-a-simple-is-bound-check-before-unbinding.patch
+  0010-drm-i915-Introduce-a-vma-kref.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('a435e16950bbe80362495383c2b5e8b78a4b3879c894e2b3c38ecba6fe7ca878'
+sha256sums=('e31d8e35d7d9766fa912b8cebcfaaa8fc6dd07413a467641d264fd13cf20fc23'
             'SKIP'
             '3b262f85b82f53660e3956ffca55fc59f3232376d4c54bacf8b58b9432b19e01'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1a647aa24074af0cc3a0ecbf8c720ab496be9fe1a62fab41c524eb6cc5dcccda'
             'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
             '4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
-            'eb5bb066270e02bef7688eb7b31e06fcddb98ea21ce07c25a93be1bb8aed806e'
+            '610dab140a9c580eddaf8f98d1a06319c1432075f0599fdaddaf6e6f43bd4b8b'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
             '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45'
-            '00297708583550422a325161822fbdd046b1d198b4fcf28e308ddbe0171e9696'
             'c39011b7aef8e3f06c5a2fb4e5a0ea4ee6c452eb26518d05fbb7889a40487892'
             '9653c9310468c38fce09d5c6450965359f453c9ec64d04b8647aad3759539d06'
             '6b8c563287b694efff91a65cff7fc3924e0468e6874b62dd5ace629e96c1394b'
