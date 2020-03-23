@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.5.11
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -92,6 +92,7 @@ source=(
   0008-drm-i915-gem-Reinitialise-the-local-list-before-repeating.patch
   0009-drm-i915-Add-a-simple-is-bound-check-before-unbinding.patch
   0010-drm-i915-Introduce-a-vma-kref.patch
+  0011-iwlwifi-dont-send-GEO_TX_POWER_LIMIT-if-no-wgds-table.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -115,7 +116,8 @@ sha256sums=('a547afcfd14d9253b27230ed88b4f8a9569bcf85ad6bad8c299deab1e4d2f42e'
             '1e3ad73ede2a80e1052b7e66dcc2adec7f909038c77195c3ad59ad4e8f731f6c'
             '277596368b8fe02704e5291a1ad043adad279e98216eb78d2c4f38c4a047a63b'
             '6a9de6902bc97f201a5c32768e8a68a0e8f2639d2e1cfe86d8f01bc6fda1f221'
-            'dc46801624696fb8df0e9e5aed0f66e55e48dd03a5dfe6b04281ba810c79ce70')
+            'dc46801624696fb8df0e9e5aed0f66e55e48dd03a5dfe6b04281ba810c79ce70'
+            'd154765afd46fe9c0973c1448d4226f6a43da82f582e54b59f0baa8d6f001b98')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
