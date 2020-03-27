@@ -72,7 +72,7 @@ _bmq_patch="bmq_v5.5-r3.patch"
 _gcc_more_v='20191217'
 _uksm_patch=uksm-5.5.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200324.patch
+_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200327.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -105,7 +105,7 @@ sha256sums=('1f3b3614a06bffc9c621c82f98d8ca88c60538a8c6dd77f96f2e7fee310a4ee2'
             '1a647aa24074af0cc3a0ecbf8c720ab496be9fe1a62fab41c524eb6cc5dcccda'
             'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
             '4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
-            '6c24c8b543bd79f753ea09b47800642aa4b5400615439a5157b7cc6fe6af96a3'
+            '7a2a296f912587eda733858e3308e160611e5ba1d34415a6011bc1145575e88a'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
             '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45'
