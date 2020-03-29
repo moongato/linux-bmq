@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.5.13
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -100,7 +100,7 @@ validpgpkeys=(
 )
 sha256sums=('1f3b3614a06bffc9c621c82f98d8ca88c60538a8c6dd77f96f2e7fee310a4ee2'
             'SKIP'
-            '3b262f85b82f53660e3956ffca55fc59f3232376d4c54bacf8b58b9432b19e01'
+            '3bdeb7e5d467a38f05affb835e9763320dc7316e7db076b02859558affe4e117'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1a647aa24074af0cc3a0ecbf8c720ab496be9fe1a62fab41c524eb6cc5dcccda'
             'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
