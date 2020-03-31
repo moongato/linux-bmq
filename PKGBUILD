@@ -83,6 +83,8 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
+  0002-mac80211-fix-authentication-with-iwlwifi-mvm.patch
+  0003-bpf-Undo-incorrect\ __reg_bound_offset32-handling.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -97,7 +99,9 @@ sha256sums=('e342b04a2aa63808ea0ef1baab28fc520bd031ef8cf93d9ee4a31d4058fcb622'
             #'4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
             '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
-            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60')
+            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
+            'a242f6aba20f9ae2a5f8a160a51d4c5f141364b20e94c462f6c6d01f348c5c12'
+            'afbb47ad9629f58217f7b65f0a49018573bde5e1b8476e8169b2503673fa5a98')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
