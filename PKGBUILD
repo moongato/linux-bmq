@@ -61,63 +61,43 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.5.13
-pkgrel=2
+pkgver=5.6
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_bmq_patch="bmq_v5.5-r3.patch"
+_bmq_patch="bmq_v5.6-r0.patch"
 _gcc_more_v='20191217'
-_uksm_patch=uksm-5.5.patch
-_bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.5-bfq-dev-lucjan-v11-r2K200327.patch
+#_uksm_patch=uksm-5.5.patch
+#_bfq_rev_patch="0001-bfq-reverts.patch"
+_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200330.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/bmq/raw/master/5.5/${_bmq_patch}
-  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-all-v2/${_bfq_rev_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-dev-lucjan/${_bfq_patch}
+  https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
+  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  #https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-all-v2/${_bfq_rev_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch
-  0003-drm-Remove-PageReserved-manipulation-from-drm_pci_alloc.patch
-  0004-drm-i915-Serialise-i915_active_acquire-with__active_retire.patch
-  0005-drm-i915-gem-Take-runtime-pm-wakeref-prior-to-unbinding.patch
-  0006-drm-i915-gem-Avoid-parking-the-vma-as-we-unbind.patch
-  0007-drm-i915-gem-Try-to-flush-pending-unbind-events.patch
-  0008-drm-i915-gem-Reinitialise-the-local-list-before-repeating.patch
-  0009-drm-i915-Add-a-simple-is-bound-check-before-unbinding.patch
-  0010-drm-i915-Introduce-a-vma-kref.patch
-  0011-iwlwifi-dont-send-GEO_TX_POWER_LIMIT-if-no-wgds-table.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('1f3b3614a06bffc9c621c82f98d8ca88c60538a8c6dd77f96f2e7fee310a4ee2'
+sha256sums=('e342b04a2aa63808ea0ef1baab28fc520bd031ef8cf93d9ee4a31d4058fcb622'
             'SKIP'
-            '3bdeb7e5d467a38f05affb835e9763320dc7316e7db076b02859558affe4e117'
+            'SKIP'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            '1a647aa24074af0cc3a0ecbf8c720ab496be9fe1a62fab41c524eb6cc5dcccda'
-            'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
-            '4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
-            '7a2a296f912587eda733858e3308e160611e5ba1d34415a6011bc1145575e88a'
+            'a214cfe4188ff24284de8ee5b0fa5ff4b0b604148a3e663e02e97cc56fec172c'
+            #'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
+            #'4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
+            '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
-            '42cec52b2d0129cc026f038d65993be8595de4095df5479481f2a655bfcf700e'
-            '5823197ab15a3bec114045ca19023dcb3bca09e8d259bde220e10f4020004b45'
-            'c39011b7aef8e3f06c5a2fb4e5a0ea4ee6c452eb26518d05fbb7889a40487892'
-            '9653c9310468c38fce09d5c6450965359f453c9ec64d04b8647aad3759539d06'
-            '6b8c563287b694efff91a65cff7fc3924e0468e6874b62dd5ace629e96c1394b'
-            '2fac1c411f5c33405226b294081107ec1d0e24c52f02651c6e674b9b34f08431'
-            '1e3ad73ede2a80e1052b7e66dcc2adec7f909038c77195c3ad59ad4e8f731f6c'
-            '277596368b8fe02704e5291a1ad043adad279e98216eb78d2c4f38c4a047a63b'
-            '6a9de6902bc97f201a5c32768e8a68a0e8f2639d2e1cfe86d8f01bc6fda1f221'
-            'dc46801624696fb8df0e9e5aed0f66e55e48dd03a5dfe6b04281ba810c79ce70'
-            'd154765afd46fe9c0973c1448d4226f6a43da82f582e54b59f0baa8d6f001b98')
+            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
