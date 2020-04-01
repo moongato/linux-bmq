@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6
-pkgrel=1
+pkgver=5.6.1
+pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -70,7 +70,7 @@ makedepends=(bc kmod libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.6-r0.patch"
 _gcc_more_v='20191217'
-#_uksm_patch=uksm-5.5.patch
+_uksm_patch=uksm-5.6.patch
 #_bfq_rev_patch="0001-bfq-reverts.patch"
 _bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200330.patch
 source=(
@@ -78,30 +78,28 @@ source=(
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
-  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-all-v2/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-mac80211-fix-authentication-with-iwlwifi-mvm.patch
-  0003-bpf-Undo-incorrect\ __reg_bound_offset32-handling.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('e342b04a2aa63808ea0ef1baab28fc520bd031ef8cf93d9ee4a31d4058fcb622'
+sha256sums=('46d8fd446d0f6aa4b039d92d9a4992dfa1bf67e4274ec1b77616daf5174f1530'
             'SKIP'
-            '42a7cee78b831ae779491754e9654b9fddf153693911363371c09d9cf74f5fbf'
+            '3bfad000bae3887ce1c7d085f563a4bb9ec489a64cca2978aff03dd135e61d71'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             'a214cfe4188ff24284de8ee5b0fa5ff4b0b604148a3e663e02e97cc56fec172c'
-            #'a948ee238ee89c609df9a0700eac9ac4f64bd9523c0f9ebb13263b3c979d2da1'
+            '38044055a721c9c5a7bb67e5d1ba95d0585f63c83cc41af429efa60d6e0c718a'
             #'4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
             '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
-            'a242f6aba20f9ae2a5f8a160a51d4c5f141364b20e94c462f6c6d01f348c5c12'
-            'afbb47ad9629f58217f7b65f0a49018573bde5e1b8476e8169b2503673fa5a98')
+            'a242f6aba20f9ae2a5f8a160a51d4c5f141364b20e94c462f6c6d01f348c5c12')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
