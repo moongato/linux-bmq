@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.1
+pkgver=5.6.2
 pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -83,13 +83,12 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-mac80211-fix-authentication-with-iwlwifi-mvm.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('46d8fd446d0f6aa4b039d92d9a4992dfa1bf67e4274ec1b77616daf5174f1530'
+sha256sums=('2d4d91d8329c1ed3826c61463650dd4bfbb6ad39dcee6dba4f98a7e94a67b5b9'
             'SKIP'
             '3bfad000bae3887ce1c7d085f563a4bb9ec489a64cca2978aff03dd135e61d71'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
@@ -98,8 +97,7 @@ sha256sums=('46d8fd446d0f6aa4b039d92d9a4992dfa1bf67e4274ec1b77616daf5174f1530'
             #'4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
             '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
-            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
-            'a242f6aba20f9ae2a5f8a160a51d4c5f141364b20e94c462f6c6d01f348c5c12')
+            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
