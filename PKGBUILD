@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.6.2
-pkgrel=0
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -71,7 +71,6 @@ options=('!strip')
 _bmq_patch="bmq_v5.6-r0.patch"
 _gcc_more_v='20191217'
 _uksm_patch=uksm-5.6.patch
-#_bfq_rev_patch="0001-bfq-reverts.patch"
 _bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200330.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -90,11 +89,10 @@ validpgpkeys=(
 )
 sha256sums=('2d4d91d8329c1ed3826c61463650dd4bfbb6ad39dcee6dba4f98a7e94a67b5b9'
             'SKIP'
-            '3bfad000bae3887ce1c7d085f563a4bb9ec489a64cca2978aff03dd135e61d71'
+            '57b5bf765453de91248d279dfc46111f359fe45a2f16662b04b379415858dc3d'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             'a214cfe4188ff24284de8ee5b0fa5ff4b0b604148a3e663e02e97cc56fec172c'
             '38044055a721c9c5a7bb67e5d1ba95d0585f63c83cc41af429efa60d6e0c718a'
-            #'4241f64c732956114ff631e214a274ac8ee156feb85612711708d1c8f6bca765'
             '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60')
