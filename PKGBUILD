@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.2
-pkgrel=3
+pkgver=5.6.3
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -82,20 +82,25 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
+  0002-ALSA-hda-Fix-potential-access-overflow-in-beep-helper.patch
+  sphinx-workaround.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
+  '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('2d4d91d8329c1ed3826c61463650dd4bfbb6ad39dcee6dba4f98a7e94a67b5b9'
+sha256sums=('1d13689abbcab59250a8231a5871747be25a1d2fe431cf263395de35780c50aa'
             'SKIP'
-            'c578d3462679c08bd1ecfa9f1e08112b63584179fe78697691ed07376fd6f4be'
+            'f19583ad36263a5bab4366af6160e86ef71b7af3419ef7095362277acbd05696'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             'd42ab10e8ff39acd3a9211fc83313c6fb7a69ae0c2d39deb7946c7516c0d5cd5'
             '38044055a721c9c5a7bb67e5d1ba95d0585f63c83cc41af429efa60d6e0c718a'
             '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
-            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60')
+            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
+            '851a5d11c54c4cb5984f626bab999bc0c72cbdb5995702d7df7fb8cf404a9814'
+            '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
