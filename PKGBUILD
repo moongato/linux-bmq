@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.4
-pkgrel=1
+pkgver=5.6.5
+pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -70,19 +70,18 @@ makedepends=(bc kmod libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.6-r2.patch"
 _gcc_more_v='20191217'
-_uksm_patch=uksm-5.6.patch
-_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200330.patch
+#_uksm_patch=uksm-5.6.patch
+#_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200330.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
-  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-all-v2/${_bfq_rev_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
+  #https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-ALSA-hda-Fix-potential-access-overflow-in-beep-helper.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -90,16 +89,15 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('5df1741e550cb6fa7471530f42da98bac5093e693e2c4f3aef4393d8135b9d91'
+sha256sums=('f79bd3dbcbe1e7afba256d59b4ca21da12d2c5b4189804dffb2a49fd2b9b52e6'
             'SKIP'
-            'f19583ad36263a5bab4366af6160e86ef71b7af3419ef7095362277acbd05696'
+            '897852d200868e804744965415303fe5283edd07427b6cdab651a75f7683d816'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '0e1b569bf16a6c514710715eff06df04447378d1c067b853db0c454ac3c5e463'
-            '38044055a721c9c5a7bb67e5d1ba95d0585f63c83cc41af429efa60d6e0c718a'
-            '17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
+            #'38044055a721c9c5a7bb67e5d1ba95d0585f63c83cc41af429efa60d6e0c718a'
+            #'17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
-            '851a5d11c54c4cb5984f626bab999bc0c72cbdb5995702d7df7fb8cf404a9814'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
