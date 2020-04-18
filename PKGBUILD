@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.6.5
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
