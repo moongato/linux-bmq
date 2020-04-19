@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.6.5
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -77,11 +77,10 @@ source=(
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
-  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  #https://github.com/sirlucjan/kernel-patches/raw/master/5.5/bfq-reverts-all-v2/${_bfq_rev_patch}
-  #https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
+  0002-Revert-ACPI-EC-Do-not-clear-boot_ec_is_ecdt-in-acpi_ec_add.patch
+  0003-drm-amdgpu-fix-the-hw-hang-during-perform-system-reboot-and-reset.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -91,13 +90,13 @@ validpgpkeys=(
 )
 sha256sums=('f79bd3dbcbe1e7afba256d59b4ca21da12d2c5b4189804dffb2a49fd2b9b52e6'
             'SKIP'
-            '897852d200868e804744965415303fe5283edd07427b6cdab651a75f7683d816'
+            'ce16be8fd45051c3fef5f4faee3944ac82520a92f32ea138d0b472414bb3e77e'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '0e1b569bf16a6c514710715eff06df04447378d1c067b853db0c454ac3c5e463'
-            #'38044055a721c9c5a7bb67e5d1ba95d0585f63c83cc41af429efa60d6e0c718a'
-            #'17c2d928216e30f7fa8c3aa558a683bac2b615e13076cb5db7b55dafc2c1a77c'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
+            '04fcd066392668f0b9c1e59d396091c5aed5608adb728aca9c866691168f1e9a'
+            'd309620040e4b9789c1514a87ca4b792e0b0c38da15ee5328e5e7ab7990f3e62'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
