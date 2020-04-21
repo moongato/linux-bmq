@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.5
-pkgrel=3
+pkgver=5.6.6
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -79,8 +79,6 @@ source=(
   https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-Revert-ACPI-EC-Do-not-clear-boot_ec_is_ecdt-in-acpi_ec_add.patch
-  0003-drm-amdgpu-fix-the-hw-hang-during-perform-system-reboot-and-reset.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -88,15 +86,13 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('f79bd3dbcbe1e7afba256d59b4ca21da12d2c5b4189804dffb2a49fd2b9b52e6'
+sha256sums=('6484ced005e4be5696d6ab0438a9674b9eac89831b4019822f1b0155e7a66bd4'
             'SKIP'
             'ce16be8fd45051c3fef5f4faee3944ac82520a92f32ea138d0b472414bb3e77e'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '2340925904efa3594cc65a7bae4fbff233d5d8bc7db605ce08acaca7450d2471'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
-            '04fcd066392668f0b9c1e59d396091c5aed5608adb728aca9c866691168f1e9a'
-            'd309620040e4b9789c1514a87ca4b792e0b0c38da15ee5328e5e7ab7990f3e62'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
