@@ -70,13 +70,17 @@ makedepends=(bc kmod libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.6-r3.patch"
 _gcc_more_v='20191217'
-#_uksm_patch=uksm-5.6.patch
-#_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200330.patch
+#_uksm_patch=uksm-5.5.patch
+_bfq_rev_patch="0001-bfq-reverts.patch"
+_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200424.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
+  #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-reverts-all-v2/${_bfq_rev_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   sphinx-workaround.patch
@@ -91,6 +95,8 @@ sha256sums=('23a0420f29eacb66d71f86f64fbd35a1b6ff617d520e3e05f3e1f537d46692ca'
             'ce16be8fd45051c3fef5f4faee3944ac82520a92f32ea138d0b472414bb3e77e'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '2340925904efa3594cc65a7bae4fbff233d5d8bc7db605ce08acaca7450d2471'
+            '396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
+            'd42a3e8a918266c554fbe4c2499ad8732409a31dce0b458234a97e40e87e68ea'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
