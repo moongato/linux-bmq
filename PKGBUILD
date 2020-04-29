@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.7
+pkgver=5.6.8
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -90,9 +90,9 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('23a0420f29eacb66d71f86f64fbd35a1b6ff617d520e3e05f3e1f537d46692ca'
+sha256sums=('19e142ff07a2c8d10116074099b9d845682e74544a2b6c1641f7cb044ac282df'
             'SKIP'
-            'ce16be8fd45051c3fef5f4faee3944ac82520a92f32ea138d0b472414bb3e77e'
+            'b3a76bc3494c869434320f150d0ffc1faaec12f00604d2a8e69835ce8964aaeb'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '2340925904efa3594cc65a7bae4fbff233d5d8bc7db605ce08acaca7450d2471'
             '396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
@@ -163,7 +163,7 @@ prepare() {
 
 build() {
   cd linux-${pkgver}
-  make bzImage modules
+  make all
 }
 
 _package() {
@@ -191,9 +191,6 @@ _package() {
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
-
-  echo "Fixing permissions..."
-  chmod -Rc u=rwX,go=rX "$pkgdir"
 }
 
 _package-headers() {
@@ -272,8 +269,6 @@ _package-headers() {
   mkdir -p "$pkgdir/usr/src"
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
 
-  echo "Fixing permissions..."
-  chmod -Rc u=rwX,go=rX "$pkgdir"
 }
 
 pkgname=("$pkgbase" "$pkgbase-headers")
