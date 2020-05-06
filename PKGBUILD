@@ -83,6 +83,7 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
+  0002-kvm-ioapic-Restrict-lazy-EOI-update-to-edge-triggered-interrupts.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -99,6 +100,7 @@ sha256sums=('d6dd6cbe99429f088eddb248abce7832e8f8e45eb072cbf0d0f86b5b87221baa'
             'bb1bdd7c9b06de3ceeae2f3420b350fe64837f61c4cd5138506795169b85992b'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
+            '3a713ac3895867b6f24d48f1ec89d21e1c4ffff895c022d8e7bdfa29c1b60a30'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
