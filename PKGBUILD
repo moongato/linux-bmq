@@ -61,8 +61,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.11
-pkgrel=2
+pkgver=5.6.12
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -84,6 +84,10 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-kvm-ioapic-Restrict-lazy-EOI-update-to-edge-triggered-interrupts.patch
+  0003-gcc-plugins-drop-support-for-GCC-4.7.patch
+  0004-gcc-common.h-Update-for-GCC-10.patch
+  0005-Makefile-disallow-data-races-on-gcc-10-as-well.patch
+  0006-x86-Fix-early-boot-crash-on-gcc-10-next-try.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -91,7 +95,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('d6dd6cbe99429f088eddb248abce7832e8f8e45eb072cbf0d0f86b5b87221baa'
+sha256sums=('daea336aace63a9116475b3f698e259073c00bea57a2a545300dba1c45562221'
             'SKIP'
             'b3a76bc3494c869434320f150d0ffc1faaec12f00604d2a8e69835ce8964aaeb'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
@@ -101,6 +105,10 @@ sha256sums=('d6dd6cbe99429f088eddb248abce7832e8f8e45eb072cbf0d0f86b5b87221baa'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
             '3a713ac3895867b6f24d48f1ec89d21e1c4ffff895c022d8e7bdfa29c1b60a30'
+	    '861a3203eb2fa76dfdd3ecc71c11257822f7eb90ccc7d59a79f4ab7e8b2be5fd'
+            '38ecc3cb20214c48b8b295616c4f0f3da7be946c5e9e03bb5a06b4583883cc65'
+            'f91625bd59cdd3b05651e19dc3cfdcebaee83f72be99a0a0938c87556362d9db'
+            '97b82d4de39a6477b56991d4e25f2e9fa91c7c2155fabdcd1e7ecc49bc2f5e8a' 
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
