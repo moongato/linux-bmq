@@ -62,7 +62,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.6.13
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -72,7 +72,9 @@ _bmq_patch="bmq_v5.6-r4.patch"
 _gcc_more_v='20191217'
 #_uksm_patch=uksm-5.5.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200506.patch
+_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200514.patch
+_fsgsbase_path=fsgsbase-patches-v2
+_fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -81,6 +83,7 @@ source=(
   #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-reverts-all-v2/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-gcc-plugins-drop-support-for-GCC-4.7.patch
@@ -100,7 +103,8 @@ sha256sums=('f125d79c8f6974213638787adcad6b575bbd35a05851802fd83f622ec18ff987'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1b95d36635c7dc48ce45a33d6b1f4eb6d34f51600901395d28fd22f28daee8e9'
             '396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
-            '3f298d3084a13bb40e1e40013408c2e0eb87b92679a8ece65c629b6471634ba9'
+            'd240a1c6e3c1a619508c6ab534b5b43399979e6353af1d6895ed0c806a5a534c'
+            'b9bfef82699d986fd0a5845296bbae5b4ce371472a069b92cf0dca1b44f16cd5'
             '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
 	    '861a3203eb2fa76dfdd3ecc71c11257822f7eb90ccc7d59a79f4ab7e8b2be5fd'
