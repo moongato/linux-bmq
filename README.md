@@ -16,3 +16,5 @@ GCC CPU optimization patch from graysky
 UKSM
 
 BFQ enhancements
+
+FSGSBASE
