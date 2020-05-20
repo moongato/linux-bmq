@@ -61,10 +61,10 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.13
-pkgrel=2
+pkgver=5.6.14
+pkgrel=0
 arch=(x86_64)
-url="https://wiki.archlinux.org/index.php/Linux-ck"
+url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
@@ -88,8 +88,6 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
   0002-gcc-plugins-drop-support-for-GCC-4.7.patch
   0003-gcc-common.h-Update-for-GCC-10.patch
-  0004-Makefile-disallow-data-races-on-gcc-10-as-well.patch
-  0005-x86-Fix-early-boot-crash-on-gcc-10-next-try.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -97,21 +95,19 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('f125d79c8f6974213638787adcad6b575bbd35a05851802fd83f622ec18ff987'
+sha256sums=('33763f3541711e39fa743da45ff9512d54ade61406173f3d267ba4484cec7ea3'
             'SKIP'
-            '96378f9824a04e98ca3aaf7bfad73805eba0527850ac407a41e440c0a236d920'
+            '9e0b5696db70a8b48353b0148f71fcb0dc14461b2c36f142288fa95232103c97'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1b95d36635c7dc48ce45a33d6b1f4eb6d34f51600901395d28fd22f28daee8e9'
             'fe0c06fcb639a633625df1ad43b9a02a0f5eab05973d650446b02aa638f53a08'
             '396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
             'd240a1c6e3c1a619508c6ab534b5b43399979e6353af1d6895ed0c806a5a534c'
             'b9bfef82699d986fd0a5845296bbae5b4ce371472a069b92cf0dca1b44f16cd5'
-            '1c949aa5ca3beb4c84eccf57806d6cbe88c83b1cb79941002bc4b4954543f796'
+            '99a070f8cbcf3312d09abe5cfd833a80797d0c5be574858317f70ca605dd57c2'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
 	    '861a3203eb2fa76dfdd3ecc71c11257822f7eb90ccc7d59a79f4ab7e8b2be5fd'
             '38ecc3cb20214c48b8b295616c4f0f3da7be946c5e9e03bb5a06b4583883cc65'
-            'f91625bd59cdd3b05651e19dc3cfdcebaee83f72be99a0a0938c87556362d9db'
-            '97b82d4de39a6477b56991d4e25f2e9fa91c7c2155fabdcd1e7ecc49bc2f5e8a' 
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
