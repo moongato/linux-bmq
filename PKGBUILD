@@ -73,7 +73,7 @@ _gcc_more_v='20191217'
 _uksm_patch=uksm-5.6.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
 _bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200514.patch
-_fsgsbase_path=fsgsbase-patches-v2
+_fsgsbase_path=fsgsbase-patches-v3
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
