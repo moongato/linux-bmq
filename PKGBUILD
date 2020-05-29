@@ -61,7 +61,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.14
+pkgver=5.6.15
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -86,8 +86,6 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.6/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
-  0002-gcc-plugins-drop-support-for-GCC-4.7.patch
-  0003-gcc-common.h-Update-for-GCC-10.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -95,9 +93,9 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('33763f3541711e39fa743da45ff9512d54ade61406173f3d267ba4484cec7ea3'
+sha256sums=('65ab799393d490463c610270634874dfcb66440a312837d04b51bbb69323034e'
             'SKIP'
-            '9e0b5696db70a8b48353b0148f71fcb0dc14461b2c36f142288fa95232103c97'
+            'de575f6ffba76f81c8e321ea0ca2d17874d862fae4056b531b85b4be58c7d6ac'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1b95d36635c7dc48ce45a33d6b1f4eb6d34f51600901395d28fd22f28daee8e9'
             'fe0c06fcb639a633625df1ad43b9a02a0f5eab05973d650446b02aa638f53a08'
@@ -106,8 +104,6 @@ sha256sums=('33763f3541711e39fa743da45ff9512d54ade61406173f3d267ba4484cec7ea3'
             'b9bfef82699d986fd0a5845296bbae5b4ce371472a069b92cf0dca1b44f16cd5'
             '99a070f8cbcf3312d09abe5cfd833a80797d0c5be574858317f70ca605dd57c2'
             '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
-	    '861a3203eb2fa76dfdd3ecc71c11257822f7eb90ccc7d59a79f4ab7e8b2be5fd'
-            '38ecc3cb20214c48b8b295616c4f0f3da7be946c5e9e03bb5a06b4583883cc65'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
