@@ -64,31 +64,31 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.6.15
-pkgrel=3
+pkgver=5.7
+pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_bmq_patch="bmq_v5.6-r4.patch"
+#_bmq_patch="bmq_v5.6-r4.patch"
 _gcc_more_v='20200527'
 #_uksm_patch=uksm-5.5.patch
-_bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200514.patch
-_fsgsbase_path=fsgsbase-patches-v3
+#_bfq_rev_patch="0001-bfq-reverts.patch"
+#_bfq_patch=5.6-bfq-dev-lucjan-v11-r2K200514.patch
+_fsgsbase_path=fsgsbase-patches
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
+  #https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
   #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-reverts-all-v2/${_bfq_rev_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.6/${_fsgsbase_path}/${_fsgsbase_patch}
+  #https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-reverts-all-v2/${_bfq_rev_patch}
+  #https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.7/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
-  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch
+  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -96,16 +96,16 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('65ab799393d490463c610270634874dfcb66440a312837d04b51bbb69323034e'
+sha256sums=('de8163bb62f822d84f7a3983574ec460060bf013a78ff79cd7c979ff1ec1d7e0'
             'SKIP'
-            '14ea720a5f3d5c309f42ac0f3c0b599ce12e29966c27bb5b283212a0967a77f9'
+            'ae566c46d7886d95f2d3ddc27ad7835b599481f98b5e19d3a97ee16ab5e4a475'
             '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
-            '1b95d36635c7dc48ce45a33d6b1f4eb6d34f51600901395d28fd22f28daee8e9'
-            '396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
-            'd240a1c6e3c1a619508c6ab534b5b43399979e6353af1d6895ed0c806a5a534c'
-            'd091557b7172da982dbf2f2d6eb95e41f43dbdce5b34068dcb520516186c2d79'
-            '99a070f8cbcf3312d09abe5cfd833a80797d0c5be574858317f70ca605dd57c2'
-            '534a31ff06d3bffeee21ae2a8e5ca873b26b14952315db36357685dd81f07a60'
+            #'1b95d36635c7dc48ce45a33d6b1f4eb6d34f51600901395d28fd22f28daee8e9'
+            #'396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
+            #'d240a1c6e3c1a619508c6ab534b5b43399979e6353af1d6895ed0c806a5a534c'
+            '2fc02012f9c9e65a01068c246912786b80174c1c3089a46730f7b0560ed73209'
+            'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
+            '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
@@ -137,7 +137,7 @@ prepare() {
 
   # https://github.com/graysky2/kernel_gcc_patch
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v10.1+_kernel_v5.5-v5.6.patch"
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.7+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
