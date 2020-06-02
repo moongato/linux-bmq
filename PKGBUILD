@@ -65,13 +65,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.7
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-#_bmq_patch="bmq_v5.6-r4.patch"
+_bmq_patch="0001-BMQ-tkg-v5.7-r0.patch"
 _gcc_more_v='20200527'
 #_uksm_patch=uksm-5.5.patch
 #_bfq_rev_patch="0001-bfq-reverts.patch"
@@ -82,7 +82,8 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  #https://gitlab.com/alfredchen/bmq/raw/master/5.6/${_bmq_patch}
+  #https://gitlab.com/alfredchen/bmq/raw/master/5.7/${_bmq_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bmq-tkg-patches/${_bmq_patch}
   #https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-reverts-all-v2/${_bfq_rev_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.6/bfq-dev-lucjan/${_bfq_patch}
@@ -98,9 +99,9 @@ validpgpkeys=(
 )
 sha256sums=('de8163bb62f822d84f7a3983574ec460060bf013a78ff79cd7c979ff1ec1d7e0'
             'SKIP'
-            'ae566c46d7886d95f2d3ddc27ad7835b599481f98b5e19d3a97ee16ab5e4a475'
+            'SKIP'
             '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
-            #'1b95d36635c7dc48ce45a33d6b1f4eb6d34f51600901395d28fd22f28daee8e9'
+            'caa913c79901b9564368afb396674c8599504fcdc02b960f317ab823ce0a654d'
             #'396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
             #'d240a1c6e3c1a619508c6ab534b5b43399979e6353af1d6895ed0c806a5a534c'
             '2fc02012f9c9e65a01068c246912786b80174c1c3089a46730f7b0560ed73209'
