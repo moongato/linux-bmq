@@ -99,14 +99,24 @@ validpgpkeys=(
 )
 sha256sums=('de8163bb62f822d84f7a3983574ec460060bf013a78ff79cd7c979ff1ec1d7e0'
             'SKIP'
-            'SKIP'
+            # config
+            'ab4f75b13dac31e84878dba1b9d17ab0ddea23398bc246c4440ebd11e447a36d'
+            # gcc patch
             '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
+            # bmq patch
             'caa913c79901b9564368afb396674c8599504fcdc02b960f317ab823ce0a654d'
-            #'396812c348dc27de681b20835e237ddd7777ac3fad27d65ac46b6469b64fd726'
-            #'d240a1c6e3c1a619508c6ab534b5b43399979e6353af1d6895ed0c806a5a534c'
+            # uksm patch
+            #''
+            # bfq patch
+            #''
+            # fsgsbase patch
             '2fc02012f9c9e65a01068c246912786b80174c1c3089a46730f7b0560ed73209'
+            # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
+            # archlinux patches
+            # 0001-ZEN-Add-sysctl-and-CONFIG
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
+            # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
 export KBUILD_BUILD_HOST=archlinux
