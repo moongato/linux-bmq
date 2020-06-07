@@ -64,12 +64,12 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.7
-pkgrel=3
+pkgver=5.7.1
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
-makedepends=(bc kmod libelf)
+makedepends=(bc kmod libelf pahole)
 options=('!strip')
 _bmq_patch="0001-BMQ-tkg-v5.7-r0.patch"
 _gcc_more_v='20200527'
@@ -97,10 +97,10 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('de8163bb62f822d84f7a3983574ec460060bf013a78ff79cd7c979ff1ec1d7e0'
+sha256sums=('40d318add8cefe3fdb26f19dac7386f5e7b63854ae021e593466902856ce9ded'
             'SKIP'
             # config
-            '2791ec29053f5884c5a5052944db9f7eac6b7cdec3dae6c55ae57c3a9834899a'
+            '4e4a0a7399ebb8425d77d6c20e14bbf73118303e4b01765cff7b9bcdee2479a5'
             # gcc patch
             '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
             # bmq patch
@@ -206,7 +206,7 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
@@ -284,10 +284,12 @@ _package-headers() {
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
 
+  echo "Stripping vmlinux..."
+  strip -v $STRIP_STATIC "$builddir/vmlinux"
+
   echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/src"
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
-
 }
 
 pkgname=("$pkgbase" "$pkgbase-headers")
