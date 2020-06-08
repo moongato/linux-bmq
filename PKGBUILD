@@ -65,25 +65,25 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.7.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf pahole)
 options=('!strip')
-_bmq_patch="0001-BMQ-tkg-v5.7-r0.patch"
+_bmq_patch="bmq_v5.7-r1.patch"
 _gcc_more_v='20200527'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200530.patch
+_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200607.patch
 _fsgsbase_path=fsgsbase-patches
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  #https://gitlab.com/alfredchen/bmq/raw/master/5.7/${_bmq_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bmq-tkg-patches/${_bmq_patch}
+  https://gitlab.com/alfredchen/bmq/raw/master/5.7/${_bmq_patch}
+  #https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bmq-tkg-patches/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bfq-reverts-all-v2/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bfq-dev-lucjan/${_bfq_patch}
@@ -104,12 +104,12 @@ sha256sums=('40d318add8cefe3fdb26f19dac7386f5e7b63854ae021e593466902856ce9ded'
             # gcc patch
             '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
             # bmq patch
-            'caa913c79901b9564368afb396674c8599504fcdc02b960f317ab823ce0a654d'
+            '9cf60ec74848ef807fc97e1c0f4bccca73ec65763a2adefa6758a4f7c0f243a7'
             # uksm patch
             'c28dc0d30bba3eedae9f5cf98a686bdfb25a0326df4e8c417d37a36597d21b37'
             # bfq patch
             'de2cce150829e41e386445620119c3bcaac89032fb4fb1442a8674f616184368'
-            '7624b4f9f14b8911deea1f3ba9992e5eb2711a294b0f9ec7fd51f07f9eb1cde2'
+            '31fd499d4f21665c7dd6deefe89bf23e610742f1a15c4d54ef2284634c50eba2'
             # fsgsbase patch
             '2fc02012f9c9e65a01068c246912786b80174c1c3089a46730f7b0560ed73209'
             # enable-O3
