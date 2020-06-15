@@ -72,7 +72,7 @@ license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
 _bmq_patch="bmq_v5.7-r1.patch"
-_gcc_more_v='20200527'
+_gcc_more_v='20200615'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
 _bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200607.patch
@@ -102,7 +102,7 @@ sha256sums=('6065ae820e2d52a77a549ef97444c36adf7ab2969b294460256f028b4eed7909'
             # config
             '4e4a0a7399ebb8425d77d6c20e14bbf73118303e4b01765cff7b9bcdee2479a5'
             # gcc patch
-            '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
+            '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # bmq patch
             '9cf60ec74848ef807fc97e1c0f4bccca73ec65763a2adefa6758a4f7c0f243a7'
             # uksm patch
