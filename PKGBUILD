@@ -90,6 +90,7 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.7/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
+  0002-efi-libstub-Fix-path-separator-regression.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -100,7 +101,7 @@ validpgpkeys=(
 sha256sums=('9fd4c93dc6df53efa904134aa2ede6100f7453c11383490dd32ebbed84f610e6'
             'SKIP'
             # config
-            '4e4a0a7399ebb8425d77d6c20e14bbf73118303e4b01765cff7b9bcdee2479a5'
+            '6c74a4714eb6f9901a4a2f5d80eb4bb6b9d812e79dea5e0ddd7047a08bb26b93'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # bmq patch
@@ -117,6 +118,7 @@ sha256sums=('9fd4c93dc6df53efa904134aa2ede6100f7453c11383490dd32ebbed84f610e6'
             # archlinux patches
             # 0001-ZEN-Add-sysctl-and-CONFIG
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
+            '6576ee1bf82c8d78b9e60b48fadc6b875cf9473917e57282db2fa6c6047548e9'
             # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
