@@ -119,7 +119,7 @@ sha256sums=('f840b9679283343c165516585c3070ebb277528721c890e9410a58e9d071ee7f'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # project c build fix
-            'SKIP'
+            '764423b197bba734ccdb8ba301d48744c14df678175f4a6570d2c37ef9fe7ab9'
             # archlinux patches
             # 0001-ZEN-Add-sysctl-and-CONFIG
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
