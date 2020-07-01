@@ -64,14 +64,14 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.7.6
-pkgrel=4
+pkgver=5.7.7
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_bmq_patch="bmq_v5.7-r1.patch"
+_prjc_patch="prjc_v5.7-r2.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
@@ -82,15 +82,18 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/bmq/raw/master/5.7/${_bmq_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.7/${_prjc_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bmq-tkg-patches/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bfq-reverts-all-v2/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bfq-dev-lucjan/${_bfq_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.7/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
+  0001-sched-alt-Fix-compilation-issue-when-CONFIG_SCHED_TR.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
-  0002-efi-libstub-Fix-path-separator-regression.patch
+  0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
+  0003-ALSA-usb-audio-Fix-packet-size-calculation.patch
+  0004-drm-amd-display-Only-revalidate-bandwidth-on-medium-and-fast-updates.patch  
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -98,14 +101,14 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('9fd4c93dc6df53efa904134aa2ede6100f7453c11383490dd32ebbed84f610e6'
+sha256sums=('f840b9679283343c165516585c3070ebb277528721c890e9410a58e9d071ee7f'
             'SKIP'
             # config
-            '6c74a4714eb6f9901a4a2f5d80eb4bb6b9d812e79dea5e0ddd7047a08bb26b93'
+            'a8ce014943bf516ffff171c8958d13a8df15156bb32f17375a078119cfa111d9'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
-            # bmq patch
-            '9cf60ec74848ef807fc97e1c0f4bccca73ec65763a2adefa6758a4f7c0f243a7'
+            # project-c patch
+            'b19d09da5beef3433702157ac7975710fc815ada9ed2a088136bb87e0c89dfd7'
             # uksm patch
             'c28dc0d30bba3eedae9f5cf98a686bdfb25a0326df4e8c417d37a36597d21b37'
             # bfq patch
@@ -115,10 +118,14 @@ sha256sums=('9fd4c93dc6df53efa904134aa2ede6100f7453c11383490dd32ebbed84f610e6'
             '2e0e8413302c2b6cd4e7ee6960198eb0cd9cc3e80c52b6f14054a196f0f48984'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
+            # project c build fix
+            'SKIP'
             # archlinux patches
             # 0001-ZEN-Add-sysctl-and-CONFIG
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
-            '6576ee1bf82c8d78b9e60b48fadc6b875cf9473917e57282db2fa6c6047548e9'
+            '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
+            '863f4d199f333fbbba9d42c287b566050d3716bfbd5aed9acf1f3745f8df3a2f'
+            '495d52edab5e226d24aeb3467f5f31366cf268b0cdfa6ea714e162e01067a0eb'
             # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
