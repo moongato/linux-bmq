@@ -92,7 +92,8 @@ source=(
   0001-sched-alt-Fix-compilation-issue-when-CONFIG_SCHED_TR.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
-  0003-ALSA-usb-audio-Fix-packet-size-calculation.patch
+  0003-Revert-ath9k-Fix-general-protection-fault-in-ath9k_hif_usb_rx_cb.patch
+  0004-iwlwifi-Make-some-Killer-Wireless-AC-1550-cards-working-again.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -122,7 +123,8 @@ sha256sums=('afb577b88e400758ea64109937bb514ab8171fe9c5613138928ac232a3844dc6'
             # archlinux patches
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
-            '863f4d199f333fbbba9d42c287b566050d3716bfbd5aed9acf1f3745f8df3a2f'
+            'c3d1a6d86ee212a8735d5d51e13d5c6ddbd7b24c591536e256d6353551c9e059'
+            'f8289aff15333d2d3f086a9602028113b001f01dc51dae9ad9701c45e0535b9f'
             # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
