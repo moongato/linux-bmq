@@ -76,7 +76,7 @@ _gcc_more_v='20200615'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
 _bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200708.patch
-_fsgsbase_path=fsgsbase-patches-v5
+_fsgsbase_path=fsgsbase-patches-v6
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -115,7 +115,7 @@ sha256sums=('afb577b88e400758ea64109937bb514ab8171fe9c5613138928ac232a3844dc6'
             'de2cce150829e41e386445620119c3bcaac89032fb4fb1442a8674f616184368'
             'f138a2f53ca01e86e0ab9681bc2815dbc54022cba4fa3f8e6dbeab0d61c152c4'
             # fsgsbase patch
-            '2e0e8413302c2b6cd4e7ee6960198eb0cd9cc3e80c52b6f14054a196f0f48984'
+            'd9a6c35b1e00013d2db427d06bca16fef99dfdbd5f4582b05c5266dbaed9460d'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # project c build fix
