@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.7.7
+pkgver=5.7.8
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -75,7 +75,7 @@ _prjc_patch="prjc_v5.7-r2.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200702.patch
+_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200708.patch
 _fsgsbase_path=fsgsbase-patches-v5
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
@@ -93,7 +93,6 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
   0003-ALSA-usb-audio-Fix-packet-size-calculation.patch
-  0004-drm-amd-display-Only-revalidate-bandwidth-on-medium-and-fast-updates.patch  
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -101,7 +100,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('f840b9679283343c165516585c3070ebb277528721c890e9410a58e9d071ee7f'
+sha256sums=('afb577b88e400758ea64109937bb514ab8171fe9c5613138928ac232a3844dc6'
             'SKIP'
             # config
             'a8ce014943bf516ffff171c8958d13a8df15156bb32f17375a078119cfa111d9'
@@ -113,7 +112,7 @@ sha256sums=('f840b9679283343c165516585c3070ebb277528721c890e9410a58e9d071ee7f'
             'c28dc0d30bba3eedae9f5cf98a686bdfb25a0326df4e8c417d37a36597d21b37'
             # bfq patch
             'de2cce150829e41e386445620119c3bcaac89032fb4fb1442a8674f616184368'
-            '5903578dbec631d77eb3fa2c5c2fdf1e163f208a1451e2adeaf375e45f2646c8'
+            'f138a2f53ca01e86e0ab9681bc2815dbc54022cba4fa3f8e6dbeab0d61c152c4'
             # fsgsbase patch
             '2e0e8413302c2b6cd4e7ee6960198eb0cd9cc3e80c52b6f14054a196f0f48984'
             # enable-O3
@@ -121,11 +120,9 @@ sha256sums=('f840b9679283343c165516585c3070ebb277528721c890e9410a58e9d071ee7f'
             # project c build fix
             '764423b197bba734ccdb8ba301d48744c14df678175f4a6570d2c37ef9fe7ab9'
             # archlinux patches
-            # 0001-ZEN-Add-sysctl-and-CONFIG
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
             '863f4d199f333fbbba9d42c287b566050d3716bfbd5aed9acf1f3745f8df3a2f'
-            '495d52edab5e226d24aeb3467f5f31366cf268b0cdfa6ea714e162e01067a0eb'
             # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
