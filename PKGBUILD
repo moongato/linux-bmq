@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.7.8
+pkgver=5.7.9
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -92,8 +92,7 @@ source=(
   0001-sched-alt-Fix-compilation-issue-when-CONFIG_SCHED_TR.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
-  0003-Revert-ath9k-Fix-general-protection-fault-in-ath9k_hif_usb_rx_cb.patch
-  0004-iwlwifi-Make-some-Killer-Wireless-AC-1550-cards-working-again.patch
+  0003-iwlwifi-Make-some-Killer-Wireless-AC-1550-cards-working-again.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -101,7 +100,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('afb577b88e400758ea64109937bb514ab8171fe9c5613138928ac232a3844dc6'
+sha256sums=('a87d3066a7849cd6ba9a004311a9ee0402d29d17f12f64ad7d942447070b43f8'
             'SKIP'
             # config
             'a8ce014943bf516ffff171c8958d13a8df15156bb32f17375a078119cfa111d9'
@@ -123,7 +122,6 @@ sha256sums=('afb577b88e400758ea64109937bb514ab8171fe9c5613138928ac232a3844dc6'
             # archlinux patches
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
-            'c3d1a6d86ee212a8735d5d51e13d5c6ddbd7b24c591536e256d6353551c9e059'
             'f8289aff15333d2d3f086a9602028113b001f01dc51dae9ad9701c45e0535b9f'
             # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
