@@ -93,6 +93,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
   0003-iwlwifi-Make-some-Killer-Wireless-AC-1550-cards-working-again.patch
+  0004-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
   sphinx-workaround.patch
   )
 validpgpkeys=(
@@ -123,6 +124,7 @@ sha256sums=('a87d3066a7849cd6ba9a004311a9ee0402d29d17f12f64ad7d942447070b43f8'
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
             'f8289aff15333d2d3f086a9602028113b001f01dc51dae9ad9701c45e0535b9f'
+            '095804fb1045f6ccb52825d0d8c3aad1237e919f30586034267918a15d1249f6'          
             # sphinx-workaround  
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
 
