@@ -75,12 +75,13 @@ _prjc_patch="prjc_v5.7-r2.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200708.patch
+_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200720.patch
 _fsgsbase_path=fsgsbase-patches-v6
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
+  sphinx-workaround.patch
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/projectc/-/raw/master/5.7/${_prjc_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bmq-tkg-patches/${_bmq_patch}
@@ -94,7 +95,6 @@ source=(
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
   0003-iwlwifi-Make-some-Killer-Wireless-AC-1550-cards-working-again.patch
   0004-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
-  sphinx-workaround.patch
   )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -105,6 +105,8 @@ sha256sums=('a87d3066a7849cd6ba9a004311a9ee0402d29d17f12f64ad7d942447070b43f8'
             'SKIP'
             # config
             'a8ce014943bf516ffff171c8958d13a8df15156bb32f17375a078119cfa111d9'
+            # sphinx-workaround
+            '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # project-c patch
@@ -113,7 +115,7 @@ sha256sums=('a87d3066a7849cd6ba9a004311a9ee0402d29d17f12f64ad7d942447070b43f8'
             'c28dc0d30bba3eedae9f5cf98a686bdfb25a0326df4e8c417d37a36597d21b37'
             # bfq patch
             'de2cce150829e41e386445620119c3bcaac89032fb4fb1442a8674f616184368'
-            'f138a2f53ca01e86e0ab9681bc2815dbc54022cba4fa3f8e6dbeab0d61c152c4'
+            'f91540cb15ed56c4d0e2bc7a2dfe9ca1ae7bc28e18c2189f2febec24396851a8'
             # fsgsbase patch
             'd9a6c35b1e00013d2db427d06bca16fef99dfdbd5f4582b05c5266dbaed9460d'
             # enable-O3
@@ -124,9 +126,7 @@ sha256sums=('a87d3066a7849cd6ba9a004311a9ee0402d29d17f12f64ad7d942447070b43f8'
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
             'f8289aff15333d2d3f086a9602028113b001f01dc51dae9ad9701c45e0535b9f'
-            '095804fb1045f6ccb52825d0d8c3aad1237e919f30586034267918a15d1249f6'          
-            # sphinx-workaround  
-            '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c')
+            '095804fb1045f6ccb52825d0d8c3aad1237e919f30586034267918a15d1249f6')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
