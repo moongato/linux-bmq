@@ -94,7 +94,8 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
   0003-iwlwifi-Make-some-Killer-Wireless-AC-1550-cards-working-again.patch
-  )
+  0004-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
+)
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
@@ -124,7 +125,8 @@ sha256sums=('4725430c65b7573b7d26c402dd9ffdad18529a302ce2e342c849e7800f193d44'
             # archlinux patches
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
-            'f8289aff15333d2d3f086a9602028113b001f01dc51dae9ad9701c45e0535b9f')
+            'f8289aff15333d2d3f086a9602028113b001f01dc51dae9ad9701c45e0535b9f'
+            'd3a4c90f485238a284ee9e301a7c8a400468dae5357c43412d842dcd4077c93a')          
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
