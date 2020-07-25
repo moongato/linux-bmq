@@ -65,7 +65,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.7.10
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -75,7 +75,7 @@ _prjc_patch="prjc_v5.7-r2.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.7.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.7-bfq-dev-lucjan-v11-r2K200720.patch
+_bfq_patch=5.7-bfq-dev-lucjan-v12-r2K200723.patch
 _fsgsbase_path=fsgsbase-patches-v6
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
@@ -115,7 +115,7 @@ sha256sums=('4725430c65b7573b7d26c402dd9ffdad18529a302ce2e342c849e7800f193d44'
             'c28dc0d30bba3eedae9f5cf98a686bdfb25a0326df4e8c417d37a36597d21b37'
             # bfq patch
             'de2cce150829e41e386445620119c3bcaac89032fb4fb1442a8674f616184368'
-            'f91540cb15ed56c4d0e2bc7a2dfe9ca1ae7bc28e18c2189f2febec24396851a8'
+            'fc3c101e6b639364e2113710e60f46a98c461e662da75da38d73250fb2813ef3'
             # fsgsbase patch
             'd9a6c35b1e00013d2db427d06bca16fef99dfdbd5f4582b05c5266dbaed9460d'
             # enable-O3
