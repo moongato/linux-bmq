@@ -93,6 +93,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
   0003-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
+  0004-drm-amd-display-Clear-dm_state-for-fast-updates.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -102,7 +103,7 @@ validpgpkeys=(
 sha256sums=('93293032aa13c3998eeb2afd910f11c0f2e8a76ffec46f74ce3fcfac53ed60f1'
             'SKIP'
             # config
-            'a8ce014943bf516ffff171c8958d13a8df15156bb32f17375a078119cfa111d9'
+            'e1008c32b30f303913fe0f2e4dedfcf15160055bbac4913e2face4ede3f6b5ec'
             # sphinx-workaround
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
@@ -121,7 +122,9 @@ sha256sums=('93293032aa13c3998eeb2afd910f11c0f2e8a76ffec46f74ce3fcfac53ed60f1'
             # archlinux patches
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
-            'd3a4c90f485238a284ee9e301a7c8a400468dae5357c43412d842dcd4077c93a')          
+            'd3a4c90f485238a284ee9e301a7c8a400468dae5357c43412d842dcd4077c93a'
+            'db7514d46216b85e56a63fbd09be705f03ba32901e940c85caa85262c79c32e1'
+)          
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
