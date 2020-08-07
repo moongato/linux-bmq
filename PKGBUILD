@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.7.12
+pkgver=5.7.13
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -93,14 +93,13 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0002-PCI-EDR-Log-only-ACPI_NOTIFY_DISCONNECT_RECOVER-events.patch
   0003-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
-  0004-drm-amd-display-Clear-dm_state-for-fast-updates.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('7a54cf89d7198d99004495c0e3a25d3af05c5d5b70cccf92237f603d7fa15e08'
+sha256sums=('720cca6928590d6c0757426cf05f0b95cfcbdfede970399ff2d0873d8bc49262'
             'SKIP'
             # config
             'e1008c32b30f303913fe0f2e4dedfcf15160055bbac4913e2face4ede3f6b5ec'
@@ -123,7 +122,6 @@ sha256sums=('7a54cf89d7198d99004495c0e3a25d3af05c5d5b70cccf92237f603d7fa15e08'
             '211d7bcd02f146b28daecfeff410c66834b8736de1cad09158f8ec9ecccdcca6'
             '69dfd528a2ad7a57a5036c9250a2f99dc815eef011cdc17c323c49affdb051de'
             'd3a4c90f485238a284ee9e301a7c8a400468dae5357c43412d842dcd4077c93a'
-            'db7514d46216b85e56a63fbd09be705f03ba32901e940c85caa85262c79c32e1'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
