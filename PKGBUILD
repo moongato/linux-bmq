@@ -65,13 +65,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.8.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_prjc_patch="prjc_v5.8-r0.patch"
+_prjc_patch="prjc_v5.8-r1.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.8.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
@@ -107,7 +107,7 @@ sha256sums=('f8d2a4fe938ff7faa565765a52e347e518a0712ca6ddd41b198bd9cc1626a724'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # project-c patch
-            'fc419a83cc69118d1fd517f86ce47593db8837d6546a2553002a46ee3453237b'
+            '1656a20d3bab28c72e004778f77e880bba8d02eba8d18a81558cdc9d6733b1f1'
             # uksm patch
             '0389c65d8357f8b22f65aceaf9ceda5a3c76e60ca34f713ff9a09ec379f51dc7'
             # bfq patch
