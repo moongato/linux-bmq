@@ -101,7 +101,7 @@ validpgpkeys=(
 sha256sums=('9d4ec36b158734f86e583a56f5a03721807d606ea1df6a97e6dd993ea605947f'
             'SKIP'
             # config
-            '06897fc97157dd2f9756e8fba7d05599c990e9a18c1fd64e4760b8483c3d60c2'
+            '9718028699d48745436955cad3bd5757bca1e3f8fb3da8c5a9251bb75daf9d8b'
             # sphinx-workaround
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
