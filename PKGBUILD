@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.8.4
+pkgver=5.8.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -75,7 +75,7 @@ _prjc_patch="prjc_v5.8-r1.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.8.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.8-bfq-dev-lucjan-v12-r2K200803.patch
+_bfq_patch=5.8-bfq-dev-lucjan-v12-r2K200819.patch
 _fsgsbase_path=fsgsbase-patches-v2
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
@@ -98,7 +98,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('db0d92332e8a48a078dc3db1fba250539ac3f13913e01c32eece4ccd45fa1e96'
+sha256sums=('9d4ec36b158734f86e583a56f5a03721807d606ea1df6a97e6dd993ea605947f'
             'SKIP'
             # config
             '06897fc97157dd2f9756e8fba7d05599c990e9a18c1fd64e4760b8483c3d60c2'
@@ -112,7 +112,7 @@ sha256sums=('db0d92332e8a48a078dc3db1fba250539ac3f13913e01c32eece4ccd45fa1e96'
             '0389c65d8357f8b22f65aceaf9ceda5a3c76e60ca34f713ff9a09ec379f51dc7'
             # bfq patch
             '88f691be0f82eb16718e0df1eea0a52759879e1677a0e1bb99ddec348040b0d2'
-            'b44c010348ba7ea446cabe1b8739852b6bb266b1b8b14c02ac9bdf7ba1aee4aa'
+            '1578a40f6a44c7d02b4d8ba07de8543177c13890595dfffc34cf57ef0e5df0d1'
             # fsgsbase patch
             '27345951e9cd308da8f70c6d0b57f11745a67c61c3df017f3eba6242b045e63b'
             # enable-O3
