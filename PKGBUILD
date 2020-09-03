@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.8.5
+pkgver=5.8.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -86,7 +86,7 @@ source=(
   https://gitlab.com/alfredchen/projectc/-/raw/master/5.8/${_prjc_patch}
   #https://github.com/sirlucjan/kernel-patches/raw/master/5.7/bmq-tkg-patches/${_bmq_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-reverts-all/${_bfq_rev_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-reverts-v2-all/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-dev-lucjan/${_bfq_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.8/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
@@ -98,10 +98,10 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('9d4ec36b158734f86e583a56f5a03721807d606ea1df6a97e6dd993ea605947f'
+sha256sums=('8ca500ed7b2ed68f004560ea4c6b02c902f8fe1d62ace7a29a5e38a0909a0ba0'
             'SKIP'
             # config
-            '9718028699d48745436955cad3bd5757bca1e3f8fb3da8c5a9251bb75daf9d8b'
+            '1b17a68870979b6a31981b81dd41128f963bc2eff32238703e17d231410ef417'
             # sphinx-workaround
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
@@ -111,7 +111,7 @@ sha256sums=('9d4ec36b158734f86e583a56f5a03721807d606ea1df6a97e6dd993ea605947f'
             # uksm patch
             '0389c65d8357f8b22f65aceaf9ceda5a3c76e60ca34f713ff9a09ec379f51dc7'
             # bfq patch
-            '88f691be0f82eb16718e0df1eea0a52759879e1677a0e1bb99ddec348040b0d2'
+            '6e7785ac437243165302b889a3bc0cdcdfc25aa1090e2f876fe60b624f6cb872'
             '1578a40f6a44c7d02b4d8ba07de8543177c13890595dfffc34cf57ef0e5df0d1'
             # fsgsbase patch
             '27345951e9cd308da8f70c6d0b57f11745a67c61c3df017f3eba6242b045e63b'
