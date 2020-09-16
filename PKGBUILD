@@ -65,13 +65,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.8.9
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_prjc_patch="0009-prjc_v5.8-r2.patch"
+_prjc_patch="prjc_v5.8-r3.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.8.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
@@ -83,8 +83,8 @@ source=(
   config         # the main kernel config file
   sphinx-workaround.patch
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  #https://gitlab.com/alfredchen/projectc/-/raw/master/5.8/${_prjc_patch}
-  https://github.com/Frogging-Family/linux-tkg/raw/master/linux58-tkg/linux58-tkg-patches/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.8/${_prjc_patch}
+  #https://github.com/Frogging-Family/linux-tkg/raw/master/linux58-tkg/linux58-tkg-patches/${_prjc_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-reverts-v2-all/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-dev-lucjan/${_bfq_patch}
@@ -93,6 +93,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
   0003-block-restore-a-specific-error-code-in-bdev_del_partition.patch
+  00_v5.8_r0_disable_wake_list.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -108,7 +109,7 @@ sha256sums=('99d8bc1b82f17d7d79f9af4a94af4c0e3772159e9e6e278761bde8569f93e15f'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # project-c patch
-            'eee99d2a6c681ba22de02c39e60ae7293506142796f19257c219e5d206a56753'
+            'f5dbff4833a2e3ca94c202e5197894d5f1006c689ff149355353e77d2e17c943'
             # uksm patch
             '0389c65d8357f8b22f65aceaf9ceda5a3c76e60ca34f713ff9a09ec379f51dc7'
             # bfq patch
@@ -122,6 +123,8 @@ sha256sums=('99d8bc1b82f17d7d79f9af4a94af4c0e3772159e9e6e278761bde8569f93e15f'
             '49a2dd5231e2a492c7d31f165f679ea203e91fe12a472d3b0074f539d17caa63'
             '754a7eb440e822584bb78f4662af87b03a00565b07319630e189de0e753a485b'
             '7dfac2dbd5dbf00dc182ec82569ab1f8dd3a82ac7d5434e826a2ccac413f732b'
+            # test project-c fix
+            'cc01c683ba7fc19ccd167fa022203a8212d84dde86af985fbd02b403e6e3d8f5'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
