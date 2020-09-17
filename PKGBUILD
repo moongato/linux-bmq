@@ -64,8 +64,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.8.9
-pkgrel=2
+pkgver=5.8.10
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -92,7 +92,6 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
-  0003-block-restore-a-specific-error-code-in-bdev_del_partition.patch
   00_v5.8_r0_disable_wake_list.patch
 )
 validpgpkeys=(
@@ -100,7 +99,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('99d8bc1b82f17d7d79f9af4a94af4c0e3772159e9e6e278761bde8569f93e15f'
+sha256sums=('9d6e126a7fad618a477540e242f148f7d61e0116b500312f788ac63e126b5af2'
             'SKIP'
             # config
             '1b17a68870979b6a31981b81dd41128f963bc2eff32238703e17d231410ef417'
@@ -122,7 +121,6 @@ sha256sums=('99d8bc1b82f17d7d79f9af4a94af4c0e3772159e9e6e278761bde8569f93e15f'
             # archlinux patches
             '49a2dd5231e2a492c7d31f165f679ea203e91fe12a472d3b0074f539d17caa63'
             '754a7eb440e822584bb78f4662af87b03a00565b07319630e189de0e753a485b'
-            '7dfac2dbd5dbf00dc182ec82569ab1f8dd3a82ac7d5434e826a2ccac413f732b'
             # test project-c fix
             'cc01c683ba7fc19ccd167fa022203a8212d84dde86af985fbd02b403e6e3d8f5'
 )          
