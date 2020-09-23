@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.8.10
+pkgver=5.8.11
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -75,7 +75,7 @@ _prjc_patch="prjc_v5.8-r3.patch"
 _gcc_more_v='20200615'
 _uksm_patch=uksm-5.8.patch
 _bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.8-bfq-dev-lucjan-v12-r2K200909.patch
+_bfq_patch=5.8-bfq-dev-lucjan-v13-r2K200922.patch
 _fsgsbase_path=fsgsbase-patches-v2
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
@@ -86,7 +86,7 @@ source=(
   https://gitlab.com/alfredchen/projectc/-/raw/master/5.8/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux58-tkg/linux58-tkg-patches/${_prjc_patch}
   https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-reverts-v2-all/${_bfq_rev_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-reverts-v3-all/${_bfq_rev_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-dev-lucjan/${_bfq_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.8/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
@@ -99,7 +99,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('9d6e126a7fad618a477540e242f148f7d61e0116b500312f788ac63e126b5af2'
+sha256sums=('3e5940ceb4b7a462c4886ab52ca3a957287951e2058c34694b14ff1e73f6c04b'
             'SKIP'
             # config
             '1b17a68870979b6a31981b81dd41128f963bc2eff32238703e17d231410ef417'
@@ -112,8 +112,8 @@ sha256sums=('9d6e126a7fad618a477540e242f148f7d61e0116b500312f788ac63e126b5af2'
             # uksm patch
             '0389c65d8357f8b22f65aceaf9ceda5a3c76e60ca34f713ff9a09ec379f51dc7'
             # bfq patch
-            '6e7785ac437243165302b889a3bc0cdcdfc25aa1090e2f876fe60b624f6cb872'
-            '8ea5870b7e0f7be60e859d112f54554c8c2b84b0f9069603ec5e91c2ebe3efd7'
+            'c61390441d8e06e1f903ad7ff2160d9e72f1d3b7c57d5cf9919de1aceb3adef5'
+            '40f5ca1c854db83738f48628f7abc0494f0cbf8aff18d72f220f3000be593439'
             # fsgsbase patch
             '27345951e9cd308da8f70c6d0b57f11745a67c61c3df017f3eba6242b045e63b'
             # enable-O3
