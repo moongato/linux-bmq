@@ -64,65 +64,44 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.8.14
+pkgver=5.9
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_prjc_patch="prjc_v5.8-r3.patch"
+_prjc_patch="0009-prjc_v5.9-r0.patch"
 _gcc_more_v='20200615'
-_uksm_patch=uksm-5.8.patch
-_bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_patch=5.8-bfq-dev-lucjan-v13-r2K200929.patch
-_fsgsbase_path=fsgsbase-patches-v2
-_fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   sphinx-workaround.patch
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.8/${_prjc_patch}
-  #https://github.com/Frogging-Family/linux-tkg/raw/master/linux58-tkg/linux58-tkg-patches/${_prjc_patch}
-  https://github.com/dolohow/uksm/raw/master/v5.x/${_uksm_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-reverts-v3-all/${_bfq_rev_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/bfq-dev-lucjan/${_bfq_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.8/${_fsgsbase_path}/${_fsgsbase_patch}
+  #https://gitlab.com/alfredchen/projectc/-/raw/master/5.9/${_prjc_patch}
+  https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-virt-vbox-Add-support-for-the-new-VBG_IOCTL_ACQUIRE_GUEST_CAP.patch
-  00_v5.8_r0_disable_wake_list.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('ee767991808d234ad9acd17f0ba94ba7979d30c528876bee6fba337ea540f0af'
+sha256sums=('3239a4ee1250bf2048be988cc8cb46c487b2c8a0de5b1b032d38394d5c6b1a06'
             'SKIP'
             # config
-            '29a0934c6d9665edf052eb21b55d8492c8e36ca8c16b62e8ed59aa82dd155eee'
+            '42d17d641e411e97f474e7626fe22d1e63c87d98e5e03c679a11615fa52c53fb'
             # sphinx-workaround
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # project-c patch
-            'f5dbff4833a2e3ca94c202e5197894d5f1006c689ff149355353e77d2e17c943'
-            # uksm patch
-            '0389c65d8357f8b22f65aceaf9ceda5a3c76e60ca34f713ff9a09ec379f51dc7'
-            # bfq patch
-            'c61390441d8e06e1f903ad7ff2160d9e72f1d3b7c57d5cf9919de1aceb3adef5'
-            'b3dba3f218da55118482c2b9b9519d3509b057f5312189cffbe08a7d03d7fbc2'
-            # fsgsbase patch
-            '27345951e9cd308da8f70c6d0b57f11745a67c61c3df017f3eba6242b045e63b'
+            '88c7e308e474c845e0cc09e09bd223fc39876eca757abf6d6c3b8321f49ce1f1'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
-            '49a2dd5231e2a492c7d31f165f679ea203e91fe12a472d3b0074f539d17caa63'
-            '754a7eb440e822584bb78f4662af87b03a00565b07319630e189de0e753a485b'
-            # test project-c fix
-            'cc01c683ba7fc19ccd167fa022203a8212d84dde86af985fbd02b403e6e3d8f5'
+            '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
