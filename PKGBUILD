@@ -73,6 +73,8 @@ makedepends=(bc kmod libelf)
 options=('!strip')
 _prjc_patch="0009-prjc_v5.9-r0.patch"
 _gcc_more_v='20200615'
+_fsgsbase_path=fsgsbase-patches
+_fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -80,6 +82,7 @@ source=(
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   #https://gitlab.com/alfredchen/projectc/-/raw/master/5.9/${_prjc_patch}
   https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
+  https://github.com/sirlucjan/kernel-patches/raw/master/5.9/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
 )
@@ -98,6 +101,8 @@ sha256sums=('3239a4ee1250bf2048be988cc8cb46c487b2c8a0de5b1b032d38394d5c6b1a06'
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # project-c patch
             '88c7e308e474c845e0cc09e09bd223fc39876eca757abf6d6c3b8321f49ce1f1'
+            # fsgsbase patch
+            '0e96c601736fa7eda7d071e00ff61573ee0e3619ad27986a4c8ad997bc662bb5' 
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
