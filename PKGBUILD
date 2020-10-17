@@ -85,6 +85,7 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.9/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-i2c-core-Restore-acpi_walk_dep_device_list-getting-called-after-registering-the-ACPI.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -107,6 +108,7 @@ sha256sums=('ba4a11e93896305835c630969cf330ae808b0e43f09b375b510cde1bd0efc036'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
+            'e06508b783c3aecbe4048cae75ea1edbebc9bd18c247d4d252fdea628ea735f6'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
