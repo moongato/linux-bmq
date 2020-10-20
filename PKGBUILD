@@ -65,13 +65,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.9.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_prjc_patch="0009-prjc_v5.9-r0.patch"
+_prjc_patch="prjc_v5.9-r1.patch"
 _gcc_more_v='20200615'
 _fsgsbase_path=fsgsbase-patches
 _fsgsbase_patch=0001-fsgsbase-patches.patch
@@ -80,12 +80,13 @@ source=(
   config         # the main kernel config file
   sphinx-workaround.patch
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  #https://gitlab.com/alfredchen/projectc/-/raw/master/5.9/${_prjc_patch}
-  https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.9/${_prjc_patch}
+  #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   https://github.com/sirlucjan/kernel-patches/raw/master/5.9/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-i2c-core-Restore-acpi_walk_dep_device_list-getting-called-after-registering-the-ACPI.patch
+  sched-alt-Fix-compilation-when-NR_CPUS-over-64.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -101,7 +102,7 @@ sha256sums=('ba4a11e93896305835c630969cf330ae808b0e43f09b375b510cde1bd0efc036'
             # gcc patch
             '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
             # project-c patch
-            '88c7e308e474c845e0cc09e09bd223fc39876eca757abf6d6c3b8321f49ce1f1'
+            'a18dee6e4eeb677adef61b4e695cbb800a9aa88e3f6673a6dcfef8a840dee0cc'
             # fsgsbase patch
             '0e96c601736fa7eda7d071e00ff61573ee0e3619ad27986a4c8ad997bc662bb5' 
             # enable-O3
@@ -109,6 +110,8 @@ sha256sums=('ba4a11e93896305835c630969cf330ae808b0e43f09b375b510cde1bd0efc036'
             # archlinux patches
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
             'e06508b783c3aecbe4048cae75ea1edbebc9bd18c247d4d252fdea628ea735f6'
+            # project-c compilation fix
+            '7cc22759cb74e884b2dcd603d760adb451fd1f2e5d24d472c32811b254566b7a'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
