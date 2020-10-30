@@ -64,8 +64,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.9.1
-pkgrel=2
+pkgver=5.9.2
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -85,7 +85,7 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.9/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-i2c-core-Restore-acpi_walk_dep_device_list-getting-called-after-registering-the-ACPI.patch
+  0002-mac80211-fix-regression-where-EAPOL-frames-were-sent-in-plaintext.patch
   sched-alt-Fix-compilation-when-NR_CPUS-over-64.patch
 )
 validpgpkeys=(
@@ -93,7 +93,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('ba4a11e93896305835c630969cf330ae808b0e43f09b375b510cde1bd0efc036'
+sha256sums=('51f4eced91a95206946a0f1449e3f883bb3b300baa2f7f493e4c899a7d640236'
             'SKIP'
             # config
             '42d17d641e411e97f474e7626fe22d1e63c87d98e5e03c679a11615fa52c53fb'
@@ -109,7 +109,7 @@ sha256sums=('ba4a11e93896305835c630969cf330ae808b0e43f09b375b510cde1bd0efc036'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
-            'e06508b783c3aecbe4048cae75ea1edbebc9bd18c247d4d252fdea628ea735f6'
+            '8dc9a19c75835b5eb903384295c2d9e17ef7d7ff61f4fed3f4db2c299ab0ca2c'
             # project-c compilation fix
             '7cc22759cb74e884b2dcd603d760adb451fd1f2e5d24d472c32811b254566b7a'
 )          
