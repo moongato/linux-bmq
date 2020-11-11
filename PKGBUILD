@@ -86,6 +86,7 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   sched-alt-Fix-compilation-when-NR_CPUS-over-64.patch
+  0000-glitched-ondemand.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -95,7 +96,7 @@ validpgpkeys=(
 sha256sums=('7656733b316562662026ac82a7c0be41440e16bbf1bdc5447b119e34ff3b86a6'
             'SKIP'
             # config
-            '42d17d641e411e97f474e7626fe22d1e63c87d98e5e03c679a11615fa52c53fb'
+            '4e2d4f0872386ef49307ee795a881556312f71dd8ae8ae88d872d76c5ff56ae1'
             # sphinx-workaround
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
@@ -110,6 +111,8 @@ sha256sums=('7656733b316562662026ac82a7c0be41440e16bbf1bdc5447b119e34ff3b86a6'
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
             # project-c compilation fix
             '7cc22759cb74e884b2dcd603d760adb451fd1f2e5d24d472c32811b254566b7a'
+            # glitched-ondemand patch
+            '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
