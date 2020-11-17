@@ -65,14 +65,14 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.9.8
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
 _prjc_patch="prjc_v5.9-r1.patch"
-_gcc_more_v='20200615'
+_gcc_more_v='20201113'
 _fsgsbase_path=fsgsbase-patches-v3
 _fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
@@ -100,7 +100,7 @@ sha256sums=('7656733b316562662026ac82a7c0be41440e16bbf1bdc5447b119e34ff3b86a6'
             # sphinx-workaround
             '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
             # gcc patch
-            '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
+            '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
             'a18dee6e4eeb677adef61b4e695cbb800a9aa88e3f6673a6dcfef8a840dee0cc'
             # fsgsbase patch
