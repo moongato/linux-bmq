@@ -64,8 +64,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.9.8
-pkgrel=2
+pkgver=5.9.9
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -85,6 +85,7 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/5.9/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch
   sched-alt-Fix-compilation-when-NR_CPUS-over-64.patch
   0000-glitched-ondemand.patch
 )
@@ -93,7 +94,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('7656733b316562662026ac82a7c0be41440e16bbf1bdc5447b119e34ff3b86a6'
+sha256sums=('a302d386af1278e7a8c0c2cd9a3b2119a18620eccc1f069b0f23e405bcf61fad'
             'SKIP'
             # config
             '4e2d4f0872386ef49307ee795a881556312f71dd8ae8ae88d872d76c5ff56ae1'
@@ -109,6 +110,7 @@ sha256sums=('7656733b316562662026ac82a7c0be41440e16bbf1bdc5447b119e34ff3b86a6'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
+            '9fecc2766e8afd23862db5874cd994669109995527b6a586e290d906bf5cbb1d' 
             # project-c compilation fix
             '7cc22759cb74e884b2dcd603d760adb451fd1f2e5d24d472c32811b254566b7a'
             # glitched-ondemand patch
