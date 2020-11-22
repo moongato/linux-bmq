@@ -64,8 +64,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.9.9
-pkgrel=2
+pkgver=5.9.10
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -93,7 +93,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('a302d386af1278e7a8c0c2cd9a3b2119a18620eccc1f069b0f23e405bcf61fad'
+sha256sums=('f591b2f2e939ae6bd35cae2dc3cb87f9472e439695df7f23ed0a341a2c66f030'
             'SKIP'
             # config
             '4e2d4f0872386ef49307ee795a881556312f71dd8ae8ae88d872d76c5ff56ae1'
@@ -138,15 +138,27 @@ prepare() {
   echo "Setting config..."
   cp ../config .config
 
+  # disable CONFIG_DEBUG_INFO=y at build time otherwise memory usage blows up
+  # and can easily overwhelm a system with 32 GB of memory using a tmpfs build
+  # partition ... this was introduced by FS#66260, see:
+  # https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux&id=663b08666b269eeeeaafbafaee07fd03389ac8d7
+  sed -i -e 's/CONFIG_DEBUG_INFO=y/# CONFIG_DEBUG_INFO is not set/' \
+      -i -e '/CONFIG_DEBUG_INFO_DWARF4=y/d' \
+      -i -e '/CONFIG_DEBUG_INFO_BTF=y/d' ./.config
+
   # https://bbs.archlinux.org/viewtopic.php?pid=1824594#p1824594
   sed -i -e 's/# CONFIG_PSI_DEFAULT_DISABLED is not set/CONFIG_PSI_DEFAULT_DISABLED=y/' ./.config
 
-  # disable CONFIG_DEBUG_INFO=y at build time introduced in this commit
-  # https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux&id=663b08666b269eeeeaafbafaee07fd03389ac8d7
-  sed -i -e 's/CONFIG_DEBUG_INFO=y/# CONFIG_DEBUG_INFO is not set/' \
-      -i -e '/CONFIG_DEBUG_INFO_DWARF4=y/d' -i -e '/CONFIG_DEBUG_INFO_BTF=y/d' ./.config
+  # https://bbs.archlinux.org/viewtopic.php?pid=1863567#p1863567
+  sed -i -e '/CONFIG_LATENCYTOP=/ s,y,n,' \
+      -i -e '/CONFIG_SCHED_DEBUG=/ s,y,n,' ./.config
+
+  # FS#66613
+  # https://bugzilla.kernel.org/show_bug.cgi?id=207173#c6
+  sed -i -e 's/CONFIG_KVM_WERROR=y/# CONFIG_KVM_WERROR is not set/' ./.config
 
   # https://github.com/graysky2/kernel_gcc_patch
+  # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
   patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v10.1+_kernel_v5.8+.patch"
 
