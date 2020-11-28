@@ -65,7 +65,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.9.11
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -86,6 +86,8 @@ source=(
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch
+  0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
+  0004-efivarfs-revert-fix-memory-leak-in-efivarfs_create.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -109,7 +111,9 @@ sha256sums=('5eb20a65a410669928f94b3975872e493fa6d0fe441c6a78b7564affa2a5d260'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
-            '9fecc2766e8afd23862db5874cd994669109995527b6a586e290d906bf5cbb1d' 
+            '9fecc2766e8afd23862db5874cd994669109995527b6a586e290d906bf5cbb1d'
+            'e216346f7c7761a53b76dea0638898e52aac9e4527a64893c9dfa9936b3c5a0d'
+            '2fd5ce56d3272b05cdd3e4dc3ebc3deb8b0f1c7893d342f5ae295bf7213cced5'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
