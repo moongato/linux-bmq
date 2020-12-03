@@ -64,8 +64,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.9.11
-pkgrel=2
+pkgver=5.9.12
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -87,7 +87,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch
   0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
-  0004-efivarfs-revert-fix-memory-leak-in-efivarfs_create.patch
+  0004-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -95,7 +95,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('5eb20a65a410669928f94b3975872e493fa6d0fe441c6a78b7564affa2a5d260'
+sha256sums=('d97f56192e3474c9c8a44ca39957d51800a26497c9a13c9c5e8cc0f1f5b0d9bd'
             'SKIP'
             # config
             '268862d5bfa523c540edfe51307513b39dc6ca3c8404afa764942e42e14cafd7'
@@ -113,7 +113,7 @@ sha256sums=('5eb20a65a410669928f94b3975872e493fa6d0fe441c6a78b7564affa2a5d260'
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
             '9fecc2766e8afd23862db5874cd994669109995527b6a586e290d906bf5cbb1d'
             'e216346f7c7761a53b76dea0638898e52aac9e4527a64893c9dfa9936b3c5a0d'
-            '2fd5ce56d3272b05cdd3e4dc3ebc3deb8b0f1c7893d342f5ae295bf7213cced5'
+            '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
