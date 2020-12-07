@@ -65,13 +65,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.9.12
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf)
 options=('!strip')
-_prjc_patch="prjc_v5.9-r2.patch"
+_prjc_patch="prjc_v5.9-r3.patch"
 _gcc_more_v='20201113'
 _fsgsbase_path=fsgsbase-patches-v3
 _fsgsbase_patch=0001-fsgsbase-patches.patch
@@ -104,7 +104,7 @@ sha256sums=('d97f56192e3474c9c8a44ca39957d51800a26497c9a13c9c5e8cc0f1f5b0d9bd'
             # gcc patch
             '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
-            '11d2343174e5486e8ea1a1e98f9f6f1a1625043f6547484f5a729a83f94336eb'
+            '0d5fe3a9050536fe431564b221badb85af7ff57b330e3978ae90d21989fcad2d'
             # fsgsbase patch
             '8206b8fd7a6b545567fb7951baa3612dcb9dd0b885bdfee33ac692b37a0f5602' 
             # enable-O3
