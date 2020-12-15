@@ -64,49 +64,42 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.9.14
+pkgver=5.10.1
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.9-r3.patch"
+_prjc_patch="prjc_v5.10-r0.patch"
 _gcc_more_v='20201113'
-_fsgsbase_path=fsgsbase-patches-v3
-_fsgsbase_patch=0001-fsgsbase-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
-  sphinx-workaround.patch
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.9/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.10/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
-  https://github.com/sirlucjan/kernel-patches/raw/master/5.9/${_fsgsbase_path}/${_fsgsbase_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch
   0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
   0004-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
   0000-glitched-ondemand.patch
+  sched-bmq-fix-compilation-issue.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('39fcfb41dcdf71b6b42b88eff3d8cedbe7523830ccae847f3914c0b97e1e6b49'
+sha256sums=('ed1661128c9bd3e8c9f55e345f715b90fefcf6b127c77e0286773242e7a14e5c'
             'SKIP'
             # config
-            'e59004837ff5fac5e1ffe36fe6255ae6e2ffa176832339719f8c94b7d33112bb'
-            # sphinx-workaround
-            '8cb21e0b3411327b627a9dd15b8eb773295a0d2782b1a41b2a8839d1b2f5778c'
+            'd4b7feed3a3acdb082c5debd59245e08f76c64bc44f22a3f30c4a2006028ff29'
             # gcc patch
             '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
-            '0d5fe3a9050536fe431564b221badb85af7ff57b330e3978ae90d21989fcad2d'
-            # fsgsbase patch
-            '8206b8fd7a6b545567fb7951baa3612dcb9dd0b885bdfee33ac692b37a0f5602' 
+            'c170927afc35fab46856ae71cbc85cc5d46909846a001b10e997297c3938da2e'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
@@ -116,6 +109,8 @@ sha256sums=('39fcfb41dcdf71b6b42b88eff3d8cedbe7523830ccae847f3914c0b97e1e6b49'
             '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
+            # project-c build fix
+            '2b052d7670f67f2f90d58d46feb7910260b1fdc056c9e5cdc7dba0d8837df36c'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -233,7 +228,7 @@ _package() {
 _package-headers() {
   pkgdesc="Headers and scripts for building modules for ${pkgbase/linux/Linux} kernel"
   depends=('linux-bmq') # added to keep kernel and headers packages matched
-  provides=("linux-bmq-headers=${pkgver}" "linux-headers=${pkgver}")
+  provides=("linux-bmq-headers=${pkgver}")
 
   cd linux-${pkgver}
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
