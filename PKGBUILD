@@ -65,13 +65,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.10.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.10-r0.patch"
+_prjc_patch="prjc_v5.10-r1.patch"
 _gcc_more_v='20201113'
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -85,7 +85,6 @@ source=(
   0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
   0004-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
   0000-glitched-ondemand.patch
-  sched-bmq-fix-compilation-issue.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -99,7 +98,7 @@ sha256sums=('3b84e13abae26af17ebccc4d7212f5843a991127a73a320848d5c6942ef781a2'
             # gcc patch
             '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
-            'c170927afc35fab46856ae71cbc85cc5d46909846a001b10e997297c3938da2e'
+            '3db1c9aaae36336fdca8fe80fe87ed95732e63f1f445735f1f7f1c0d77240476'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
@@ -109,8 +108,6 @@ sha256sums=('3b84e13abae26af17ebccc4d7212f5843a991127a73a320848d5c6942ef781a2'
             '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
-            # project-c build fix
-            '2b052d7670f67f2f90d58d46feb7910260b1fdc056c9e5cdc7dba0d8837df36c'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
