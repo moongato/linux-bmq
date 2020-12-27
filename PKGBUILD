@@ -84,6 +84,10 @@ source=(
   0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch
   0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
   0004-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
+  0005-drm-amd-display-Add-get_dig_frontend-implementation-for-DCEx.patch
+  0006-drm-amdgpu-only-set-DP-subconnector-type-on-DP-and-eDP-connectors.patch
+  0007-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
+  0008-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -94,7 +98,7 @@ validpgpkeys=(
 sha256sums=('f9153333e5ce60c9cd9a501fbcb342ba6032b8fdb2cb492115c5595712a19525'
             'SKIP'
             # config
-            'd759d6bb915a9e04ccb87a449cda7eaf3680731d2851cdc9bea020e404282caa'
+            'e0ebf21b225b8f8cbb8b26c5ce0a8047112efa696e727338bc50883f4ecc64f4'
             # gcc patch
             '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
@@ -106,6 +110,10 @@ sha256sums=('f9153333e5ce60c9cd9a501fbcb342ba6032b8fdb2cb492115c5595712a19525'
             '9fecc2766e8afd23862db5874cd994669109995527b6a586e290d906bf5cbb1d'
             'e216346f7c7761a53b76dea0638898e52aac9e4527a64893c9dfa9936b3c5a0d'
             '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
+            '56ca378a03341bbe8ddd13a5630922b0c4e0d505b738aec3b21dcfa55ff200d7'
+            '529d08602bc2c02c44f7402297e5cf5957692c686ecb9e46083bde093c161821'
+            'fe2bdf14a6a011571ce45b8ccd8399776e17d50d0f5852d7364b738fd1a59c9c'
+            '5791e6fd2ae2f4938b1190af65da3213cbfa2b3e7f50e6dcfdc8ded3ca17d720'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
