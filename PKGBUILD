@@ -64,7 +64,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.10.3
+pkgver=5.10.4
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -81,13 +81,11 @@ source=(
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0001-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch
-  0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
-  0004-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
-  0005-drm-amd-display-Add-get_dig_frontend-implementation-for-DCEx.patch
-  0006-drm-amdgpu-only-set-DP-subconnector-type-on-DP-and-eDP-connectors.patch
-  0007-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
-  0008-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
+  0002-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
+  0003-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
+  0004-drm-amd-display-Add-get_dig_frontend-implementation-for-DCEx.patch
+  0005-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
+  0006-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -95,7 +93,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('f9153333e5ce60c9cd9a501fbcb342ba6032b8fdb2cb492115c5595712a19525'
+sha256sums=('904e396c26e9992a16cd1cc989460171536bed7739bf36049f6eb020ee5d56ec'
             'SKIP'
             # config
             'e0ebf21b225b8f8cbb8b26c5ce0a8047112efa696e727338bc50883f4ecc64f4'
@@ -107,11 +105,9 @@ sha256sums=('f9153333e5ce60c9cd9a501fbcb342ba6032b8fdb2cb492115c5595712a19525'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # archlinux patches
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
-            '9fecc2766e8afd23862db5874cd994669109995527b6a586e290d906bf5cbb1d'
             'e216346f7c7761a53b76dea0638898e52aac9e4527a64893c9dfa9936b3c5a0d'
             '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
             '56ca378a03341bbe8ddd13a5630922b0c4e0d505b738aec3b21dcfa55ff200d7'
-            '529d08602bc2c02c44f7402297e5cf5957692c686ecb9e46083bde093c161821'
             'fe2bdf14a6a011571ce45b8ccd8399776e17d50d0f5852d7364b738fd1a59c9c'
             '5791e6fd2ae2f4938b1190af65da3213cbfa2b3e7f50e6dcfdc8ded3ca17d720'
             # glitched-ondemand patch
