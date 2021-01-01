@@ -65,7 +65,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.10.4
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -86,6 +86,7 @@ source=(
   0004-drm-amd-display-Add-get_dig_frontend-implementation-for-DCEx.patch
   0005-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
   0006-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
+  0007-ALSA-hda-hdmi-fix-locking-in-silent_stream_disable.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -110,6 +111,7 @@ sha256sums=('904e396c26e9992a16cd1cc989460171536bed7739bf36049f6eb020ee5d56ec'
             '56ca378a03341bbe8ddd13a5630922b0c4e0d505b738aec3b21dcfa55ff200d7'
             'fe2bdf14a6a011571ce45b8ccd8399776e17d50d0f5852d7364b738fd1a59c9c'
             '5791e6fd2ae2f4938b1190af65da3213cbfa2b3e7f50e6dcfdc8ded3ca17d720'
+            '19c0c42a6ca6a53e7b5d7ac9397c2efe8bbc305b31e7caad1098ac3d35b7a0fc'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
