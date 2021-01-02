@@ -65,7 +65,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.10.4
-pkgrel=3
+pkgrel=4
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -97,7 +97,7 @@ validpgpkeys=(
 sha256sums=('904e396c26e9992a16cd1cc989460171536bed7739bf36049f6eb020ee5d56ec'
             'SKIP'
             # config
-            'a175b2663235a3878045dbcb8c291100a55f663d0289f67e80fea03c33a46809'
+            '003cffaf79f9e5f3de95725f254f8a47c11d0d9b25bcd1bb0aff5cbdc8fc3b81'
             # gcc patch
             '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
@@ -203,7 +203,7 @@ _package() {
   depends=(coreutils kmod initramfs)
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
-  provides=("linux-bmq=${pkgver}")
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
 
   cd linux-${pkgver}
 
@@ -231,7 +231,6 @@ _package() {
 _package-headers() {
   pkgdesc="Headers and scripts for building modules for ${pkgbase/linux/Linux} kernel"
   depends=('linux-bmq') # added to keep kernel and headers packages matched
-  provides=("linux-bmq-headers=${pkgver}")
 
   cd linux-${pkgver}
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
