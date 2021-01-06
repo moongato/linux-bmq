@@ -64,8 +64,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.10.4
-pkgrel=5
+pkgver=5.10.5
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -83,10 +83,9 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch
   0003-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
-  0004-drm-amd-display-Add-get_dig_frontend-implementation-for-DCEx.patch
-  0005-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
-  0006-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
-  0007-ALSA-hda-hdmi-fix-locking-in-silent_stream_disable.patch
+  0004-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
+  0005-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
+  0006-ALSA-hda-hdmi-fix-locking-in-silent_stream_disable.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -94,7 +93,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('904e396c26e9992a16cd1cc989460171536bed7739bf36049f6eb020ee5d56ec'
+sha256sums=('3991a9e16a187d78d5f414d89236ae5d7f404a69e60c4c42a9d262ee19612ef4'
             'SKIP'
             # config
             '003cffaf79f9e5f3de95725f254f8a47c11d0d9b25bcd1bb0aff5cbdc8fc3b81'
@@ -108,7 +107,6 @@ sha256sums=('904e396c26e9992a16cd1cc989460171536bed7739bf36049f6eb020ee5d56ec'
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
             'e216346f7c7761a53b76dea0638898e52aac9e4527a64893c9dfa9936b3c5a0d'
             '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
-            '56ca378a03341bbe8ddd13a5630922b0c4e0d505b738aec3b21dcfa55ff200d7'
             'fe2bdf14a6a011571ce45b8ccd8399776e17d50d0f5852d7364b738fd1a59c9c'
             '5791e6fd2ae2f4938b1190af65da3213cbfa2b3e7f50e6dcfdc8ded3ca17d720'
             '19c0c42a6ca6a53e7b5d7ac9397c2efe8bbc305b31e7caad1098ac3d35b7a0fc'
