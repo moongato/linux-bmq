@@ -86,6 +86,7 @@ source=(
   0004-btrfs-Fix-500-2000-performance-regression-w-5.10.patch
   0005-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
   0006-ALSA-hda-hdmi-fix-locking-in-silent_stream_disable.patch
+  0007-Revert-drm-amd-display-Fix-memory-leaks-in-S3-resume.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -110,6 +111,7 @@ sha256sums=('3991a9e16a187d78d5f414d89236ae5d7f404a69e60c4c42a9d262ee19612ef4'
             'fe2bdf14a6a011571ce45b8ccd8399776e17d50d0f5852d7364b738fd1a59c9c'
             '5791e6fd2ae2f4938b1190af65da3213cbfa2b3e7f50e6dcfdc8ded3ca17d720'
             '19c0c42a6ca6a53e7b5d7ac9397c2efe8bbc305b31e7caad1098ac3d35b7a0fc'
+            'a7b803d4569af65c2a9024464d6e259810bf675becae3566e43d58c2e2aa98fe'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
