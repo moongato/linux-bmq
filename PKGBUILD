@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.10.11
+pkgver=5.10.12
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -36,7 +36,6 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
   0003-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch
-  0004-HID-wacom-Correct-NULL-dereference-on-AES-pen-proximity.patch
   0000-glitched-ondemand.patch
 )
 validpgpkeys=(
@@ -44,7 +43,7 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('02ef2b56b00fc5145701c603a5235e1265772e40d488a936b27ba65fe78e710f'
+sha256sums=('1d454f2817ab4f34cf313ea680ab75e20f79c6431b3bd3ea3bcd39353030c4aa'
             'SKIP'
             # config
             'a0b760ecd75dd3dd9d7177f32222aa229815bdb366cdb310ed0c107c8fbc8bcc'
@@ -58,7 +57,6 @@ sha256sums=('02ef2b56b00fc5145701c603a5235e1265772e40d488a936b27ba65fe78e710f'
             '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
             '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
             '5791e6fd2ae2f4938b1190af65da3213cbfa2b3e7f50e6dcfdc8ded3ca17d720'
-            '3a140d1db5b969a9bf3685c314286de2e39c473e08f7b3ad00f31916a20d71fc'
             # glitched-ondemand patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
 )          
