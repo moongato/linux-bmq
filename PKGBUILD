@@ -17,46 +17,53 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.10.16
+pkgver=5.11
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.10-r2.patch"
+_prjc_patch="prjc_v5.11-r0.patch"
 _gcc_more_v='20201113'
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.10/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.11/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
-  0001-init-Kconfig-enable-O3-for-all-arches.patch
+  0000-init-Kconfig-enable-O3-for-all-arches.patch
+  0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_special_driver-list.patch
-  0000-glitched-ondemand.patch
+  0002-Bluetooth-btusb-Some-Qualcomm-Bluetooth-adapters-stop-working.patch
+  0003-Revert-drm-amd-display-reuse-current-context-instead-of-recreating-one.patch 
+  0004-drm-amdgpu-fix-shutdown-with-s0ix.patch
+  sphinx-workaround.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('536fe3ea273bfcc72b3571d3b3a7ff0a5bcdc16068efd22e42c4f9d03c200a37'
+sha256sums=('04f07b54f0d40adfab02ee6cbd2a942c96728d87c1ef9e120d0cb9ba3fe067b4'
             'SKIP'
             # config
-            'b03633cec25d825e0b0d2187fab57fcc0350d16159232469849ac1116fb9561a'
+            '9f07313d890e2f06721cf59913fabbab1d483de84c68df7724471cb6b4bb44c1'
             # gcc patch
             '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
             # project-c patch
-            'e308292fc42840a2366280ea7cf26314e92b931bb11f04ad4830276fc0326ee1'
+            'ad3ff525e9e7cd53e0f9a19350c144398dffa943573b9741f4cdb085b05efffe'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
-            # archlinux patches
-            '1d0975a43d3ac7e777d53a0bbd96556aa6b24e3f098075980865cdb691cb654a'
-            '7356bec9ad33e3121d019868ac1b993b705db0c46c12b3b63255ba1b5053f0fc'
-            # glitched-ondemand patch
+            # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
+            # archlinux patches
+            '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
+            '04abcd596bc99a1cc001b6807ace90bc080189e6303499cfff0daa481b7486b9'
+            'd6505808f2247a3a1df7de6b7ed7ddd689205b714296a4d602b9f8e25344116b'
+            '1aa4cb0b3f473814b729f49637ce709687c3028c61c2cab447bd5bb2f6220502' 
+            # sphinx-workaround.patch
+            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
