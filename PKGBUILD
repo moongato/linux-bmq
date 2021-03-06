@@ -25,7 +25,7 @@ license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
 _prjc_patch="prjc_v5.11-r1.patch"
-_gcc_more_v='20201113'
+_gcc_more_v=20210306
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -47,7 +47,7 @@ sha256sums=('3558c70bb3805763c250df3b2c29225cedfce849483afd4ecba27e29ecb1cbfe'
             # config
             'ec9b3911a86dc5abc5a1ef4b5e4a603d078c5d9f02033a718a6c76062f207677'
             # gcc patch
-            '0d4db3ae8a47d7a5c5a7f37edfddef7ce8fcdc6b64926cef70e5e3dfd7c0eeed'
+            '2811f359eb2f53eeecdf5b6b077a256f834dc62666bacc2b325b407a7a1f17d4'
             # project-c patch
             '782ffe25924d5ca63d4318f6551d9855d84adb4099e662cd996ae31aa9b7fa90'
             # enable-O3
