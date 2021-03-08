@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.11.3
+pkgver=5.11.4
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -25,7 +25,7 @@ license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
 _prjc_patch="prjc_v5.11-r1.patch"
-_gcc_more_v=20210306
+_gcc_more_v=20210307
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -35,19 +35,18 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  sphinx-workaround.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('3558c70bb3805763c250df3b2c29225cedfce849483afd4ecba27e29ecb1cbfe'
+sha256sums=('88e59fafc9653cb7eef501cef3eda677843027735fd11325a75e353b10770dc5'
             'SKIP'
             # config
             'ec9b3911a86dc5abc5a1ef4b5e4a603d078c5d9f02033a718a6c76062f207677'
             # gcc patch
-            '2811f359eb2f53eeecdf5b6b077a256f834dc62666bacc2b325b407a7a1f17d4'
+            '3f4b254ee90340aa0f6f939de4db0338fe12b71a970ee9e513940a2efd943417'
             # project-c patch
             '782ffe25924d5ca63d4318f6551d9855d84adb4099e662cd996ae31aa9b7fa90'
             # enable-O3
@@ -56,8 +55,6 @@ sha256sums=('3558c70bb3805763c250df3b2c29225cedfce849483afd4ecba27e29ecb1cbfe'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            # sphinx-workaround.patch
-            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
