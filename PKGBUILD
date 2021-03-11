@@ -17,19 +17,19 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.11.4
-pkgrel=2
+pkgver=5.11.5
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
 _prjc_patch="prjc_v5.11-r2.patch"
-_gcc_more_v=20210307
+_gcc_more_v=20210309
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
-  "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
+  "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/projectc/-/raw/master/5.11/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
@@ -41,12 +41,12 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('88e59fafc9653cb7eef501cef3eda677843027735fd11325a75e353b10770dc5'
+sha256sums=('2208e4617b63a889373fb3f85ef56a73aeba83c117516bfcc92ef44b08bd3d6b'
             'SKIP'
             # config
             'ec9b3911a86dc5abc5a1ef4b5e4a603d078c5d9f02033a718a6c76062f207677'
             # gcc patch
-            '3f4b254ee90340aa0f6f939de4db0338fe12b71a970ee9e513940a2efd943417'
+            '8fa4ef2c3b392c410c3f74f9b4ab89683b7fca8cac70b96e2bf532a952e46d0b'
             # project-c patch
             'e394d4b7721f55837a8364c8311cb06cb5a59484de8aa8731e38d1aff2b7014e'
             # enable-O3
@@ -106,7 +106,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v10.1+_kernel_v5.8+.patch"
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/more-uarches-for-gcc-v10-and-kernel-5.8+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
