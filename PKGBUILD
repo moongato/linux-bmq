@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.11.6
+pkgver=5.11.8
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -35,16 +35,17 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-iommu-amd-Dont-initialise-remapping-irqdomain-if-IOMMU-is-disabled.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('e970796a6ed451c59225b32ca525520442647c072ec1867e1aac508ad9c1ac09'
+sha256sums=('91f939263a350da676b274e3ec84ad5b57f27ffdf4bd6b74cd002ce21fc0c89f'
             'SKIP'
             # config
-            'ec9b3911a86dc5abc5a1ef4b5e4a603d078c5d9f02033a718a6c76062f207677'
+            '6afdb8dd850c3b9cd8f0d3d6f73f33cea1750747059d854169d1fd12f249c104'
             # gcc patch
             '8fa4ef2c3b392c410c3f74f9b4ab89683b7fca8cac70b96e2bf532a952e46d0b'
             # project-c patch
@@ -55,6 +56,7 @@ sha256sums=('e970796a6ed451c59225b32ca525520442647c072ec1867e1aac508ad9c1ac09'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
+            '9087f02fba3782025cd064b9ed64dda0239d31ad58f69c71cb544a4c9dcf04dc' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
