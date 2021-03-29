@@ -18,13 +18,13 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.11.10
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.11-r2.patch"
+_prjc_patch="prjc_v5.11-r3.patch"
 _gcc_more_v=20210309
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -49,7 +49,7 @@ sha256sums=('d372acb8fa337141ca1bbeda9e25873c76ce52a27974226a95275ce43522dc1d'
             # gcc patch
             '8fa4ef2c3b392c410c3f74f9b4ab89683b7fca8cac70b96e2bf532a952e46d0b'
             # project-c patch
-            'e394d4b7721f55837a8364c8311cb06cb5a59484de8aa8731e38d1aff2b7014e'
+            'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
