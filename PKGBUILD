@@ -52,7 +52,7 @@ sha256sums=('c0a26f173448b6d807c5f056e99601d090a6033bfd0c56824ba6e8e7a7be0e7d'
             # gcc patch
             '8aea0d8a9999b0510fa128d79af8a8dc94d25f0a193fd698ebfdf09808472d2e'
             # project-c patch
-            '5cd64937e3a517f49f4311c47bd692eb8e117f09d655cd456e03366373ba8060'
+            'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
