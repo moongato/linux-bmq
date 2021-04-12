@@ -18,7 +18,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.11.13
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -35,10 +35,6 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-iommu-amd-Dont-initialise-remapping-irqdomain-if-IOMMU-is-disabled.patch
-  0003-drm-i915-ilk-glk-Fix-link-training-on-links-with-LTTPRs.patch
-  0004-drm-i915-dp-Prevent-setting-the-LTTPR-LT-mode-if-no-LTTPRs-are-det.patch
-  0005-drm-i915-Disable-LTTPR-support-when-the-DPCD-rev-1-4.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -59,10 +55,6 @@ sha256sums=('fa61193d24f2cdb1290158299f7041a7bc41090ec536af0d78a4d5ea029b6f7b'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            '9087f02fba3782025cd064b9ed64dda0239d31ad58f69c71cb544a4c9dcf04dc'
-            '1c4c1583ab3824f31d9ed6776048fab5fc1e500c6d4f9e6358d1b022f547b267'
-            '0c166f52349c0afb22f7dc3a787c05ddae7e745692c14f95e406e0f2a6a403b3'
-            '42dcdf73ff882de97d26dd7c53a2494d067cf213dff6fd8ae05c3f71b06d4e15'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
