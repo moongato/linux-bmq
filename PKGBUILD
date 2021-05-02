@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.12
+pkgver=5.12.1
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -25,7 +25,7 @@ license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
 _prjc_patch="prjc_v5.12-r0.patch"
-_gcc_more_v=20210402
+_gcc_more_v=20210412
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -41,12 +41,12 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('7d0df6f2bf2384d68d0bd8e1fe3e071d64364dcdc6002e7b5c87c92d48fac366'
+sha256sums=('c0fc1cf5b8c90cde68d7d4361afd3b37422c0b590773ea67861b8b092efe5f37'
             'SKIP'
             # config
-            '652a6fe38b0d9e4d31aa8dc992b7113b86e7f96f06ce56e4286ccf16015b072a'
+            'cb25e40157372dd6fc6c4b0fb915ce39099d179468e10cd7b19ece0dc67b516c'
             # gcc patch
-            '8aea0d8a9999b0510fa128d79af8a8dc94d25f0a193fd698ebfdf09808472d2e'
+            'f1f62b6d2cd89d0ab15f8d7311f5bb775dfc97ff39f93bc77f6f733f75fa7558'
             # project-c patch
             '7d8e98f35524fa2db13753c318dc5568d3cca25a4aa306201a02d5aad3045822'
             # enable-O3
