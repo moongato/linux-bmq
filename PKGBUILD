@@ -17,8 +17,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.12.2
-pkgrel=2
+pkgver=5.12.3
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -35,13 +35,14 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-drm-i915-dp-Use-slow-and-wide-link-training-for-everything.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('8c98b9996d15fdb779a866c6a4c7c9b9e63374cb7105a5a59e9bcf8df02ef70d'
+sha256sums=('133714a87a8b0ed1959587a8a5aff9faf47dd0fc8feeac08cca408f7e392878d'
             'SKIP'
             # config
             '9798966a6855c0fbb774d16bc5a07a25e66b0be3df02607975de7304605c9341'
@@ -55,6 +56,7 @@ sha256sums=('8c98b9996d15fdb779a866c6a4c7c9b9e63374cb7105a5a59e9bcf8df02ef70d'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
+            '6dd6955409fc8be7b9219338e034d23ed391c54b4f8aff24cc4be3278b442f1f'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
