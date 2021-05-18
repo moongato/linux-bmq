@@ -18,7 +18,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.12.4
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -45,7 +45,7 @@ validpgpkeys=(
 sha256sums=('5a60feee8492732a6aa8c46b9412563959945b4d7b0d27223f15ede2f84b6873'
             'SKIP'
             # config
-            '9798966a6855c0fbb774d16bc5a07a25e66b0be3df02607975de7304605c9341'
+            '36020669baa8959dac0edf9a79f95c3b39c11264fe4553f099f35109decd9861'
             # gcc patch
             'f1f62b6d2cd89d0ab15f8d7311f5bb775dfc97ff39f93bc77f6f733f75fa7558'
             # project-c patch
