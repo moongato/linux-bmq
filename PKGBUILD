@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.12.5
+pkgver=5.12.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -35,14 +35,14 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Revert-bus-mhi-core-Process-execution-environment-changes-serially.patch
+  0002-drm-i915-gt-Disable-HiZ-Raw-Stall-Optimization-on-broken-gen7-.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('4049bec164177dcbbaa4bc87a0619ca2a8d892fff27252f2479270ce75d369f4'
+sha256sums=('4b704cf7f272c6b8e870130cf72d4d9ce67cc411386f68fc6c25b6578b6abdb1'
             'SKIP'
             # config
             '36020669baa8959dac0edf9a79f95c3b39c11264fe4553f099f35109decd9861'
@@ -56,7 +56,7 @@ sha256sums=('4049bec164177dcbbaa4bc87a0619ca2a8d892fff27252f2479270ce75d369f4'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            '24ed5e12c0961979f091e45b9663290a8e2ed6f28b0160b246ee73f9a57b74c1'
+            'b16a61702c54a645d2ac3d0dcdd763ba5435e2181a9c17ae69cd17349eae6f8b'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
