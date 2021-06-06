@@ -25,11 +25,11 @@ license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
 _prjc_patch="prjc_v5.12-r1.patch"
-_gcc_more_v=20210412
+_gcc_more_v=20210606
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
-  "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
+  "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   https://gitlab.com/alfredchen/projectc/-/raw/master/5.12/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
@@ -46,7 +46,7 @@ sha256sums=('c7fabef5754271cd12f2d3a9ae237ed91c6fce09cec3895400d48194110ce76d'
             # config
             'b52c8be2230bb4f3da21f3c0360bdb1afbab41c9366299b9664bb7a7de34d083'
             # gcc patch
-            'f1f62b6d2cd89d0ab15f8d7311f5bb775dfc97ff39f93bc77f6f733f75fa7558'
+            '21454906014ac8e448be85147be06a1e3dfbefb644ef96d9a37c15fcc8e07a42'
             # project-c patch
             '1bb7308e10568cfaad125ea08ed7f311f06d7bfedab40f4b23ff30cfa30ce3fc'
             # enable-O3
@@ -106,7 +106,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/more-uarches-for-kernel-5.8+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.8+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
