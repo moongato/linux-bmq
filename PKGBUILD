@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.12.10
+pkgver=5.12.12
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -35,16 +35,23 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-x86-setup-Consolidate-early-memory-reservations.patch
+  0003-x86-setup-Merge-several-reservations-of-start-of-memory.patch
+  0004-x86-setup-Move-trim_snb_memory-later-in-setup_arch-to-fix-boot-hangs.patch
+  0005-x86-setup-always-reserve-the-first-1M-of-RAM.patch
+  0006-x86-setup-remove-CONFIG_X86_RESERVE_LOW-and-reservelow-options.patch
+  0007-x86-crash-remove-crash_reserve_low_1M.patch
+  0001-prjc-fix-compilation-error.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('c8d499fc53ed14838994ec2f51591ae40d64cce68559cd897be8acbeeee7630f'
+sha256sums=('212ab2bc3d9616f48069f506196a0d1fa7f54db1593a76dccccfa23bdfaa3ea8'
             'SKIP'
             # config
-            'b52c8be2230bb4f3da21f3c0360bdb1afbab41c9366299b9664bb7a7de34d083'
+            '5c1f59595e3a03d4d66b3c631e910ff76e38c15c8a3e5d0af0bf9590a9d9ff11'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
@@ -55,6 +62,14 @@ sha256sums=('c8d499fc53ed14838994ec2f51591ae40d64cce68559cd897be8acbeeee7630f'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
+            '36452d56321f3dd641448f9336bdfb2f1fc14b37d18d0babe76668589ef5d986'
+            '97f406175ab6fa00f406c336ecd387dc30758741192bfd3c0b35639b4729f13d'
+            'ed1706b9b62565afacdbe8f9e98fc918460382d74053a84e9174b6ab1a6704ca'
+            'df383dac4d3733ffacfd0a672c18b49a9ea942820e59a4d176eb118f6d977623'
+            '6aef8f09abdeef9679f7659baef5671b22939b30a599684fd84b463a2a9a5021'
+            'a7667d12f1ecd287e8b2e77c99d34462e7696ab5c9d3f61c46caded5fc400157'
+            # project c compilation fix
+            '9f48c5893ed00c40a2e0abde22e221244f4e64e194a31be7ceeefe2573395b9a'  
 )          
 
 export KBUILD_BUILD_HOST=archlinux
