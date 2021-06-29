@@ -17,59 +17,44 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.12.13
-pkgrel=1
+pkgver=5.13
+pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.12-r1.patch"
+_prjc_patch="prjc_v5.13-r0.patch"
 _gcc_more_v=20210610
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.12/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.13/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-x86-setup-Consolidate-early-memory-reservations.patch
-  0003-x86-setup-Merge-several-reservations-of-start-of-memory.patch
-  0004-x86-setup-Move-trim_snb_memory-later-in-setup_arch-to-fix-boot-hangs.patch
-  0005-x86-setup-always-reserve-the-first-1M-of-RAM.patch
-  0006-x86-setup-remove-CONFIG_X86_RESERVE_LOW-and-reservelow-options.patch
-  0007-x86-crash-remove-crash_reserve_low_1M.patch
-  0001-prjc-fix-compilation-error.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('af485fcde5635981e6713b547cc8904a7f6e74e5ffb784cc08781fa5999dd255'
+sha256sums=('3f6baa97f37518439f51df2e4f3d65a822ca5ff016aa8e60d2cc53b95a6c89d9'
             'SKIP'
             # config
             '9b766c3421f8c411a0a19f1af93bd1f5999f407ed6469c85d690115f147f0ef8'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
-            '1bb7308e10568cfaad125ea08ed7f311f06d7bfedab40f4b23ff30cfa30ce3fc'
+            'd93f40a81f9d7a61cf50dbdcefceef427a6e0a2a07866f7347fda9867d0bd7d9'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
-            '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            '36452d56321f3dd641448f9336bdfb2f1fc14b37d18d0babe76668589ef5d986'
-            '97f406175ab6fa00f406c336ecd387dc30758741192bfd3c0b35639b4729f13d'
-            'ed1706b9b62565afacdbe8f9e98fc918460382d74053a84e9174b6ab1a6704ca'
-            'df383dac4d3733ffacfd0a672c18b49a9ea942820e59a4d176eb118f6d977623'
-            '6aef8f09abdeef9679f7659baef5671b22939b30a599684fd84b463a2a9a5021'
-            'a7667d12f1ecd287e8b2e77c99d34462e7696ab5c9d3f61c46caded5fc400157'
-            # project c compilation fix
-            '9f48c5893ed00c40a2e0abde22e221244f4e64e194a31be7ceeefe2573395b9a'  
+            '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'            
 )          
 
 export KBUILD_BUILD_HOST=archlinux
