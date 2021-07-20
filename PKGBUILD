@@ -17,8 +17,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.13.2
-pkgrel=0
+pkgver=5.13.4
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -41,10 +41,10 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('c3940d09cfb629f8c140b7b098cf6356d60cd8043df6b17c1f004077269ca937'
+sha256sums=('7192cd2f654aa6083451dea01b80748fe1eebcf2476a589ef4146590030e7d6c'
             'SKIP'
             # config
-            'c76010f4dfd3d8663e019ef07a7acc6252ba14c2fa55d020f6400696323c394e'
+            'eb328cd9ae5a9e3d5ada4ec72727957c4833d51423509f6d81b677627811d262'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
