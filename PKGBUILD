@@ -18,7 +18,7 @@ _localmodcfg=y
 
 pkgbase=linux-bmq
 pkgver=5.13.4
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -35,11 +35,15 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-block-another-attempt-to-fix-discard-merging.patch
+  0003-mm-swapfile-use-percpu_ref-to-serialize-against-conc.patch
+  0004-mm-swap-remove-confusing-checking-for-non_swap_entry.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
-  '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
+  'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
+  'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
 sha256sums=('7192cd2f654aa6083451dea01b80748fe1eebcf2476a589ef4146590030e7d6c'
             'SKIP'
@@ -54,7 +58,10 @@ sha256sums=('7192cd2f654aa6083451dea01b80748fe1eebcf2476a589ef4146590030e7d6c'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
-            '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'            
+            '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
+            '6fe8aa069275ca4a5eac4b3741f02141219b4247e68ef1da5877ed6a694ddd4f'
+            '1e887dcc4a75a2eb2bc7ab77bdc12235b28a25e7c80f9815b0143e8b13be8b1b'
+            '03a43b9647a3667a58144c8825975516202c5db121f2202a223afc4469959b07'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
