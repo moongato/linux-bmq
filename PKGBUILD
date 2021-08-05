@@ -17,14 +17,14 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.13.7
+pkgver=5.13.8
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.13-r1.patch"
+_prjc_patch="prjc_v5.13-r2.patch"
 _gcc_more_v=20210610
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -35,6 +35,7 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-Bluetooth-btusb-check-conditions-before-enabling-USB.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -42,20 +43,21 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('f91e561053afe454afce8a6dcc7f8319010bfe2fa17aeea1d8566f61760be439'
+sha256sums=('d088c2b84d9813f415a1d8dcfadb02d27d03f709c8b989d8c11b7b56c3c9a428'
             'SKIP'
             # config
             'eb328cd9ae5a9e3d5ada4ec72727957c4833d51423509f6d81b677627811d262'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
-            'aab035686a3fd20b138f78dced295c02a34b6e478ec14e15af2228d6b28a48fb'
+            '18ac1705203969485d5811c93fdecb9d042020cc69567b579b32053ac4ceb1c9'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
+            'd0247b807454421782bb90e2b60307988d4943419553cffe16225380c7bf49b7'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
