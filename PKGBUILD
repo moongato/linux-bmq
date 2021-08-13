@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.13.9
+pkgver=5.13.10
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -36,6 +36,7 @@ source=(
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-btusb-check-conditions-before-enabling-USB.patch
+  0003-drm-amdgpu-handle-VCN-instances-when-harvesting.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -43,10 +44,10 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('72fe7cc1f0363523061659a21e24754697b27f405cb88a41a63038629636159a'
+sha256sums=('30caf51b8f8bd127f3dbcad8ed5e696c0c0e3ca5201ce34c3cb66d820590d705'
             'SKIP'
             # config
-            'eb328cd9ae5a9e3d5ada4ec72727957c4833d51423509f6d81b677627811d262'
+            'f7e70d280176f3f9dcd0e08ebdb511797b3f60187bc9d25eb236e8b012a26d0d'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
@@ -58,6 +59,7 @@ sha256sums=('72fe7cc1f0363523061659a21e24754697b27f405cb88a41a63038629636159a'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
             'd0247b807454421782bb90e2b60307988d4943419553cffe16225380c7bf49b7'
+            'b2c2e0b113332a68e0902b22066666ee5bf50524c5d94ee695eb67978bd88d61'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
