@@ -17,25 +17,25 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.13.13
-pkgrel=2
+pkgver=5.14.1
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.13-r3.patch"
+_prjc_patch="prjc_v5.14-r0.patch"
 _gcc_more_v=20210610
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.13/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.14/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
+  0002-sched-alt-disable-sched_core-when-sched_alt-is-enabl.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Bluetooth-btusb-check-conditions-before-enabling-USB.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -43,21 +43,23 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('5531d2200c7923c377ef2e0fb7fc44d892e3dabf302961d790c9bd1df3c83434'
+sha256sums=('005bc52a847b7a372a687d536847adb1e1fe0ee571817008632c6e1706d008c7'
             'SKIP'
             # config
-            '1161f91cdea0076201029c12ddb501aaeb7a7cf4133c0d5dd2b65e5b267736f6'
+            '524f14fa4797c9ab14186b781fa337f6e476cf13e8dede285aa16cf40da90d0d'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
-            'ccf925b6326a8cf63d28c00a7645a0fa120608bfcf5dabb77a4522f249aa306d'
+            '92e5f35da18fcabfa87a4543b0d1daafff56f3c523a4c516e2600df9de231fd0'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
+            # project c build fix
+            '4f28185c4621ce54a7c244b57a0fcd80b6837d8842d8670710c56eb69ab6fd20'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            'd0247b807454421782bb90e2b60307988d4943419553cffe16225380c7bf49b7'
+
 )          
 
 export KBUILD_BUILD_HOST=archlinux
