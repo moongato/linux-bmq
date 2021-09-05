@@ -34,7 +34,7 @@ source=(
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  0002-sched-alt-disable-sched_core-when-sched_alt-is-enabl.patch
+  0000-sched-alt-disable-sched_core-when-sched_alt-is-enabl.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
 )
 validpgpkeys=(
