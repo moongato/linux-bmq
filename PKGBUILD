@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.1
+pkgver=5.14.2
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -36,6 +36,8 @@ source=(
   0000-ondemand-tweaks.patch
   0000-sched-alt-disable-sched_core-when-sched_alt-is-enabl.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-Bluetooth-Move-shutdown-callback-before-flushing-tx-.patch
+  0003-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -43,10 +45,10 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('005bc52a847b7a372a687d536847adb1e1fe0ee571817008632c6e1706d008c7'
+sha256sums=('f419875d7b116c5d03fe64761fcbcb1341a21b30d3c3596c5baa05c1441cdc17'
             'SKIP'
             # config
-            '524f14fa4797c9ab14186b781fa337f6e476cf13e8dede285aa16cf40da90d0d'
+            '5b1752081b19a22f1e922af75799fd5b05d87761fe989a99d365ebdf0e1a7541'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
@@ -59,7 +61,8 @@ sha256sums=('005bc52a847b7a372a687d536847adb1e1fe0ee571817008632c6e1706d008c7'
             '4f28185c4621ce54a7c244b57a0fcd80b6837d8842d8670710c56eb69ab6fd20'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-
+            '69b0a96547db59c98894929439b9f20249f987c6a8152abede28f3568407f3a0'
+            '8d02816705b168239234f629a9b842c7613c292c8383667cf4b5e53a4f8ad382' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
