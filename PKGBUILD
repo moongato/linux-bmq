@@ -17,14 +17,14 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.2
+pkgver=5.14.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.14-r0.patch"
+_prjc_patch="prjc_v5.14-r1.patch"
 _gcc_more_v=20210610
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -34,7 +34,6 @@ source=(
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  0000-sched-alt-disable-sched_core-when-sched_alt-is-enabl.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-Move-shutdown-callback-before-flushing-tx-.patch
   0003-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch
@@ -45,20 +44,18 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('f419875d7b116c5d03fe64761fcbcb1341a21b30d3c3596c5baa05c1441cdc17'
+sha256sums=('c6c340be69e22021d9406c51467d03e2e28fb7221939b2ef114cac3d3602a8d8'
             'SKIP'
             # config
             '5b1752081b19a22f1e922af75799fd5b05d87761fe989a99d365ebdf0e1a7541'
             # gcc patch
             '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
             # project-c patch
-            '92e5f35da18fcabfa87a4543b0d1daafff56f3c523a4c516e2600df9de231fd0'
+            '8a3913bc8ee08df3812f202b3a223402d7b344cc1c5c1e69581c3c6ecf817409'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
-            # project c build fix
-            '4f28185c4621ce54a7c244b57a0fcd80b6837d8842d8670710c56eb69ab6fd20'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
             '69b0a96547db59c98894929439b9f20249f987c6a8152abede28f3568407f3a0'
