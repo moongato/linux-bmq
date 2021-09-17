@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.3
+pkgver=5.14.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -25,7 +25,7 @@ license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
 _prjc_patch="prjc_v5.14-r1.patch"
-_gcc_more_v=20210610
+_gcc_more_v=20210914
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -35,8 +35,7 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Bluetooth-Move-shutdown-callback-before-flushing-tx-.patch
-  0003-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch
+  0002-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -44,12 +43,12 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('c6c340be69e22021d9406c51467d03e2e28fb7221939b2ef114cac3d3602a8d8'
+sha256sums=('65168d1cd6cb6558ff57d9e3bc7507cbc722e1bb053cd80793b0ac804b546cfd'
             'SKIP'
             # config
-            '5b1752081b19a22f1e922af75799fd5b05d87761fe989a99d365ebdf0e1a7541'
+            '48ae40e7a1eccafc166bc0f189eba0ef6ab64c1f9650bfe4dde61743079a07a0'
             # gcc patch
-            '49750c51711e011786888a501fb8deef26da8bcabfa71e9ad3e85ed01e2f60ef'
+            'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
             # project-c patch
             '8a3913bc8ee08df3812f202b3a223402d7b344cc1c5c1e69581c3c6ecf817409'
             # enable-O3
@@ -58,8 +57,7 @@ sha256sums=('c6c340be69e22021d9406c51467d03e2e28fb7221939b2ef114cac3d3602a8d8'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            '69b0a96547db59c98894929439b9f20249f987c6a8152abede28f3568407f3a0'
-            '8d02816705b168239234f629a9b842c7613c292c8383667cf4b5e53a4f8ad382' 
+            '8d02816705b168239234f629a9b842c7613c292c8383667cf4b5e53a4f8ad382'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -111,7 +109,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.8+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.8-5.14.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
