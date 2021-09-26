@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.7
+pkgver=5.14.8
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -35,12 +35,11 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-SUNRPC-dont-pause-on-incomplete-allocation.patch
-  0003-Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
-  0004-Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
-  0005-ALSA-pcm-Check-mmap-capability-of-runtime-dma-buffer-at-first.patch
-  0006-ALSA-pci-rme-Set-up-buffer-type-properly.patch
-  0007-ALSA-pci-cs46xx-Fix-set-up-buffer-type-properly.patch
+  0002-Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
+  0003-Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
+  0004-ALSA-pcm-Check-mmap-capability-of-runtime-dma-buffer-at-first.patch
+  0005-ALSA-pci-rme-Set-up-buffer-type-properly.patch
+  0006-ALSA-pci-cs46xx-Fix-set-up-buffer-type-properly.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -48,10 +47,10 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('af2539449f6a6161621609572b17d269bbbae4fcfffe3e044249b0b8b5ba7eab'
+sha256sums=('ca0eda14c512efa7fc054e9eb89dd8f6a6e7075aef1e39d30b5f243f7bde9b89'
             'SKIP'
             # config
-            '48ae40e7a1eccafc166bc0f189eba0ef6ab64c1f9650bfe4dde61743079a07a0'
+            '82236ceaaaa8b77e3ad8ed566480eaa15e8d4e37850dfd7d2d842b343aa8e345'
             # gcc patch
             'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
             # project-c patch
@@ -62,7 +61,6 @@ sha256sums=('af2539449f6a6161621609572b17d269bbbae4fcfffe3e044249b0b8b5ba7eab'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            'bd540fa3f25d3c5c6f821bd9b93d6c30986581605507b854f40bcb8a91f1ba2f'
             '961e42507e3f68689a797bb80875deadae71a19f69cc99164076bd091f53a35d'
             '25ed3e0edc6b1dfb83ea9421ebce75c28daa65be72fddd725346ed4527490fe9'
             '28d825af0563ea607cd42f4cc0184f62fe1ea160bdd99000043e5e11d9133fce'
@@ -161,7 +159,6 @@ _package() {
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
-  replaces=(virtualbox-guest-modules-arch wireguard-arch)
 
   cd linux-${pkgver}
 
