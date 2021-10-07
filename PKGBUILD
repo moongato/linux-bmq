@@ -17,8 +17,8 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.9
-pkgrel=2
+pkgver=5.14.10
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
@@ -40,7 +40,6 @@ source=(
   0004-ALSA-pcm-Check-mmap-capability-of-runtime-dma-buffer-at-first.patch
   0005-ALSA-pci-rme-Set-up-buffer-type-properly.patch
   0006-ALSA-pci-cs46xx-Fix-set-up-buffer-type-properly.patch
-  0007-Revert-block-bfq-honor-already-setup-queue-merges.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -48,7 +47,7 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('ba8f07db92d514a2636e882bcd646f79f1c8ab83f5ad82910732dd0ec83c87e6'
+sha256sums=('45ce25e0abd1b46b273c804a00cd3513cd2a5bbcd89180e2e2a5dc8d062085d8'
             'SKIP'
             # config
             '82236ceaaaa8b77e3ad8ed566480eaa15e8d4e37850dfd7d2d842b343aa8e345'
@@ -67,7 +66,6 @@ sha256sums=('ba8f07db92d514a2636e882bcd646f79f1c8ab83f5ad82910732dd0ec83c87e6'
             '28d825af0563ea607cd42f4cc0184f62fe1ea160bdd99000043e5e11d9133fce'
             '7d6aa2996ce2cdd20288819cd1f5950b9ee32784e128935f8fa75dfc30d24f24'
             '3b8e660e775c22b011bbb2bdaf78027595eb8dc96aefdedb6a6c1009d40a572b'
-            'a7470e2c67bdd9f69bd0d02f62df3df372d6d57bcfaf730ed372b5a4f1590060'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
