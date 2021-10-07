@@ -50,7 +50,7 @@ validpgpkeys=(
 sha256sums=('45ce25e0abd1b46b273c804a00cd3513cd2a5bbcd89180e2e2a5dc8d062085d8'
             'SKIP'
             # config
-            '82236ceaaaa8b77e3ad8ed566480eaa15e8d4e37850dfd7d2d842b343aa8e345'
+            'f8e38eb13b8d0eab2c0e3faab478f88f430b0d021034f15a0016892535a3d8bf'
             # gcc patch
             'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
             # project-c patch
