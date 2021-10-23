@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.13
+pkgver=5.14.14
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -47,7 +47,7 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('832b78b4c098a99f5c0c50160e3fa58a81412419734c5e8e1b04342fcb4b964d'
+sha256sums=('4dff4e96d4052195002538027f8a810411ba6116a41bff5575952702d509d06a'
             'SKIP'
             # config
             '9ee030fd948eb0abc2c5ca70036ba35c9f13fc85bdc9248c39b4e8bf9703375a'
