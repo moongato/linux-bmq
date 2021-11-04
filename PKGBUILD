@@ -17,29 +17,24 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.14.15
+pkgver=5.15
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.14-r3.patch"
+_prjc_patch="prjc_v5.15-r0.patch"
 _gcc_more_v=20210914
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.14/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.15/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
-  0003-Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
-  0004-ALSA-pcm-Check-mmap-capability-of-runtime-dma-buffer-at-first.patch
-  0005-ALSA-pci-rme-Set-up-buffer-type-properly.patch
-  0006-ALSA-pci-cs46xx-Fix-set-up-buffer-type-properly.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -47,25 +42,20 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('74f39a0c69e9d7c94d290515645396725e3ce3667b85baf4b3c3f6f303c7a406'
+sha256sums=('57b2cf6991910e3b67a1b3490022e8a0674b6965c74c12da1e99d138d1991ee8'
             'SKIP'
             # config
-            '9ee030fd948eb0abc2c5ca70036ba35c9f13fc85bdc9248c39b4e8bf9703375a'
+            '7ce65cb66423c31da47bf6914894761fe67ab3b248713dad9f0c4f94662ea71e'
             # gcc patch
             'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
             # project-c patch
-            '2e2247183034fa4a2ea1cd943d3d24ee9ea52daf70d47e69d5564f8ac1367aa2'
+            'decd4a55c0d47b1eb808733490cdfea1207a2022d46f06d04a3cc60fdcb3f32c'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
-            '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            '961e42507e3f68689a797bb80875deadae71a19f69cc99164076bd091f53a35d'
-            '25ed3e0edc6b1dfb83ea9421ebce75c28daa65be72fddd725346ed4527490fe9'
-            '28d825af0563ea607cd42f4cc0184f62fe1ea160bdd99000043e5e11d9133fce'
-            '7d6aa2996ce2cdd20288819cd1f5950b9ee32784e128935f8fa75dfc30d24f24'
-            '3b8e660e775c22b011bbb2bdaf78027595eb8dc96aefdedb6a6c1009d40a572b'
+            'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -119,7 +109,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.8-5.14.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.15+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'

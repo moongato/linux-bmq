@@ -1,7 +1,8 @@
-From f404f506d02dc8570c1e185882708f7f19549daf Mon Sep 17 00:00:00 2001
+From 04928c1ea9d5a6711cd192d0ae8a23c196c8fdc5 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
 Date: Mon, 16 Sep 2019 04:53:20 +0200
-Subject: ZEN: Add sysctl and CONFIG to disallow unprivileged CLONE_NEWUSER
+Subject: [PATCH] ZEN: Add sysctl and CONFIG to disallow unprivileged
+ CLONE_NEWUSER
 
 Our default behavior continues to match the vanilla kernel.
 ---
@@ -13,10 +14,10 @@ Our default behavior continues to match the vanilla kernel.
  5 files changed, 53 insertions(+)
 
 diff --git a/include/linux/user_namespace.h b/include/linux/user_namespace.h
-index 64cf8ebdc4ec..bd29529ac188 100644
+index 33a4240e6a6f17..82213f9c4c17fb 100644
 --- a/include/linux/user_namespace.h
 +++ b/include/linux/user_namespace.h
-@@ -105,6 +105,8 @@ void dec_ucount(struct ucounts *ucounts, enum ucount_type type);
+@@ -139,6 +139,8 @@ static inline void set_rlimit_ucount_max(struct user_namespace *ns,
  
  #ifdef CONFIG_USER_NS
  
@@ -25,7 +26,7 @@ index 64cf8ebdc4ec..bd29529ac188 100644
  static inline struct user_namespace *get_user_ns(struct user_namespace *ns)
  {
  	if (ns)
-@@ -138,6 +140,8 @@ extern bool current_in_userns(const struct user_namespace *target_ns);
+@@ -172,6 +174,8 @@ extern bool current_in_userns(const struct user_namespace *target_ns);
  struct ns_common *ns_get_owner(struct ns_common *ns);
  #else
  
@@ -35,10 +36,10 @@ index 64cf8ebdc4ec..bd29529ac188 100644
  {
  	return &init_user_ns;
 diff --git a/init/Kconfig b/init/Kconfig
-index 29ad68325028..96b79cfb2845 100644
+index 11f8a845f259da..02b7a0e455a5d7 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -1172,6 +1172,22 @@ config USER_NS
+@@ -1226,6 +1226,22 @@ config USER_NS
  
  	  If unsure, say N.
  
@@ -62,12 +63,12 @@ index 29ad68325028..96b79cfb2845 100644
  	bool "PID Namespaces"
  	default y
 diff --git a/kernel/fork.c b/kernel/fork.c
-index d66cd1014211..231a94ffd302 100644
+index 38681ad44c76bc..d4b40f72018f81 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -97,6 +97,10 @@
- #include <linux/scs.h>
+@@ -98,6 +98,10 @@
  #include <linux/io_uring.h>
+ #include <linux/bpf.h>
  
 +#ifdef CONFIG_USER_NS
 +#include <linux/user_namespace.h>
@@ -76,7 +77,7 @@ index d66cd1014211..231a94ffd302 100644
  #include <asm/pgalloc.h>
  #include <linux/uaccess.h>
  #include <asm/mmu_context.h>
-@@ -1864,6 +1868,10 @@ static __latent_entropy struct task_struct *copy_process(
+@@ -1950,6 +1954,10 @@ static __latent_entropy struct task_struct *copy_process(
  	if ((clone_flags & (CLONE_NEWUSER|CLONE_FS)) == (CLONE_NEWUSER|CLONE_FS))
  		return ERR_PTR(-EINVAL);
  
@@ -87,7 +88,7 @@ index d66cd1014211..231a94ffd302 100644
  	/*
  	 * Thread groups must share signals as well, and detached threads
  	 * can only be started up within the thread group.
-@@ -2933,6 +2941,12 @@ int ksys_unshare(unsigned long unshare_flags)
+@@ -3055,6 +3063,12 @@ int ksys_unshare(unsigned long unshare_flags)
  	if (unshare_flags & CLONE_NEWNS)
  		unshare_flags |= CLONE_FS;
  
@@ -101,10 +102,10 @@ index d66cd1014211..231a94ffd302 100644
  	if (err)
  		goto bad_unshare_out;
 diff --git a/kernel/sysctl.c b/kernel/sysctl.c
-index c9fbdd848138..1fbf5d551fa0 100644
+index 083be6af29d705..42aa3c7835b96d 100644
 --- a/kernel/sysctl.c
 +++ b/kernel/sysctl.c
-@@ -103,6 +103,9 @@
+@@ -105,6 +105,9 @@
  #ifdef CONFIG_LOCKUP_DETECTOR
  #include <linux/nmi.h>
  #endif
@@ -114,7 +115,7 @@ index c9fbdd848138..1fbf5d551fa0 100644
  
  #if defined(CONFIG_SYSCTL)
  
-@@ -1902,6 +1905,15 @@ static struct ctl_table kern_table[] = {
+@@ -1949,6 +1952,15 @@ static struct ctl_table kern_table[] = {
  		.proc_handler	= proc_dointvec,
  	},
  #endif
@@ -131,7 +132,7 @@ index c9fbdd848138..1fbf5d551fa0 100644
  	{
  		.procname	= "tainted",
 diff --git a/kernel/user_namespace.c b/kernel/user_namespace.c
-index af612945a4d0..95c54dae4aa1 100644
+index 6b2e3ca7ee993a..0253002184f1d9 100644
 --- a/kernel/user_namespace.c
 +++ b/kernel/user_namespace.c
 @@ -21,6 +21,13 @@
@@ -148,6 +149,3 @@ index af612945a4d0..95c54dae4aa1 100644
  static struct kmem_cache *user_ns_cachep __read_mostly;
  static DEFINE_MUTEX(userns_state_mutex);
  
--- 
-cgit v1.2.3-1-gf6bb5
-
