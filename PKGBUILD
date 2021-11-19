@@ -17,14 +17,14 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.15.2
+pkgver=5.15.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
 makedepends=(bc kmod libelf cpio perl tar xz)
 options=('!strip')
-_prjc_patch="prjc_v5.15-r0.patch"
+_prjc_patch="prjc_v5.15-r1.patch"
 _gcc_more_v=20211114
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -35,6 +35,12 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code-was.patch
+  0003-PCI-MSI-Deal-with-devices-lying-about-their-MSI-mask-capability.patch
+  0004-PCI-Add-MSI-masking-quirk-for-Nvidia-ION-AHCI.patch
+  0005-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
+  0006-drm-amd-pm-avoid-duplicate-powergate-ungate-setting.patch
+  0007-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -42,20 +48,26 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('5634033a4981be42d3259f50d5371a2cdc9ace5d9860da67a2879630533ab175'
+sha256sums=('a9f3dae18387b5a315bda66004cd10777a7dc5da11517214e4fd016fd5fc05e6'
             'SKIP'
             # config
-            '5f44a38ff7612657c00943d1665f1da41a2fc5a6583e2fbe338a8436594d3a02'
+            '158507fe3a2d3d1a39a69b58bf8dd91650a0e87eef19f6aa3fbeeba76dfadb85'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # project-c patch
-            'decd4a55c0d47b1eb808733490cdfea1207a2022d46f06d04a3cc60fdcb3f32c'
+            '768239d739180c0199545b5c5cf2d78de6261aec769008e6a2b7e97c7477b756'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
+            '6ff1ff036eeef71765aa3d3670b98a6c9de0526b4f3848a6645c72cf65110705'
+            '24123d900fbf98732d9f594430f756d4e5f876288cbabf7d395189e51e1880aa'
+            '7cd9e278c1fe07e37be03e88db33b38ddb37df5d7fe94224edf608ea53802e36'
+            '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
+            'eff279dd502bd376bb6691d29d670e7e7307dbec788498c168d0073941467838'
+            'c7cc92e91a5e01752aa21129ac8d9c329f2ed8936d9bdef14d437c37a998d539' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
