@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.15.5
+pkgver=5.15.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -35,12 +35,12 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code-was.patch
-  0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
-  0004-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
-  0005-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
-  0006-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
-  0007-lg-laptop-Recognize-more-models.patch
+  0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
+  0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
+  0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
+  0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
+  0006-lg-laptop-Recognize-more-models.patch
+  0007-Revert-drm-i915-Implement-Wa_1508744258.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -48,7 +48,7 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('e9565a301525ac81c142ceb832f9053dd5685e107dbcf753d0de4c58bc98851f'
+sha256sums=('b3e9ba06a299a3e2ead4a15753bc46a3e0c90d3b92ffeed1034ccc9f13a717f0'
             'SKIP'
             # config
             'd9f806c216294ff4a37250481d28337041d6cc8e4651bed6d1bf9c9e38e5f5a5'
@@ -62,12 +62,12 @@ sha256sums=('e9565a301525ac81c142ceb832f9053dd5685e107dbcf753d0de4c58bc98851f'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
-            '6ff1ff036eeef71765aa3d3670b98a6c9de0526b4f3848a6645c72cf65110705'
             '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
             'c7cc92e91a5e01752aa21129ac8d9c329f2ed8936d9bdef14d437c37a998d539'
             '0b8ddbebf54f2097d789a709b796cbfaf5a3992106abdc377514a0210324898d'
             'c0c2675c5e209842dc6747c367f063988d35f1a55500f39227588e35755f0852'
             '26455dfedafb8d47e3a5823ad7aa22a9efefd99853a313bd000913df3493fcac'
+            '0639cb2f8efe4e81c32097685f7804e9a232b26b6fecdbdf68c536c2ad973b84'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
