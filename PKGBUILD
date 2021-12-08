@@ -17,7 +17,7 @@ _localmodcfg=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-bmq
-pkgver=5.15.6
+pkgver=5.15.7
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -40,7 +40,6 @@ source=(
   0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
   0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
   0006-lg-laptop-Recognize-more-models.patch
-  0007-Revert-drm-i915-Implement-Wa_1508744258.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -48,7 +47,7 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('b3e9ba06a299a3e2ead4a15753bc46a3e0c90d3b92ffeed1034ccc9f13a717f0'
+sha256sums=('5d9050a839edc7480c5c8f7a284cd28bee6db07bec9e41c684f399192bbe5db1'
             'SKIP'
             # config
             'd9f806c216294ff4a37250481d28337041d6cc8e4651bed6d1bf9c9e38e5f5a5'
@@ -67,7 +66,6 @@ sha256sums=('b3e9ba06a299a3e2ead4a15753bc46a3e0c90d3b92ffeed1034ccc9f13a717f0'
             '0b8ddbebf54f2097d789a709b796cbfaf5a3992106abdc377514a0210324898d'
             'c0c2675c5e209842dc6747c367f063988d35f1a55500f39227588e35755f0852'
             '26455dfedafb8d47e3a5823ad7aa22a9efefd99853a313bd000913df3493fcac'
-            '0639cb2f8efe4e81c32097685f7804e9a232b26b6fecdbdf68c536c2ad973b84'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
