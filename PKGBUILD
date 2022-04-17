@@ -2,70 +2,84 @@
 # Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 ### BUILD OPTIONS
-# Set this variable to ANYTHING that is not null to enable them
+# Any/all of the next three variables may be set to ANYTHING
+# that is not null to enable their respective build options
 
-# Only compile active modules to VASTLY reduce the number of modules built and
-# the build time.
+# Tweak kernel options prior to a build via nconfig
+_makenconfig=
+
+# Only compile select modules to reduce the number of modules built
 #
 # To keep track of which modules are needed for your specific system/hardware,
 # give module_db a try: https://aur.archlinux.org/packages/modprobed-db
 # This PKGBUILD reads the database kept if it exists
-#
 # More at this wiki page ---> https://wiki.archlinux.org/index.php/Modprobed-db
 _localmodcfg=y
 
-### IMPORTANT: Do no edit below this line unless you know what you're doing
+# Compile using clang rather than gcc
+_clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.15.16
+pkgver=5.17.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
 license=(GPL2)
-makedepends=(bc kmod libelf cpio perl tar xz)
+makedepends=(
+  bc libelf        cpio perl tar xz
+)
+[[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
-_prjc_patch="prjc_v5.15-r1.patch"
-_gcc_more_v=20211114
+_prjc_patch="prjc_v5.17-r1.patch"
+_gcc_more_v=20220315
+_cpupower=cpupower-patches
+_hwmon=hwmon-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.15/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.17/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
+  0001-prjc-fixes.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
-  0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
-  0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
-  0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
-  0006-lg-laptop-Recognize-more-models.patch
-)
+  0002-random-treat-bootloader-trust-toggle-the-same-way-as-cpu-trust-toggle.patch
+  0003-tick-Detect-and-fix-jiffies-update-stall.patch
+  0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
+  0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
+  0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
+ )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
-  'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
-  'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('ba0a0a14e89f8212bf3effa3e3118da9939e445bab52a6544f9f98a272ff1794'
+sha256sums=('32d0a8e366b87e1cbde951b9f7a01287546670ba60fac35cccfc8a7c005a162c'
             'SKIP'
             # config
-            '3d50fa0e9ddd69b831e5dae2bcd07dbc0f32bc667031ba3b0e6cb2a24189dc4a'
+            'd55abd99422fe57fb5e861538f238105abfa511c55a25b0907c445c60c5dbb61'
             # gcc patch
-            'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
+            '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
-            '768239d739180c0199545b5c5cf2d78de6261aec769008e6a2b7e97c7477b756'
+            '310231d6026801a5fb8d191f789a1003df3d63af4cef01712276e86868e5fe15'
+            'd169a57d2841b20fd894a4fdb97be65377844dfbbf8138d35b1e78bc2e11ec24'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
+            # cpupower patch
+            'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
+            # hwmon patch
+            'c6e3fe5b1736c343f25632a23318c91ccc8b84e896ce7a0a1f7eb2a05e7a596f'
             # archlinux patches
-            'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
-            '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
-            'c7cc92e91a5e01752aa21129ac8d9c329f2ed8936d9bdef14d437c37a998d539'
-            '0b8ddbebf54f2097d789a709b796cbfaf5a3992106abdc377514a0210324898d'
-            'c0c2675c5e209842dc6747c367f063988d35f1a55500f39227588e35755f0852'
-            '26455dfedafb8d47e3a5823ad7aa22a9efefd99853a313bd000913df3493fcac'
+            'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
+            'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
+            '0408d4fa2e0d560238a0768ee23f4299ca2c6e5314ca15f5a88c200359edfcd9'
+            'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
+            '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
+            '5b206d912f48db7225a116ccdc4bf8692a31480503c589ad98a7bdaf451058f6'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -75,7 +89,7 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 prepare() {
   cd linux-${pkgver}
 
-  echo "Setting version..."
+  msg2 "Setting version..."
   scripts/setlocalversion --save-scmversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
@@ -114,19 +128,28 @@ prepare() {
   # https://bugzilla.kernel.org/show_bug.cgi?id=207173#c6
   scripts/config --disable CONFIG_KVM_WERROR
 
+  if [[ -n "$_clangbuild" ]]; then
+    scripts/config -e LTO_CLANG_THIN
+    export _LLVM=1
+    export _LLVM_IAS=$_LLVM
+  fi
+
+  # non-interactively apply ck1 default options
+  # this isn't redundant if we want a clean selection of subarch below
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM olddefconfig
   diff -u ../config .config || :
 
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.15+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.17+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
-    yes "$_subarch" | make oldconfig
+    yes "$_subarch" | make LLVM=$_LLVM LLVM_IAS=$_LLVM oldconfig
   else
     # no subarch defined so allow user to pick one
-    make oldconfig
+    make LLVM=$_LLVM LLVM_IAS=$_LLVM oldconfig
   fi
 
   ### Optionally load needed modules for the make localmodconfig
@@ -134,7 +157,7 @@ prepare() {
     if [ -n "$_localmodcfg" ]; then
       if [ -f $HOME/.config/modprobed.db ]; then
         echo "Running Steven Rostedt's make localmodconfig now"
-        make LSMOD=$HOME/.config/modprobed.db localmodconfig
+        make LLVM=$_LLVM LLVM_IAS=$_LLVM LSMOD="$HOME/.config/modprobed.db" localmodconfig
       else
         echo "No modprobed.db data found"
         exit
@@ -144,23 +167,27 @@ prepare() {
   make -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
 
-  [[ -z "$_makenconfig" ]] || make nconfig
+  [[ -z "$_makenconfig" ]] || make LLVM=$_LLVM LLVM_IAS=$_LLVM nconfig
 
   # save configuration for later reuse
-  # cat .config > "${startdir}/config.last"
+  #cat .config > "${startdir}/config.last"
+
+  # uncomment if you want to build with distcc
+  ### sed -i '/HAVE_GCC_PLUGINS/d' arch/x86/Kconfig
 }
 
 build() {
   cd linux-${pkgver}
-  make all
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM all
 }
 
 _package() {
-  pkgdesc="The ${pkgbase/linux/Linux} kernel and modules"
+  pkgdesc="The Linux kernel and modules with project c patches"
   depends=(coreutils kmod initramfs)
-  optdepends=('crda: to set the correct wireless channels of your country'
+  optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
+  replaces=(virtualbox-guest-modules-arch wireguard-arch)
 
   cd linux-${pkgver}
 
@@ -170,13 +197,18 @@ _package() {
   echo "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
-  install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
+  #install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
+  #
+  # hard-coded path in case user defined CC=xxx for build which causes errors
+  # see this FS https://bugs.archlinux.org/task/64315
+  install -Dm644 arch/x86/boot/bzImage "$modulesdir/vmlinuz"
 
   # Used by mkinitcpio to name the kernel
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+    DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
@@ -196,11 +228,11 @@ _package-headers() {
   install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
   cp -t "$builddir" -a scripts
 
-  # add objtool for external module building and enabled VALIDATION_STACK option
+  # required when STACK_VALIDATION is enabled
   install -Dt "$builddir/tools/objtool" tools/objtool/objtool
 
-  # add xfs and shmem for aufs building
-  mkdir -p "$builddir"/{fs/xfs,mm}
+  # required when DEBUG_INFO_BTF_MODULES is enabled
+  #install -Dt "$builddir/tools/bpf/resolve_btfids" tools/bpf/resolve_btfids/resolve_btfids
 
   echo "Installing headers..."
   cp -t "$builddir" -a include
@@ -256,13 +288,13 @@ _package-headers() {
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
 
-  echo "Stripping vmlinux..."
-  strip -v $STRIP_STATIC "$builddir/vmlinux"
+  #echo "Stripping vmlinux..."
+  #strip -v $STRIP_STATIC "$builddir/vmlinux"
+  # not needed since not building with CONFIG_DEBUG_INFO=y
 
   echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/src"
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
-
 }
 
 pkgname=("$pkgbase" "$pkgbase-headers")

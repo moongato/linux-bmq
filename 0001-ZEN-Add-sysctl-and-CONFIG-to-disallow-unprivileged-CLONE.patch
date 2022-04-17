@@ -1,4 +1,4 @@
-From 04928c1ea9d5a6711cd192d0ae8a23c196c8fdc5 Mon Sep 17 00:00:00 2001
+From 8e0839d51c6ee3c946dc6e22f1e04b5b28622cdf Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
 Date: Mon, 16 Sep 2019 04:53:20 +0200
 Subject: [PATCH] ZEN: Add sysctl and CONFIG to disallow unprivileged
@@ -36,10 +36,10 @@ index 33a4240e6a6f17..82213f9c4c17fb 100644
  {
  	return &init_user_ns;
 diff --git a/init/Kconfig b/init/Kconfig
-index 11f8a845f259da..02b7a0e455a5d7 100644
+index 4b7bac10c72d30..40ea1367f14a84 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -1226,6 +1226,22 @@ config USER_NS
+@@ -1231,6 +1231,22 @@ config USER_NS
  
  	  If unsure, say N.
  
@@ -63,10 +63,10 @@ index 11f8a845f259da..02b7a0e455a5d7 100644
  	bool "PID Namespaces"
  	default y
 diff --git a/kernel/fork.c b/kernel/fork.c
-index 38681ad44c76bc..d4b40f72018f81 100644
+index 3244cc56b697d7..ea4d51d3eda927 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -98,6 +98,10 @@
+@@ -97,6 +97,10 @@
  #include <linux/io_uring.h>
  #include <linux/bpf.h>
  
@@ -77,7 +77,7 @@ index 38681ad44c76bc..d4b40f72018f81 100644
  #include <asm/pgalloc.h>
  #include <linux/uaccess.h>
  #include <asm/mmu_context.h>
-@@ -1950,6 +1954,10 @@ static __latent_entropy struct task_struct *copy_process(
+@@ -1947,6 +1951,10 @@ static __latent_entropy struct task_struct *copy_process(
  	if ((clone_flags & (CLONE_NEWUSER|CLONE_FS)) == (CLONE_NEWUSER|CLONE_FS))
  		return ERR_PTR(-EINVAL);
  
@@ -88,7 +88,7 @@ index 38681ad44c76bc..d4b40f72018f81 100644
  	/*
  	 * Thread groups must share signals as well, and detached threads
  	 * can only be started up within the thread group.
-@@ -3055,6 +3063,12 @@ int ksys_unshare(unsigned long unshare_flags)
+@@ -3053,6 +3061,12 @@ int ksys_unshare(unsigned long unshare_flags)
  	if (unshare_flags & CLONE_NEWNS)
  		unshare_flags |= CLONE_FS;
  
