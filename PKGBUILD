@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.17.4
+pkgver=5.17.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -33,7 +33,7 @@ options=('!strip')
 _prjc_patch="prjc_v5.17-r1.patch"
 _gcc_more_v=20220315
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches-v3
+_hwmon=hwmon-patches-v4
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -51,17 +51,16 @@ source=(
   0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
   0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
   0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
-  0007-gpio-Request-interrupts-after-IRQ-is-initialized.patch
-  0008-NFSv4_1-provide-mount-option-to-toggle-trunking-discovery.patch
+  0007-NFSv4_1-provide-mount-option-to-toggle-trunking-discovery.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('6e3cd56ee83a9cb5ac3fde1442c40367ab67368946c4c93bbeb1c65664a0d3c5'
+sha256sums=('9bbcd185b94436f9c8fe977fa0e862f60d34003562327fcebb27c9fa342fe987'
             'SKIP'
             # config
-            'e8bd4ffc0ae54eb505b27264632dfa02afdec0c547f6283df69ce713b201f177'
+            '03cd615098851e9b050f96428deec0fe471aef6877f4a247787823907ab4e231'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
@@ -74,7 +73,7 @@ sha256sums=('6e3cd56ee83a9cb5ac3fde1442c40367ab67368946c4c93bbeb1c65664a0d3c5'
             # cpupower patch
             'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '6843c69910c8cd285f8d1aa1f8ddaba60899eb1609b218b70f7f681341f7ae89'
+            'a1a4feb80bbbbc06069054921991c6b24ac9d2146fe69841a543d3a12a55127f'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
@@ -82,7 +81,6 @@ sha256sums=('6e3cd56ee83a9cb5ac3fde1442c40367ab67368946c4c93bbeb1c65664a0d3c5'
             'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
             '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
             '5b206d912f48db7225a116ccdc4bf8692a31480503c589ad98a7bdaf451058f6'
-            '0217b661b92b42930bfdea40a073918b4b3ae3611445ce83efeb42fea89c1f79'
             '0486c1c7ce4645818be8b68073b1cd3924a1d993f0b7fe579acf7ad11b5fad87'
 )          
 
