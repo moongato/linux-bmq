@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.17.5
+pkgver=5.17.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -33,7 +33,7 @@ options=('!strip')
 _prjc_patch="prjc_v5.17-r1.patch"
 _gcc_more_v=20220315
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches-v5-all
+_hwmon=hwmon-patches-v6-all
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -57,7 +57,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('9bbcd185b94436f9c8fe977fa0e862f60d34003562327fcebb27c9fa342fe987'
+sha256sums=('64ccf18380be5b5491322a3fd54904538b544e523e4bf86289dd8df7404cb10c'
             'SKIP'
             # config
             '03cd615098851e9b050f96428deec0fe471aef6877f4a247787823907ab4e231'
@@ -73,7 +73,7 @@ sha256sums=('9bbcd185b94436f9c8fe977fa0e862f60d34003562327fcebb27c9fa342fe987'
             # cpupower patch
             'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '5702dcd43c26e6a13a1c4ef270699790c13a630ebe1cfd7948a0e09fcc316b6a'
+            '7855686c42d9b78493460a85e3b05bc3889d166f62fc7fda600bb84d7cdda681'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
