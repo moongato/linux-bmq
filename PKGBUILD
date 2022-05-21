@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.17.7
+pkgver=5.17.9
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -30,10 +30,10 @@ makedepends=(
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
-_prjc_patch="prjc_v5.17-r1.patch"
+_prjc_patch="prjc_v5.17-r2.patch"
 _gcc_more_v=20220315
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches-v6-all
+_hwmon=hwmon-patches-v8-all
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -57,15 +57,15 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('22f67ef6b12ef6c0c0353be4b90b4bf4b9b18b858c16c346fa495b67ec718c99'
+sha256sums=('172424bc41ef2df9b19457ceb022b56a51eb9497529b15ce7e9b8d6f90ad5978'
             'SKIP'
             # config
             'a0a8ae64935334c7e1149b302498213130ef1e21f6e9e1cd491eb77c74f486e6'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
-            '310231d6026801a5fb8d191f789a1003df3d63af4cef01712276e86868e5fe15'
-            'd169a57d2841b20fd894a4fdb97be65377844dfbbf8138d35b1e78bc2e11ec24'
+            'af04addbd2e537e4b55dcd2c3ac668349ffbf3d585e455d21679b376676a5609'
+            '9fbe05683f8cef82f3ff386fdde392aa9311d705236c96a65a5ecc7772ae8944'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
@@ -73,7 +73,7 @@ sha256sums=('22f67ef6b12ef6c0c0353be4b90b4bf4b9b18b858c16c346fa495b67ec718c99'
             # cpupower patch
             'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '7855686c42d9b78493460a85e3b05bc3889d166f62fc7fda600bb84d7cdda681'
+            '87d4e04e148506e5662f13d5c342f5fc71013d46eb4cb348f6c783b90e585338'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
