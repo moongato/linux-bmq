@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.17.9
+pkgver=5.18
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -30,58 +30,46 @@ makedepends=(
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
-_prjc_patch="prjc_v5.17-r2.patch"
+_prjc_patch="prjc_v5.18-r1.patch"
 _gcc_more_v=20220315
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches-v8-all
+_hwmon=hwmon-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.17/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.18/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
-  0001-prjc-fixes.patch
+  #0001-prjc-fixes.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_hwmon/0001-hwmon-patches.patch
+  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-random-treat-bootloader-trust-toggle-the-same-way-as-cpu-trust-toggle.patch
-  0003-tick-Detect-and-fix-jiffies-update-stall.patch
-  0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
-  0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
-  0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
-  0007-NFSv4_1-provide-mount-option-to-toggle-trunking-discovery.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('172424bc41ef2df9b19457ceb022b56a51eb9497529b15ce7e9b8d6f90ad5978'
+sha256sums=('51f3f1684a896e797182a0907299cc1f0ff5e5b51dd9a55478ae63a409855cee'
             'SKIP'
             # config
-            'a0a8ae64935334c7e1149b302498213130ef1e21f6e9e1cd491eb77c74f486e6'
+            '274fc4269a67a96aa809931170cc353989157a1de2d9e547112609ca323e73c4'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
-            'af04addbd2e537e4b55dcd2c3ac668349ffbf3d585e455d21679b376676a5609'
-            '9fbe05683f8cef82f3ff386fdde392aa9311d705236c96a65a5ecc7772ae8944'
+            'SKIP'
+            #'9fbe05683f8cef82f3ff386fdde392aa9311d705236c96a65a5ecc7772ae8944'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpupower patch
-            'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
+            #'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '87d4e04e148506e5662f13d5c342f5fc71013d46eb4cb348f6c783b90e585338'
+            '00c549e36e2613b3a82e4e5748567f4c7f6ba4be7db3dffa74a2626c93f62cd2'
             # archlinux patches
-            'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
-            'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
-            '0408d4fa2e0d560238a0768ee23f4299ca2c6e5314ca15f5a88c200359edfcd9'
-            'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
-            '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
-            '5b206d912f48db7225a116ccdc4bf8692a31480503c589ad98a7bdaf451058f6'
-            '0486c1c7ce4645818be8b68073b1cd3924a1d993f0b7fe579acf7ad11b5fad87'
+            '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
