@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.18.1
+pkgver=5.18.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -32,8 +32,7 @@ makedepends=(
 options=('!strip')
 _prjc_patch="prjc_v5.18-r1.patch"
 _gcc_more_v=20220315
-_cpupower=cpupower-patches
-_hwmon=hwmon-patches
+_hwmon=hwmon-patches-v4
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -42,18 +41,18 @@ source=(
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
- )
+  0002-HID-apple-Properly-handle-function-keys-on-Keychron.patch
+)
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('83d14126c660186a7a1774a4a5c29d38e170fa5e52cfd2d08fd344dcf1f57d22'
+sha256sums=('9c3731d405994f9cd3a1bb72e83140735831b19c7cec18e0d7a8f3046fa034e7'
             'SKIP'
             # config
-            '7c398ff71845ab6970afaea29e18cd577685e0e8b905b4ca9fd4202dadf91fee'
+            'ee53e5de7e9a8a1603a97b7e173b0591eccd5c57b557c98265caf982ae7f748e'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
@@ -62,12 +61,11 @@ sha256sums=('83d14126c660186a7a1774a4a5c29d38e170fa5e52cfd2d08fd344dcf1f57d22'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
-            # cpupower patch
-            #'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '00c549e36e2613b3a82e4e5748567f4c7f6ba4be7db3dffa74a2626c93f62cd2'
+            '7e7db6eb29e04b7d06e393bfe3cf67122184c2584f6aa22a76097bff7e9a5064'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
+            'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -276,8 +274,8 @@ _package-headers() {
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
 
-  #echo "Stripping vmlinux..."
-  #strip -v $STRIP_STATIC "$builddir/vmlinux"
+  echo "Stripping vmlinux..."
+  strip -v $STRIP_STATIC "$builddir/vmlinux"
   # not needed since not building with CONFIG_DEBUG_INFO=y
 
   echo "Adding symlink..."
