@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.18.5
+pkgver=5.18.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -49,10 +49,10 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('9c3731d405994f9cd3a1bb72e83140735831b19c7cec18e0d7a8f3046fa034e7'
+sha256sums=('4e1c2a9e79847850029571a1dd04761e5f657b52c558070a085365641f133478'
             'SKIP'
             # config
-            'ee53e5de7e9a8a1603a97b7e173b0591eccd5c57b557c98265caf982ae7f748e'
+            '482655f499927858d727bf0ff82b98980fd52c2a3466346adbd8e6982ea3a350'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
