@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.18.6
+pkgver=5.18.7
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -30,7 +30,7 @@ makedepends=(
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
-_prjc_patch="prjc_v5.18-r1.patch"
+_prjc_patch="prjc_v5.18-r2.patch"
 _gcc_more_v=20220315
 _hwmon=hwmon-patches-v4
 source=(
@@ -49,14 +49,14 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('4e1c2a9e79847850029571a1dd04761e5f657b52c558070a085365641f133478'
+sha256sums=('a1a2d064bf5a1f02021f66931237ec3d2920994d49910d27d3fe581e2e21525b'
             'SKIP'
             # config
             '482655f499927858d727bf0ff82b98980fd52c2a3466346adbd8e6982ea3a350'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
-            'ea2bc359e7ce2f3f51acea3e028cf89d67d6430d5e40712dcb3fc7604eceffd2'
+            'e85aa99750b016ceb7bfe307ddee5a92674b9ba6e119d348caf21f9345c58c09'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
