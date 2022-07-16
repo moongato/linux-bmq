@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.18.10
+pkgver=5.18.12
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -32,7 +32,7 @@ makedepends=(
 options=('!strip')
 _prjc_patch="prjc_v5.18-r2.patch"
 _gcc_more_v=20220315
-_hwmon=hwmon-patches-v5
+_hwmon=hwmon-patches-v6
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -49,7 +49,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('f99e3d01dbb8ee6fe765d9cb2b2e073afd2dc581c0d3979751c862745d73dee3'
+sha256sums=('40b74d0942f255da07481710e1083412d06e37e45b8f9d9e34ae856db37b9527'
             'SKIP'
             # config
             '482655f499927858d727bf0ff82b98980fd52c2a3466346adbd8e6982ea3a350'
@@ -62,7 +62,7 @@ sha256sums=('f99e3d01dbb8ee6fe765d9cb2b2e073afd2dc581c0d3979751c862745d73dee3'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # hwmon patch
-            'ad2af4150bd7633416103c70bccfc53b12d6c0ed91dc71b5874d09cbf5654b84'
+            '572e467da2b211dcf6f5a1744cf339293a80902099494cc2023e63803ef98bb1'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
             'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
