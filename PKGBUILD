@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.18.12
+pkgver=5.18.14
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -44,15 +44,16 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-HID-apple-Properly-handle-function-keys-on-Keychron.patch
+  0003-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('40b74d0942f255da07481710e1083412d06e37e45b8f9d9e34ae856db37b9527'
+sha256sums=('e17d46451133d3a3099b09e200839e875100b48403171923ab71b6a9b39856af'
             'SKIP'
             # config
-            '482655f499927858d727bf0ff82b98980fd52c2a3466346adbd8e6982ea3a350'
+            'b59c3225f23c78f2a2246707366ee9d651bff9c2ac6e54f09f7b98a736506b09'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
@@ -66,6 +67,7 @@ sha256sums=('40b74d0942f255da07481710e1083412d06e37e45b8f9d9e34ae856db37b9527'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
             'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
+            '9838ec0a71938bd0a67c17937da6bbcff867b26430b284dfa8839dd3858866c0'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
