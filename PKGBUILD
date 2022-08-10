@@ -20,7 +20,7 @@ _localmodcfg=y
 _clangbuild=
 
 pkgbase=linux-bmq
-pkgver=5.18.15
+pkgver=5.19
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Kernel"
@@ -30,48 +30,42 @@ makedepends=(
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
-_prjc_patch="prjc_v5.18-r2.patch"
+_prjc_patch="prjc_v5.19-r0.patch"
 _gcc_more_v=20220315
-_hwmon=hwmon-patches-v6
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  https://gitlab.com/alfredchen/projectc/-/raw/master/5.18/${_prjc_patch}
+  https://gitlab.com/alfredchen/projectc/-/raw/master/5.19/${_prjc_patch}
   #https://github.com/Frogging-Family/linux-tkg/raw/master/linux59-tkg/linux59-tkg-patches/${_prjc_patch}
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-HID-apple-Properly-handle-function-keys-on-Keychron.patch
-  0003-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
-  0004-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
-  0005-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
+  0002-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
+  0003-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
+  0004-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('69804febdc388a69dfb64493b7b58d402853de3a14144ea8db7fd67c30dcbe3c'
+sha256sums=('ff240c579b9ee1affc318917de07394fc1c3bb49dac25ec1287370c2e15005a8'
             'SKIP'
             # config
-            'b59c3225f23c78f2a2246707366ee9d651bff9c2ac6e54f09f7b98a736506b09'
+            'bc899ee469e1bfd40278f62d525b72b283f0177e74f8cc6df858d7d89edff4fd'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # project-c patch
-            'e85aa99750b016ceb7bfe307ddee5a92674b9ba6e119d348caf21f9345c58c09'
+            '6592ae4cadf0cfddd63fa77416a07131a926d3426df351c41490f361fc56495b'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
-            # hwmon patch
-            '572e467da2b211dcf6f5a1744cf339293a80902099494cc2023e63803ef98bb1'
             # archlinux patches
-            '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
-            'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
-            '9838ec0a71938bd0a67c17937da6bbcff867b26430b284dfa8839dd3858866c0'
-            '0a6388cdf9a95f69bd34f993f96c98d8f71ca7ad4eb34df62b48b780ba4dbfeb'
-            '8be6da41037368544af73f5eeb1ad506f7d961a615cf8416c623251025d2f2aa'
+            '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
+            '12b757f5cdc6e56009a18df445ed0e9f0635edf1c34cec6bd1f9ff72a402184b'
+            '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
+            '83e1a8e7e560fc6d8c4834371897df8bf6c9e5d29c6918b3cca3f62d381c862f'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
